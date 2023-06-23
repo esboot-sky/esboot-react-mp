@@ -7,7 +7,6 @@
   "scripts": {
     "bridge-mock": "node dev/bridge-mock",
     "esboot": "esboot",
-    "lint": "esboot lint",
     "dev": "esboot dev",
     "build": "esboot build",
     "prepare": "husky install"

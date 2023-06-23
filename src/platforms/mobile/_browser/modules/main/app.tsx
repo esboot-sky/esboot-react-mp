@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom2';
+import { Outlet } from 'react-router-dom';
 
 import './app.scss';
 
@@ -6,19 +6,8 @@ const App: React.FC = () => (
   <div styleName="main">
     spa2312
 
-    <Outlet/>
+    <Outlet />
   </div>
 );
 
-export default App2;
-
-
-
-
-
-
-
-
-
-
-
+export default App;
