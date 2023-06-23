@@ -45,9 +45,8 @@
     "typescript": "^5.1.3"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,scss,css}": [
-      "esboot lint"
-    ]
+    "*.{js,jsx,ts,tsx}": "eslint",
+    "*.{scss,css}": "stylelint"
   },
   "eslintConfig": {
     "extends": [
