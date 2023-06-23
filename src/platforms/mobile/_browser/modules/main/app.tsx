@@ -10,7 +10,7 @@ const App: React.FC = () => (
   </div>
 );
 
-export default Ap p;
+export default App2;
 
 
 
