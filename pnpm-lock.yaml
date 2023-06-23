@@ -72,9 +72,6 @@ devDependencies:
   husky:
     specifier: ^8.0.3
     version: 8.0.3
-  lint-staged:
-    specifier: ^13.2.2
-    version: 13.2.2
   stylelint:
     specifier: ^15.9.0
     version: 15.9.0
