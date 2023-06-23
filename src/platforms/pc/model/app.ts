@@ -17,7 +17,7 @@ const initialState: IAppState = {
 
 export const AppSlice = createSlice({
   name: 'app',
-  initialState: initialState,
+  initialState,
   reducers: {
     setUserConfig: (
       state,

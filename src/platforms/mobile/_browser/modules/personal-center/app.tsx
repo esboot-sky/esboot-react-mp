@@ -1,6 +1,6 @@
 const App: React.FC = () => (
   <div>
-    个人中心
+    个人中心1
   </div>
 );
 

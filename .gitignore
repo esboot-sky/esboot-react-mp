@@ -33,7 +33,7 @@ release/
 .idea/
 .vscode/
 stats.json
-.env
+.env.local
 
 # umi
 .umi

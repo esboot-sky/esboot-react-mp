@@ -4,7 +4,7 @@ import './app.scss';
 
 const App: React.FC = () => (
   <div styleName="main">
-    spa23345234
+    spa2312
 
     <Outlet />
   </div>

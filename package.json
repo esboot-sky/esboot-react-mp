@@ -6,53 +6,48 @@
   "main": "index.js",
   "scripts": {
     "bridge-mock": "node dev/bridge-mock",
-    "start": "esboot run dev",
+    "esboot": "esboot",
+    "lint": "esboot lint",
     "dev": "esboot dev",
     "build": "esboot build",
-    "preview": "esboot preview",
-    "analyzer": "esboot analyzer",
-    "eslint": "eslint --ext .jsx,.js,.ts,.tsx src/",
-    "stylelint": "stylelint **/*.scss",
-    "lint-staged": "lint-staged",
-    "commitlint": "commitlint --from HEAD~1 --to HEAD",
-    "prepare": "husky install",
-    "docs:start": "esboot docs dev",
-    "docs:build": "esboot docs build"
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
+    "@ant-design/icons": "^5.1.4",
     "@dz-web/bridge": "^1.5.3",
-    "@dz-web/o-orange": "^3.6.10",
-    "@dz-web/request": "^0.0.7",
-    "@loadable/component": "^5.15.2",
-    "ahooks": "^3.7.1",
+    "@dz-web/o-orange": "^3.7.8",
+    "@dz-web/request": "^0.1.10",
+    "@loadable/component": "^5.15.3",
+    "ahooks": "^3.7.7",
     "antd": "^4.23.1",
-    "antd-mobile": "^5.22.0",
-    "classnames": "^2.3.1",
-    "core-js": "^3.25.1",
+    "antd-mobile": "^5.31.1",
+    "classnames": "^2.3.2",
+    "core-js": "^3.31.0",
     "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intl": "^6.1.1",
-    "react-router-dom": "^6.3.0",
-    "zustand": "^4.1.1"
+    "react-intl": "^6.4.4",
+    "react-router-dom": "^6.13.0",
+    "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "@dz-web/bridge-mock": "^1.2.5",
-    "@dz-web/esboot": "*",
-    "@types/react": "18.0.18",
+    "@dz-web/bridge-mock": "^1.2.6",
+    "@dz-web/esboot": "^2.0.8",
+    "@types/react": "18.2.13",
     "@types/react-css-modules": "^4.6.4",
-    "@types/react-dom": "^18.0.6",
-    "eslint": "^8.40.0",
+    "@types/react-dom": "^18.2.6",
+    "eslint": "^8.43.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "stylelint": "^15.6.1"
+    "stylelint": "^15.9.0",
+    "typescript": "^5.1.3"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint",
-    "*.{scss,css}": "stylelint"
+    "*.{js,jsx,ts,tsx,scss,css}": [
+      "esboot lint"
+    ]
   },
   "eslintConfig": {
     "extends": [
