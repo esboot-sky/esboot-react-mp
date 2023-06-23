@@ -4,7 +4,7 @@ export enum CommonServer {
   police = 'police',
 }
 
-export default new class StaticConfig {
+export default new (class StaticConfig {
   config: Record<string, any>;
 
   constructor() {
@@ -19,7 +19,7 @@ export default new class StaticConfig {
     return get(this.config, path, defaultValue);
   }
 
-  getCommonServer(path: string = 'commonServer', defaultValue = '') {
+  getCommonServer(path = 'commonServer', defaultValue = '') {
     return this.getConfig(`COMMON_SERVERS.${path}`, defaultValue);
   }
-}();
+})();

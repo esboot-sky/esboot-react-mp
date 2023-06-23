@@ -7,11 +7,7 @@ import requestProxyManager from '@/helpers/request-proxy/request-proxy-manager';
 
 import codeStorage from '@mobile/helpers/code-storage';
 
-import {
-  DEFAULT_THEME, THEME_MAP,
-  RISE_FALL_COLORS_DICT, IRiseFallColor,
-  DEFAULT_LAN,
-} from '@mobile/constants/config';
+import { DEFAULT_THEME, THEME_MAP, RISE_FALL_COLORS_DICT, IRiseFallColor, DEFAULT_LAN } from '@mobile/constants/config';
 import { getUserConfig, getUserInfo } from '@mobile/helpers/native/msg';
 import { updateUserConfig, IUserConfigRaw, updateUserInfo } from '@mobile/helpers/native/register';
 
@@ -37,9 +33,7 @@ export const defaultUserConfig = {
   language: DEFAULT_LAN,
 };
 
-export const defaultUserInfo = {
-
-};
+export const defaultUserInfo = {};
 
 export default function useInitNative(): IUseInitNative {
   const [userConfig, setUserConfig] = useSafeState<IUserConfig>(defaultUserConfig);

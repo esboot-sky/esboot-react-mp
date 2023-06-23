@@ -14,11 +14,7 @@ export default function RouterApp(): React.ReactElement | null {
     {
       path: '/',
       element: <App />,
-      children: [
-        personalCenterRouters,
-        quoteRouters,
-        tradeQuotes,
-      ],
+      children: [personalCenterRouters, quoteRouters, tradeQuotes],
     },
     {
       path: '*',

@@ -7,4 +7,4 @@ nav:
 
 包含
 
-- 中信建投PC WEB 嵌入PC客户端
+- 中信建投 PC WEB 嵌入 PC 客户端

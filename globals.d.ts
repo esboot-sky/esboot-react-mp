@@ -3,8 +3,7 @@ declare interface Window {
     COMMON_SERVERS: any;
   };
 }
-interface IGlobalConfig {
-}
+interface IGlobalConfig {}
 
 declare module '*.svg';
 declare module '*.png';

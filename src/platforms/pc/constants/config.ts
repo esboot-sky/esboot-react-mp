@@ -1,7 +1,7 @@
 // 多皮肤
 export enum THEME {
   WHITE = 'light',
-  BLACK = 'dark'
+  BLACK = 'dark',
 }
 
 export const THEME_MAP = {

@@ -13,14 +13,15 @@ module.exports = {
     },
     msg: new Proxy(
       {
-        userInfo: () => returnWrap({
-          userId: 0,
-          mobile: '0',
-          orgCode: '0001',
-          sessionCode: '3d79979b-f588-40dc-9310-c4cc0cca044e',
-          isLogin: false,
-          isLoginTrade: false,
-        }),
+        userInfo: () =>
+          returnWrap({
+            userId: 0,
+            mobile: '0',
+            orgCode: '0001',
+            sessionCode: '3d79979b-f588-40dc-9310-c4cc0cca044e',
+            isLogin: false,
+            isLoginTrade: false,
+          }),
         getTradeConfig: () => {},
         sessionCodeExpire: (args) => {
           console.log(`登录超时: \n${JSON.stringify(args)}`);
@@ -30,22 +31,24 @@ module.exports = {
         },
         addOptional: () => undefined,
         removeOptional: () => undefined,
-        getUserConfiguration: () => returnWrap({
-          "env": "dev",
-          "language": "zh-CN",
-          "language": "zh-TW",
-          "raise": "red",
-          "raise": "green",
-          "theme": "black",
-          "font": {
-            "additionalSize": -14,
-            "weight": "normal",
-            "weight": "bold",
-          },
-        }),
-        getServerConfig: () => returnWrap({
-          websocketServer: 'ws://47.112.147.47:10001/socket',
-        }),
+        getUserConfiguration: () =>
+          returnWrap({
+            env: 'dev',
+            language: 'zh-CN',
+            language: 'zh-TW',
+            raise: 'red',
+            raise: 'green',
+            theme: 'black',
+            font: {
+              additionalSize: -14,
+              weight: 'normal',
+              weight: 'bold',
+            },
+          }),
+        getServerConfig: () =>
+          returnWrap({
+            websocketServer: 'ws://47.112.147.47:10001/socket',
+          }),
       },
       {
         get(target, name) {

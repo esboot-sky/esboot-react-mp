@@ -7,7 +7,7 @@ const { getInstance } = bridge;
  *
  */
 export interface IUserConfigRaw {
-  skin: string, // white black
+  skin: string; // white black
   theme: string; // dark light red
   language: string; // zh-TW  zh-CN
   raise: string; // 红涨绿跌 还是绿涨红跌
@@ -15,7 +15,7 @@ export interface IUserConfigRaw {
   font: {
     additionalSize: number;
     weight: string;
-  }
+  };
 }
 
 /**

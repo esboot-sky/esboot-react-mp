@@ -1,2 +1,1 @@
-var GLOBAL_CONFIG = {
-};
+var GLOBAL_CONFIG = {};

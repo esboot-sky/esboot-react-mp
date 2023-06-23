@@ -9,9 +9,9 @@ interface GenericObject {
 
 export interface I18nOption {
   messageDict: {
-    [LAN_ENUM.ZH_CN]: GenericObject,
-    [LAN_ENUM.ZH_TW]: GenericObject,
-    [LAN_ENUM.EN_US]: GenericObject,
+    [LAN_ENUM.ZH_CN]: GenericObject;
+    [LAN_ENUM.ZH_TW]: GenericObject;
+    [LAN_ENUM.EN_US]: GenericObject;
   };
 }
 

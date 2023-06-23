@@ -5,11 +5,7 @@ import './home.scss';
 
 const Home: React.FC<IUseHomeProps> = (props) => {
   const { platform } = props;
-  const {
-    sourceText,
-    localState,
-    setLocalState,
-  } = useHome({
+  const { sourceText, localState, setLocalState } = useHome({
     platform,
   });
 
@@ -33,7 +29,9 @@ const Home: React.FC<IUseHomeProps> = (props) => {
           {localState}
         </p>
 
-        <Button onClick={() => setLocalState(performance.now())} color="success">Update local state</Button>
+        <Button onClick={() => setLocalState(performance.now())} color="success">
+          Update local state
+        </Button>
       </div>
     </div>
   );

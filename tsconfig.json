@@ -1,17 +1,7 @@
 {
+  "extends": ["@dz-web/esboot/config/typescript/tsconfig.json"],
   "compilerOptions": {
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "strict": true,
-    "noImplicitAny": false,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noUncheckedIndexedAccess": false,
     "baseUrl": ".",
-    "module": "ES2020",
-    "moduleResolution": "node",
-    "noResolve": false,
     "paths": {
       "@/*": ["src/*"],
       "@mobile/*": ["src/platforms/mobile/*"],
@@ -20,23 +10,8 @@
       "@pc/*": ["src/platforms/pc/*"],
       "@pc-native/*": ["src/platforms/pc/_native/*"],
       "@pc-browser/*": ["src/platforms/pc/_browser/*"]
-    },
-    "removeComments": true,
-    "allowJs": false,
-    "lib": [
-      "ES5",
-      "ES2015",
-      "ES2018",
-      "DOM"
-    ],
-    "target": "ES5"
+    }
   },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "src/**/*",
-    "globals.d.ts"
-  ]
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": ["src/**/*", "globals.d.ts"]
 }

@@ -10,8 +10,8 @@ export default defineConfig({
   publicPath: '/',
   mode: 'site',
   mfsu: {
-    development : {
-      output : "./.mfsu-dev",
+    development: {
+      output: './.mfsu-dev',
     },
     // production : {
     //   output : "./.mfsu-prod",
@@ -19,11 +19,11 @@ export default defineConfig({
   },
   themeConfig: {
     repository: {
-       url: '',
-       branch: 'master',
-       platform: 'github',
-     },
-   },
+      url: '',
+      branch: 'master',
+      platform: 'github',
+    },
+  },
   favicon: './images/project-logo.jpg',
   logo: './images/dz-logo.jpg',
 });

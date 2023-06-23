@@ -6,9 +6,7 @@ import '@/styles/index.scss';
 
 import RouterApp from './router';
 
-ReactDOM.createRoot(
-  document.getElementById('root') as Element,
-).render(
+ReactDOM.createRoot(document.getElementById('root') as Element).render(
   <StrictMode>
     <Router>
       <RouterApp />

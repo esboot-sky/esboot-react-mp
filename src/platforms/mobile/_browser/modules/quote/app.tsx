@@ -10,7 +10,6 @@ const App: React.FC = () => {
     <div>
       行情
       {count}
-
       <Button onClick={() => setCount(Math.random())}>Setting Count</Button>
     </div>
   );

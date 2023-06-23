@@ -1,7 +1,11 @@
 import { createContext, ReactNode } from 'react';
 
-import
-useInitNative, { IUserConfig, IUserInfo, defaultUserConfig, defaultUserInfo } from '@pc-native/hooks-pure/use-init-native';
+import useInitNative, {
+  IUserConfig,
+  IUserInfo,
+  defaultUserConfig,
+  defaultUserInfo,
+} from '@pc-native/hooks-pure/use-init-native';
 
 export const userConfigContext = createContext<IUserConfig>(defaultUserConfig);
 export const userInfoContext = createContext<IUserInfo>(defaultUserInfo);

@@ -37,6 +37,7 @@
     "@types/react": "18.2.13",
     "@types/react-css-modules": "^4.6.4",
     "@types/react-dom": "^18.2.6",
+    "commitlint": "^17.6.5",
     "eslint": "^8.43.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
@@ -61,5 +62,6 @@
     "extends": [
       "./node_modules/@dz-web/esboot/config/commitlint/index.js"
     ]
-  }
+  },
+  "prettier": "@dz-web/esboot/config/prettier/index.json"
 }

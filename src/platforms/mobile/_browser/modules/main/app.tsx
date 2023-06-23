@@ -5,7 +5,6 @@ import './app.scss';
 const App: React.FC = () => (
   <div styleName="main">
     spa2312
-
     <Outlet />
   </div>
 );
