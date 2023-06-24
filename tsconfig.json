@@ -1,5 +1,5 @@
 {
-  "extends": ["@dz-web/esboot/config/typescript/tsconfig.json"],
+  "extends": "@dz-web/esboot/config/typescript/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
