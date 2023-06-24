@@ -25,6 +25,6 @@ export default function wrapNative(App): React.ReactNode {
     );
   };
 
-  InternalApp.displayName = `wrapNative312(${getDisplayName(App)})`;
+  InternalApp.displayName = `wrapNative(${getDisplayName(App)})`;
   return <InternalApp />;
 }
