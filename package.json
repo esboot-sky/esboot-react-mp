@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bridge-mock": "node dev/bridge-mock",
+    "bridge-mock": "bridge-mock",
     "dev": "esboot dev",
     "build": "esboot build",
     "esboot": "esboot",
@@ -14,13 +14,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ant-design/icons": "^5.1.4",
     "@dz-web/bridge": "^1.5.3",
     "@dz-web/o-orange": "^3.7.8",
     "@dz-web/request": "^0.1.10",
     "@loadable/component": "^5.15.3",
     "ahooks": "^3.7.7",
-    "antd": "^4.8.3",
+    "antd": "^5.6.2",
     "antd-mobile": "^5.31.1",
     "classnames": "^2.3.2",
     "core-js": "^3.31.0",
@@ -32,15 +31,12 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.5",
-    "@dz-web/bridge-mock": "^1.2.6",
     "@dz-web/esboot": "^2.0.10",
     "@types/react": "18.2.14",
     "@types/react-dom": "^18.2.6",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "stylelint": "^15.9.0",
     "eslint": "^8.43.0",
+    "husky": "^8.0.3",
+    "stylelint": "^15.9.0",
     "typescript": "^5.1.3"
   },
   "lint-staged": {

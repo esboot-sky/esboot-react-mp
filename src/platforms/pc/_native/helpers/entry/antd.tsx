@@ -7,9 +7,7 @@ export interface I18nOption {
 }
 
 export default function wrapAntd(App): React.ReactNode {
-  const InternalApp: React.FC = () => {
-    return <ConfigProvider locale={zhCN}>{App}</ConfigProvider>;
-  };
+  const InternalApp: React.FC = () => <ConfigProvider locale={zhCN}>{App}</ConfigProvider>;
 
   InternalApp.displayName = `wrapAntd(${getDisplayName(App)})`;
   return <InternalApp />;

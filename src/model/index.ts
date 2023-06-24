@@ -1,19 +1,17 @@
-import create from 'zustand';
-import { immer } from 'zustand/middleware/immer';
+import { create } from 'zustand';
 
 interface AppStore {
-  lang: string;
+  bears: number;
   increase: () => void;
 }
 
 const useAppStore = create<AppStore>()(
-  immer((set) => ({
-    lang: 'zh-CN',
-    increase: () =>
-      set((state) => {
-        // state.bears += 1;
-      }),
-  })),
+  (set) => ({
+    bears: 0,
+    increase: () => set((state) => ({
+      bears: state.bears + 1,
+    })),
+  }),
 );
 
 export { useAppStore };

@@ -1,7 +1,11 @@
-import { UNIT_LAN } from '@dz-web/o-orange';
+export enum Language {
+  ZH_CN = 'zh-CN',
+  ZH_TW = 'zh-TW',
+  EN_US = 'en-US'
+}
 
 // 多语言
-export const LAN_ENUM = UNIT_LAN;
+export const LAN_ENUM = Language;
 
 export const DEFAULT_LAN = LAN_ENUM.ZH_TW;
 export const DEFAULT_UPDOWNCOLOR = 'red';
