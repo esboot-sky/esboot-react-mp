@@ -9,7 +9,7 @@
     "dev": "esboot dev",
     "build": "esboot build",
     "esboot": "esboot",
-    "prepare": "husky install"
+    "prepare": "esboot exec husky install"
   },
   "author": "",
   "license": "ISC",
@@ -35,7 +35,6 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "^18.2.6",
     "eslint": "^8.43.0",
-    "husky": "^8.0.3",
     "stylelint": "^15.9.0",
     "typescript": "^5.1.3"
   },

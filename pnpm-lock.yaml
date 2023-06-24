@@ -60,9 +60,6 @@ devDependencies:
   eslint:
     specifier: ^8.43.0
     version: 8.43.0
-  husky:
-    specifier: ^8.0.3
-    version: 8.0.3
   stylelint:
     specifier: ^15.9.0
     version: 15.9.0
