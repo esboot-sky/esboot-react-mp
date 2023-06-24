@@ -7,7 +7,7 @@ import staticConfig from '@/helpers/static-config';
 const reqInfo = initReqInfo({
   defaultBaseUrl: staticConfig.getCommonServer(),
   defaultTimeout: 1000 * 6 * 3,
-  reqInfo: codeStorage,
+  reqInfo: () => codeStorage,
   // logger,
   responseInterceptors: (response: any) => {
     const { code, message } = response.data;

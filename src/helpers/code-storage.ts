@@ -10,18 +10,4 @@ export default new (class CodeStorage {
   token = '';
 
   tradeToken = '';
-
-  userInfo = {
-    sessionCode: '',
-    tradeToken: '',
-    mobile: '',
-  };
-
-  set(key: string, data: any): void {
-    this[key] = data;
-  }
-
-  get(key: string) {
-    return this.data[key];
-  }
 })();

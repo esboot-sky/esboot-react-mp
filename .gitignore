@@ -36,6 +36,7 @@ stats.json
 .env.local
 
 # umi
+.dumi
 .umi
 .umi-*
 .mfsu-*
