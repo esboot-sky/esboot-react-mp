@@ -28,14 +28,14 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-dist/
+# Release
+dist
 release/
-.idea/
-.vscode/
-stats.json
+
+# Env
 .env.local
 
-# umi
+# Umi
 .dumi
 .umi
 .umi-*
@@ -44,3 +44,8 @@ stats.json
 
 # Bridge-mock
 bridge-mock.js
+
+# Misc
+.idea/
+.vscode/
+stats.json

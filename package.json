@@ -5,7 +5,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bridge-mock": "bridge-mock",
     "dev": "esboot dev",
     "build": "esboot build",
     "esboot": "esboot",
