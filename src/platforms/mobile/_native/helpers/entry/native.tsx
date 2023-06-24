@@ -5,7 +5,7 @@ import useInitNative, {
   IUserInfo,
   defaultUserConfig,
   defaultUserInfo,
-} from '@mobile/hooks/use-init-native';
+} from '@mobile-native/hooks/use-init-native';
 
 export const userConfigContext = createContext<IUserConfig>(defaultUserConfig);
 export const userInfoContext = createContext<IUserInfo>(defaultUserInfo);
