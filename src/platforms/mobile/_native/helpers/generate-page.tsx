@@ -13,7 +13,6 @@ interface IOptions {
   i18n?: I18nOption;
 }
 
-
 function mounte(native: boolean, innerApp: React.ReactElement) {
   if (native) {
     bridge.ready(() => {
