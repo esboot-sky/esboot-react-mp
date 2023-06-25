@@ -10,7 +10,7 @@
     "esboot": "esboot",
     "prepare": "esboot exec husky install"
   },
-  "author": "",
+  "author": "Roc",
   "license": "ISC",
   "dependencies": {
     "@dz-web/bridge": "^1.5.3",

@@ -1,12 +1,12 @@
-import { useEffect, useRef, useLayoutEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSafeState } from 'ahooks';
 
 import { RequestProxyScope } from '@/constants/request';
 import { requestProxyManager } from '@dz-web/request';
 
 import { DEFAULT_THEME, THEME_MAP, RISE_FALL_COLORS_DICT, IRiseFallColor, DEFAULT_LAN } from '@mobile/constants/config';
-import { getUserConfig, getUserInfo } from '@mobile/helpers/native/msg';
-import { updateUserConfig, IUserConfigRaw, updateUserInfo } from '@mobile/helpers/native/register';
+import { getUserConfig, getUserInfo } from '@mobile-native/helpers/native/msg';
+import { updateUserConfig, IUserConfigRaw, updateUserInfo } from '@mobile-native/helpers/native/register';
 
 const { classList } = document.documentElement;
 const codeStorage = {};
