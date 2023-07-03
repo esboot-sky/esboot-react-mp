@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useSafeState, useGetState } from 'ahooks';
 
-import codeStorage from '@pc-native/helpers/code-storage';
-
 import {
   DEFAULT_THEME,
   THEME_MAP,
@@ -14,8 +12,8 @@ import {
 } from '@/constants/config';
 
 import { FONT_ADD_SIZE, FONT_WEIGHT, FONT_CFG_SIZE_DICT, FONT_SIZE } from '@pc-native/constants/config';
-import { queryUserConfig, queryUserInfo } from '../helpers/native/msg';
-import { updateUserConfig, IUserConfigRaw, updateUserInfo } from '../helpers/native/register';
+import { queryUserConfig, queryUserInfo } from '@pc-native/helpers/native/msg';
+import { updateUserConfig, IUserConfigRaw, updateUserInfo } from '@pc-native/helpers/native/register';
 
 const { classList } = document.documentElement;
 export interface IUserConfig {
@@ -62,7 +60,7 @@ export default function useInitNative(): IUseInitNative {
   const [userConfig, setUserConfig, getUserConfig] = useGetState<IUserConfig>(defaultUserConfig);
   const [userInfo, setUserInfo] = useSafeState<IUserInfo>(defaultUserInfo);
 
-  function updateUserConfigProxy(rawConfig: IUserConfigRaw): void {
+  function _updateUserConfig(rawConfig: IUserConfigRaw): void {
     const { theme: prevTheme } = getUserConfig() || {};
     const { raise, theme, language, font = defaultFontCfg } = rawConfig;
     const { additionalSize, weight } = font;
@@ -74,7 +72,6 @@ export default function useInitNative(): IUseInitNative {
       language,
       riseFallColor: RISE_FALL_COLORS_DICT[raise],
     };
-    codeStorage.set('language', rawConfig.language);
 
     setUserConfig(config);
 
@@ -94,32 +91,25 @@ export default function useInitNative(): IUseInitNative {
     document.documentElement.style.fontWeight = weight;
   }
 
-  function updateUserInfoProxy(res): void {
+  function _updateUserInfo(res): void {
     Object.assign(res, { token: res.sessionCode });
 
     setUserInfo({ ...res });
-    codeStorage.set('userInfo', res);
-    codeStorage.set('token', res.sessionCode);
-    codeStorage.set('stoken', res.stoken);
-    codeStorage.set('tradeLoginModal', false);
   }
 
   useEffect(() => {
-    localStorage.removeItem('bcanStatus');
-
     queryUserConfig()
       .then((res) => {
-        updateUserConfigProxy(res);
+        updateUserConfig(res);
       })
       .catch((err) => console.log(`获取用户配置失败: ${err}`));
 
-    updateUserConfig((res) => updateUserConfigProxy(res));
 
     queryUserInfo()
-      .then((res) => updateUserInfoProxy(res))
+      .then((res) => _updateUserConfig(res))
       .catch((err) => console.log('err:', err));
 
-    updateUserInfo((res) => updateUserInfoProxy(res));
+    updateUserInfo((res) => _updateUserInfo(res));
   }, []);
 
   return { userConfig, userInfo };

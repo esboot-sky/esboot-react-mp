@@ -8,7 +8,6 @@ import '@/styles/index.scss';
 import '@mobile/styles/index.scss';
 
 interface IOptions {
-  store?: any;
   native?: boolean;
   i18n?: I18nOption;
 }

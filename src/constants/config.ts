@@ -4,16 +4,12 @@ export enum Language {
   EN_US = 'en-US'
 }
 
-// 多语言
-export const LAN_ENUM = Language;
-
-export const DEFAULT_LAN = LAN_ENUM.ZH_TW;
-export const DEFAULT_UPDOWNCOLOR = 'red';
+export const DEFAULT_LAN = Language.ZH_CN;
 
 // 多皮肤
 export enum THEME {
-  WHITE = 'white',
-  BLACK = 'black',
+  WHITE = 'light',
+  BLACK = 'dark',
 }
 
 export const THEME_MAP = {
@@ -23,47 +19,31 @@ export const THEME_MAP = {
 
 export const DEFAULT_THEME = THEME_MAP[THEME.WHITE];
 
-// 红涨绿跌切换
-export type GREEN = 'green';
-export type RED = 'red';
+// Quote Color
 const GREEN_COLOR = '#2d9e00';
 const RED_COLOR = '#f23030';
 
-export enum RISEFALLCOLOR {
-  RED = 'red',
-  GREEN = 'green',
+export interface QuoteColor {
+  up: string;
+  down: string;
 }
 
-export const RISE_FALL_CLASS_DICT = {
-  [RISEFALLCOLOR.RED]: 'raise-red',
-  [RISEFALLCOLOR.GREEN]: 'raise-green',
-};
-
-export interface IRiseFallColor {
-  riseColor: string;
-  fallColor: string;
-}
-
-interface IRiseFallColorsDict {
-  green: IRiseFallColor;
-  red: IRiseFallColor;
-}
-
-export const RISE_FALL_COLORS_DICT: IRiseFallColorsDict = {
+export const QUOTE_COLOR_DICT: Record<'green' | 'red', QuoteColor> = {
   green: {
-    riseColor: GREEN_COLOR,
-    fallColor: RED_COLOR,
+    up: GREEN_COLOR,
+    down: RED_COLOR,
   },
   red: {
-    riseColor: RED_COLOR,
-    fallColor: GREEN_COLOR,
+    up: RED_COLOR,
+    down: GREEN_COLOR,
   },
 };
 
-export const DEFAULT_RISE_FALL_COLOR = RISE_FALL_COLORS_DICT.red;
+export const DEFAULT_RISE_FALL_COLOR = QUOTE_COLOR_DICT.red;
 
+// Font
 export const FONT_SIZE = 14;
-
+export const FONT_WEIGHT = 'normal';
 export const FONT_CFG_SIZE_DICT = {
   12: -2,
   13: -1,

@@ -1,4 +1,4 @@
-import { THEME, GREEN, RED, LAN_ENUM } from '@mobile/constants/config';
+import { THEME, Language } from '@/constants/config';
 import bridge from './bridge';
 
 const { getInstance } = bridge;
@@ -20,9 +20,9 @@ export function updateUserInfo(func: (config: IUserInfoRaw) => void): void {
  *
  */
 export interface IUserConfigRaw {
-  raise: GREEN | RED; // 涨跌色
+  raise: string; // 涨跌色
   theme: THEME;
-  language: LAN_ENUM;
+  language: Language;
 }
 
 export function updateUserConfig(func: (config: IUserConfigRaw) => void): void {

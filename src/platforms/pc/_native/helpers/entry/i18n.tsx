@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { IntlProvider } from 'react-intl';
-import { LAN_ENUM } from '@/constants/config';
+import { Language } from '@/constants/config';
 import { getDisplayName, userConfigContext } from './native';
 
 interface GenericObject {
@@ -8,11 +8,7 @@ interface GenericObject {
 }
 
 export interface I18nOption {
-  messageDict: {
-    [LAN_ENUM.ZH_CN]: GenericObject;
-    [LAN_ENUM.ZH_TW]: GenericObject;
-    [LAN_ENUM.EN_US]: GenericObject;
-  };
+  messageDict: Record<Language, GenericObject>;
 }
 
 export default function wrapI18n(App: React.ReactNode, options: I18nOption): React.ReactNode {
