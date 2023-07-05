@@ -1,8 +1,8 @@
+import { bridge, BridgePlatforms } from '@dz-web/bridge';
 import { mounteReact } from '@/helpers/react';
 
 import wrapNative from './entry/native';
 import wrapI18n, { I18nOption } from './entry/i18n';
-import bridge from './native/bridge';
 
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';
@@ -27,7 +27,10 @@ export default function generatePage(App: React.ReactNode, options: IOptions = {
   let wrapApp: React.ReactNode = App;
 
   if (i18n) wrapApp = wrapI18n(wrapApp, i18n);
-  if (native) wrapApp = wrapNative(wrapApp);
+  if (native) {
+    bridge.initPlatforms(BridgePlatforms.mock);
+    wrapApp = wrapNative(wrapApp);
+  }
 
   mounte(native, wrapApp as React.ReactElement);
 }

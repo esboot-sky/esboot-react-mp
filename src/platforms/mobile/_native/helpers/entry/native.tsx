@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
+import { getUserConfig, getUserInfo, updateUserInfo, updateUserConfig } from '@dz-web/bridge/webview';
+import type { UserConfig } from '@dz-web/bridge/webview';
 import { requestProxyManager, RequestProxyScope } from '@dz-web/request';
 
 import { useAppStore } from '@mobile/model/app';
 import { DEFAULT_THEME, THEME_MAP, QUOTE_COLOR_DICT } from '@/constants/config';
-import { getUserConfig, getUserInfo } from '@mobile-native/helpers/native/msg';
-import { updateUserConfig, IUserConfigRaw, updateUserInfo } from '@mobile-native/helpers/native/register';
 
 const { classList } = document.documentElement;
 
@@ -19,7 +19,7 @@ export default function wrapNative(App): React.ReactNode {
     const setUserConfig = useAppStore((state) => state.setUserConfig);
     const setUserInfo = useAppStore((state) => state.setUserInfo);
 
-    function _updateUserConfig(config: IUserConfigRaw): void {
+    function _updateUserConfig(config: UserConfig): void {
       const prevTheme = useAppStore.getState().userConfig.theme;
       const { raise, theme, language } = config;
       const nextTheme = THEME_MAP[theme] || DEFAULT_THEME;
