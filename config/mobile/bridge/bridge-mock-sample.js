@@ -11,9 +11,13 @@ const userInfo = {
 };
 
 const userConfig = {
+  env: 'dev',
   theme: 'dark', // dark light red
   language: 'zh-CN', // zh-TW  zh-CN
+  font_size: 2, // 0 - 4  最小 - 最大 默认值2
+  global_font_scale: 2,
   raise: 'green', // 红涨绿跌 还是绿涨红跌
+  orderToConfirmByDialog: true,
 };
 
 const serverConfig = {
@@ -33,8 +37,8 @@ module.exports = {
     },
     msg: new Proxy(
       {
-        userInfo: () => userInfo,
-        getTradeConfig: () => {},
+        NORMAL_GET_USER_INFO: () => userInfo,
+        NORMAL_GET_USER_CONFIG: () => userConfig,
         sessionCodeExpire: (args) => {
           console.log(`登录超时: \n${JSON.stringify(args)}`);
         },
