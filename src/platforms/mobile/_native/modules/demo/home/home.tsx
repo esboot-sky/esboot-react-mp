@@ -13,7 +13,7 @@ const AppHome: React.FC = () => {
 
   return (
     <div>
-      <p styleName={classNames({ abc: true })}>
+      <p styleName={classNames({ test: true })}>
         Bears:
         {' '}
         {bears}
