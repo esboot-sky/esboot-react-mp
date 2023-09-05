@@ -1,6 +1,4 @@
-import bridge from './bridge';
-
-const { getInstance } = bridge;
+import { bridge } from '@dz-web/bridge';
 
 // 解析msg结果
 function parseResult(res) {
@@ -17,8 +15,7 @@ function parseResult(res) {
  *
  */
 export function queryUserConfig(): Promise<any> {
-  return getInstance()
-    .call.msg('getUserConfiguration', '')
+  return bridge.sendMsg('getUserConfiguration')
     .then((res) => parseResult(res));
 }
 
@@ -27,7 +24,6 @@ export function queryUserConfig(): Promise<any> {
  *
  */
 export function queryUserInfo(): Promise<any> {
-  return getInstance()
-    .call.msg('userInfo', '')
+  return bridge.sendMsg('userInfo')
     .then((res) => parseResult(res));
 }

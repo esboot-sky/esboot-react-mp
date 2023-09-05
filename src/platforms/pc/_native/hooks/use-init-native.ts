@@ -104,7 +104,6 @@ export default function useInitNative(): IUseInitNative {
       })
       .catch((err) => console.log(`获取用户配置失败: ${err}`));
 
-
     queryUserInfo()
       .then((res) => _updateUserConfig(res))
       .catch((err) => console.log('err:', err));

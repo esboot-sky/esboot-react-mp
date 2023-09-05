@@ -1,6 +1,4 @@
-import bridge from './bridge';
-
-const { getInstance } = bridge;
+import { bridge } from '@dz-web/bridge';
 
 /**
  * 用户更新配置
@@ -24,7 +22,7 @@ export interface IUserConfigRaw {
  *
  */
 export function updateUserInfo(handle: unknown): unknown {
-  return getInstance().register('updateUserInfo', handle);
+  return bridge.register('updateUserInfo', handle);
 }
 
 /**
@@ -32,5 +30,5 @@ export function updateUserInfo(handle: unknown): unknown {
  *
  */
 export function updateUserConfig(handle: unknown): unknown {
-  return getInstance().register('updateUserConfig', handle);
+  return bridge.register('updateUserConfig', handle);
 }

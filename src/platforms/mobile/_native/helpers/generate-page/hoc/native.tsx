@@ -3,7 +3,7 @@ import { getUserConfig, getUserInfo, updateUserInfo, updateUserConfig } from '@d
 import type { UserConfig } from '@dz-web/bridge/webview';
 import { requestProxyManager, RequestProxyScope } from '@dz-web/request';
 
-import { useAppStore } from '@mobile/model/app';
+import { useAppStore } from '@mobile-native/model/app';
 import { DEFAULT_THEME, THEME_MAP, QUOTE_COLOR_DICT } from '@/constants/config';
 
 const { classList } = document.documentElement;
