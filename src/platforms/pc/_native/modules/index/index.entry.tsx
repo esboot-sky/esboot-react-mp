@@ -21,5 +21,5 @@ generatePage(
 );
 
 export default {
-  title: 'personal-center',
+  title: 'DEMO',
 };

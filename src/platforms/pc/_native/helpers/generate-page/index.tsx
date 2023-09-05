@@ -32,6 +32,7 @@ export default function generatePage(wrapApp: React.ReactNode, options: IOptions
 
   if (native) {
     bridge.initPlatforms(BridgePlatforms.pc);
+
     wrapApp = wrapNative(wrapApp);
   }
 

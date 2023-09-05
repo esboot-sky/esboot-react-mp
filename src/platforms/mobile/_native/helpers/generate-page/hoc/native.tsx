@@ -4,7 +4,9 @@ import type { UserConfig } from '@dz-web/bridge/webview';
 import { requestProxyManager, RequestProxyScope } from '@dz-web/request';
 
 import { useAppStore } from '@mobile-native/model/app';
-import { DEFAULT_THEME, THEME_MAP, QUOTE_COLOR_DICT } from '@/constants/config';
+
+import { QUOTE_COLOR_DICT } from '@/constants/config';
+import { DEFAULT_THEME, THEME_MAP } from '@mobile/constants/config';
 
 const { classList } = document.documentElement;
 

@@ -1,16 +1,34 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { QuoteColor, DEFAULT_LAN } from '@/constants/config';
+import { DEFAULT_LAN, QuoteColorDirection } from '@/constants/config';
 
 export interface UserConfig {
-  quoteColor?: QuoteColor;
+  riseFallColor?: QuoteColorDirection;
+  raise?: string;
+  language: string;
   theme?: string;
 }
 
 export interface UserInfo {
-  sessionCode?: string;
+  tradeNo?: string;
+  orgCode: any;
+  token: string;
+  isLoginTrade: boolean;
+  areaCode?: string;
+  cusNo?: string;
+  mobile?: string;
+  nickname?: string;
+  avatar?: string;
+  userId?: number;
 }
+
+export const defaultUserInfo = {
+  orgCode: '',
+  mobile: '',
+  token: '',
+  isLoginTrade: false,
+};
 
 interface AppStore {
   sessionCode: string;
@@ -33,11 +51,18 @@ const useAppStore = create<AppStore>()(
     setSessionCode: (sessionCode) => set((state) => {
       state.sessionCode = sessionCode;
     }),
-    userConfig: {},
+    userConfig: {
+      language: DEFAULT_LAN,
+    },
     setUserConfig: (conf) => set((state) => {
       state.userConfig = conf;
     }),
-    userInfo: {},
+    userInfo: {
+      orgCode: '',
+      mobile: '',
+      token: '',
+      isLoginTrade: false,
+    },
     setUserInfo: (info) => set((state) => {
       state.userInfo = info;
     }),

@@ -4,7 +4,7 @@ import { bridge } from '@dz-web/bridge';
  * 用户更新配置
  *
  */
-export interface IUserConfigRaw {
+export interface UserConfigRaw {
   skin: string; // white black
   theme: string; // dark light red
   language: string; // zh-TW  zh-CN
@@ -21,14 +21,14 @@ export interface IUserConfigRaw {
  * @param {Function} handle 处理函数
  *
  */
-export function updateUserInfo(handle: unknown): unknown {
-  return bridge.register('updateUserInfo', handle);
+export function updateUserInfo(handler: unknown): unknown {
+  return bridge.register('updateUserInfo', handler);
 }
 
 /**
  * pc换肤回调
  *
  */
-export function updateUserConfig(handle: unknown): unknown {
-  return bridge.register('updateUserConfig', handle);
+export function updateUserConfig(handler: unknown): unknown {
+  return bridge.register('updateUserConfig', handler);
 }
