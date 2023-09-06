@@ -1,5 +1,8 @@
 import { ReactNode, useEffect } from 'react';
 
+import { updateUserConfig, updateUserInfo, getUserConfig, getUserInfo } from '@dz-web/bridge/pc';
+import type { UserConfig } from '@dz-web/bridge/pc';
+
 import { QUOTE_COLOR_DICT } from '@/constants/config';
 import {
   FONT_WEIGHT, FONT_ADD_SIZE, FONT_CFG_SIZE_DICT, FONT_SIZE,
@@ -7,9 +10,6 @@ import {
 } from '@pc/constants/config';
 
 import { useAppStore } from '@pc-native/model/app';
-
-import { queryUserConfig, queryUserInfo } from '@pc-native/helpers/native/msg';
-import { updateUserConfig, IUserConfigRaw, updateUserInfo } from '@pc-native/helpers/native/register';
 
 export function getDisplayName(WrappedComponent: ReactNode): string {
   return (WrappedComponent as any).displayName || 'Component';
@@ -30,7 +30,7 @@ export default function wrapNative(App): React.ReactNode {
     const setUserConfig = useAppStore((state) => state.setUserConfig);
     const setUserInfo = useAppStore((state) => state.setUserInfo);
 
-    function _updateUserConfig(rawConfig: IUserConfigRaw): void {
+    function _updateUserConfig(rawConfig: UserConfig): void {
       const { theme: prevTheme, raise: prevRaise } = userConfig;
       const { raise, theme, language, font = defaultFontCfg } = rawConfig;
       const { additionalSize, weight } = font;
@@ -65,13 +65,13 @@ export default function wrapNative(App): React.ReactNode {
     }
 
     useEffect(() => {
-      queryUserConfig()
+      getUserConfig()
         .then((res) => {
           updateUserConfig(res);
         })
         .catch((err) => console.log(`获取用户配置失败: ${err}`));
 
-      queryUserInfo()
+      getUserInfo()
         .then((res) => _updateUserConfig(res))
         .catch((err) => console.log('err:', err));
 
