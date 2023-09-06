@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@dz-web/bridge':
-    specifier: ^2.0.2
-    version: 10.10.11.236+4873/@dz-web/bridge@2.0.2
+    specifier: ^2.0.8
+    version: 10.10.11.236+4873/@dz-web/bridge@2.0.8
   '@dz-web/o-orange':
     specifier: ^3.7.11
     version: 10.10.11.236+4873/@dz-web/o-orange@3.7.11
@@ -2931,10 +2931,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  10.10.11.236+4873/@dz-web/bridge@2.0.2:
-    resolution: {integrity: sha512-Vit+chwkjqUQG6kMLbpZB0Qe/EMTSFBsi5DSUrPeC7iz0nY88aRb3KpAJkyzvj5xKfwLPkjqfqDbQJstTirjpw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fbridge/-/bridge-2.0.2.tgz}
+  10.10.11.236+4873/@dz-web/bridge@2.0.8:
+    resolution: {integrity: sha512-XjADMaaZW/APGMfj96eBq4m+7asSYoAOOWMLC64EXVz/mlDwPiHQEYX7Z2dbFTE92YJpn8b5tHwzQYdo8hx69A==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fbridge/-/bridge-2.0.8.tgz}
     name: '@dz-web/bridge'
-    version: 2.0.2
+    version: 2.0.8
     dependencies:
       query-string: 10.10.11.236+4873/query-string@8.1.0
     dev: false
