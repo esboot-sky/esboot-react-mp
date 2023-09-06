@@ -1,7 +1,7 @@
 import { defineConfig } from '@dz-web/esboot';
 
 export default defineConfig({
-  mfsu: false,
+  mfsu: true,
   // extraBabelIncludes: [
   //   /filter-obj/i,
   //   /immer/i,
