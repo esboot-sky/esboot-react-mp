@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@dz-web/bridge':
-    specifier: ^2.0.8
-    version: 10.10.11.236+4873/@dz-web/bridge@2.0.8
+    specifier: ^2.1.0
+    version: 10.10.11.236+4873/@dz-web/bridge@2.1.0
   '@dz-web/o-orange':
     specifier: ^3.7.11
     version: 10.10.11.236+4873/@dz-web/o-orange@3.7.11
@@ -46,7 +46,7 @@ dependencies:
     version: 10.10.11.236+4873/react-dom@18.2.0(react@18.2.0)
   react-intl:
     specifier: ^6.4.4
-    version: 10.10.11.236+4873/react-intl@6.4.4(react@18.2.0)(typescript@5.2.2)
+    version: 10.10.11.236+4873/react-intl@6.4.4(react@18.2.0)
   react-router-dom:
     specifier: ^6.14.0
     version: 10.10.11.236+4873/react-router-dom@6.14.0(react-dom@18.2.0)(react@18.2.0)
@@ -58,6 +58,9 @@ devDependencies:
   '@dz-web/esboot':
     specifier: ^2.1.2
     version: 10.10.11.236+4873/@dz-web/esboot@2.1.2(@types/node@20.4.7)(@types/react@18.2.14)(@umijs/preset-dumi@1.1.53)(browserslist@4.21.10)(dayjs@1.11.9)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.0.7)
+  '@types/node':
+    specifier: ^20.5.9
+    version: 10.10.11.236+4873/@types/node@20.5.9
   '@types/react':
     specifier: 18.2.14
     version: 10.10.11.236+4873/@types/react@18.2.14
@@ -2931,10 +2934,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  10.10.11.236+4873/@dz-web/bridge@2.0.8:
-    resolution: {integrity: sha512-XjADMaaZW/APGMfj96eBq4m+7asSYoAOOWMLC64EXVz/mlDwPiHQEYX7Z2dbFTE92YJpn8b5tHwzQYdo8hx69A==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fbridge/-/bridge-2.0.8.tgz}
+  10.10.11.236+4873/@dz-web/bridge@2.1.0:
+    resolution: {integrity: sha512-af1/0EhRhEuZhJbcdfcMqXZnS0kqfFBe0iMpUajhybFWBOIs/lHQeuSYZn/AwQ7sfL9sZfgGgWP1I0Qr6TRPuw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fbridge/-/bridge-2.1.0.tgz}
     name: '@dz-web/bridge'
-    version: 2.0.8
+    version: 2.1.0
     dependencies:
       query-string: 10.10.11.236+4873/query-string@8.1.0
     dev: false
@@ -3815,6 +3818,25 @@ packages:
     dependencies:
       tslib: 10.10.11.236+4873/tslib@2.6.2
 
+  10.10.11.236+4873/@formatjs/intl@2.9.0:
+    resolution: {integrity: sha512-Ym0trUoC/VO6wQu4YHa0H1VR2tEixFRmwZgADkDLm7nD+vv1Ob+/88mUAoT0pwvirFqYKgUKEwp1tFepqyqvVA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@formatjs%2fintl/-/intl-2.9.0.tgz}
+    name: '@formatjs/intl'
+    version: 2.9.0
+    peerDependencies:
+      typescript: ^4.7 || 5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@formatjs/ecma402-abstract': 10.10.11.236+4873/@formatjs/ecma402-abstract@1.17.0
+      '@formatjs/fast-memoize': 10.10.11.236+4873/@formatjs/fast-memoize@2.2.0
+      '@formatjs/icu-messageformat-parser': 10.10.11.236+4873/@formatjs/icu-messageformat-parser@2.6.0
+      '@formatjs/intl-displaynames': 10.10.11.236+4873/@formatjs/intl-displaynames@6.5.0
+      '@formatjs/intl-listformat': 10.10.11.236+4873/@formatjs/intl-listformat@7.4.0
+      intl-messageformat: 10.10.11.236+4873/intl-messageformat@10.5.0
+      tslib: 10.10.11.236+4873/tslib@2.6.2
+    dev: false
+
   10.10.11.236+4873/@formatjs/intl@2.9.0(typescript@5.2.2):
     resolution: {integrity: sha512-Ym0trUoC/VO6wQu4YHa0H1VR2tEixFRmwZgADkDLm7nD+vv1Ob+/88mUAoT0pwvirFqYKgUKEwp1tFepqyqvVA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@formatjs%2fintl/-/intl-2.9.0.tgz}
     id: 10.10.11.236+4873/@formatjs/intl/2.9.0
@@ -3834,6 +3856,7 @@ packages:
       intl-messageformat: 10.10.11.236+4873/intl-messageformat@10.5.0
       tslib: 10.10.11.236+4873/tslib@2.6.2
       typescript: 10.10.11.236+4873/typescript@5.2.2
+    dev: true
 
   10.10.11.236+4873/@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@humanwhocodes%2fconfig-array/-/config-array-0.11.11.tgz}
@@ -5330,6 +5353,12 @@ packages:
     resolution: {integrity: sha512-dP7f3LdZIysZnmvP3ANJYTSwg+wLLl8p7RqniVlV7j+oXSXAbt9h0WIBFmJy5inWZoX9wZN6eXx+YXd9Rh3RBA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@types%2fnode/-/node-20.5.7.tgz}
     name: '@types/node'
     version: 20.5.7
+    dev: true
+
+  10.10.11.236+4873/@types/node@20.5.9:
+    resolution: {integrity: sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@types%2fnode/-/node-20.5.9.tgz}
+    name: '@types/node'
+    version: 20.5.9
     dev: true
 
   10.10.11.236+4873/@types/normalize-package-data@2.4.1:
@@ -22384,6 +22413,31 @@ packages:
       shallowequal: 10.10.11.236+4873/shallowequal@1.1.0
     dev: true
 
+  10.10.11.236+4873/react-intl@6.4.4(react@18.2.0):
+    resolution: {integrity: sha512-/C9Sl/5//ohfkNG6AWlJuf4BhTXsbzyk93K62A4zRhSPANyOGpKZ+fWhN+TLfFd5YjDUHy+exU/09y0w1bO4Xw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/react-intl/-/react-intl-6.4.4.tgz}
+    id: 10.10.11.236+4873/react-intl/6.4.4
+    name: react-intl
+    version: 6.4.4
+    peerDependencies:
+      react: ^16.6.0 || 17 || 18
+      typescript: ^4.7 || 5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@formatjs/ecma402-abstract': 10.10.11.236+4873/@formatjs/ecma402-abstract@1.17.0
+      '@formatjs/icu-messageformat-parser': 10.10.11.236+4873/@formatjs/icu-messageformat-parser@2.6.0
+      '@formatjs/intl': 10.10.11.236+4873/@formatjs/intl@2.9.0
+      '@formatjs/intl-displaynames': 10.10.11.236+4873/@formatjs/intl-displaynames@6.5.0
+      '@formatjs/intl-listformat': 10.10.11.236+4873/@formatjs/intl-listformat@7.4.0
+      '@types/hoist-non-react-statics': 10.10.11.236+4873/@types/hoist-non-react-statics@3.3.1
+      '@types/react': 10.10.11.236+4873/@types/react@18.2.14
+      hoist-non-react-statics: 10.10.11.236+4873/hoist-non-react-statics@3.3.2
+      intl-messageformat: 10.10.11.236+4873/intl-messageformat@10.5.0
+      react: 10.10.11.236+4873/react@18.2.0
+      tslib: 10.10.11.236+4873/tslib@2.6.2
+    dev: false
+
   10.10.11.236+4873/react-intl@6.4.4(react@18.2.0)(typescript@5.2.2):
     resolution: {integrity: sha512-/C9Sl/5//ohfkNG6AWlJuf4BhTXsbzyk93K62A4zRhSPANyOGpKZ+fWhN+TLfFd5YjDUHy+exU/09y0w1bO4Xw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/react-intl/-/react-intl-6.4.4.tgz}
     id: 10.10.11.236+4873/react-intl/6.4.4
@@ -22408,6 +22462,7 @@ packages:
       react: 10.10.11.236+4873/react@18.2.0
       tslib: 10.10.11.236+4873/tslib@2.6.2
       typescript: 10.10.11.236+4873/typescript@5.2.2
+    dev: true
 
   10.10.11.236+4873/react-is@16.13.1:
     resolution: {integrity: sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/react-is/-/react-is-16.13.1.tgz}
@@ -25782,6 +25837,7 @@ packages:
     version: 5.2.2
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: true
 
   10.10.11.236+4873/umi@3.5.41(react-router@6.15.0):
     resolution: {integrity: sha512-sjgfFGC3E5jG5Cn8pXdwODDgPW1hnlkn24f7+onNnNdq77syuc4s3R5z7BKQHbjiWtVVIV1VOFMYE9JsJYnOPQ==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/umi/-/umi-3.5.41.tgz}
