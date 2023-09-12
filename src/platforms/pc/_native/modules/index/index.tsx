@@ -1,7 +1,7 @@
 import './index.scss';
 
 const App: React.FC = () => (
-  <div>
+  <div styleName="pc">
     PC Native Platform
   </div>
 );
