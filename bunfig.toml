@@ -1,3 +1,2 @@
 [install]
-# set default registry as a string
 registry = "http://npm.web.dz"
