@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { parseKeyValues } from '@websaber/string-utils';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '../../customize';
 import { MinimalRootState } from '../minimal-store';
 
@@ -29,7 +30,13 @@ interface IState {
 }
 
 function createInitializedState(): IState {
-  return {
+  const {
+    theme,
+    language,
+    raise,
+  } = parseKeyValues(window.location.href);
+
+  const defaultState = {
     /**
      * 成功初始化，获取到pc主题信息, 防止抖动, 其它方案目前都有小问题未解决，暂时先这样处理
      */
@@ -47,7 +54,21 @@ function createInitializedState(): IState {
       raise: 'red',
       raw: {} as IRawAppUserConfig,
     },
-  };
+  } as IState;
+
+  if (theme === 'dark' || theme === 'light') {
+    defaultState.userConfig.theme = theme;
+  }
+
+  if (raise === 'green' || raise === 'red') {
+    defaultState.userConfig.raise = raise as 'green' | 'red';
+  }
+
+  if (language === 'zh-CN' || language === 'zh-TW' || language === 'en-US') {
+    defaultState.userConfig.language = language;
+  }
+
+  return defaultState;
 }
 
 export const slice = createSlice({

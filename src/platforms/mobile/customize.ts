@@ -18,6 +18,9 @@ export interface IUserInfo {
   sessionCode: string;
 }
 
+/**
+ * 根据项目提供的用户信息，返回access token
+ */
 export function accessToken(userInfo: IUserInfo) {
   return userInfo.sessionCode;
 }

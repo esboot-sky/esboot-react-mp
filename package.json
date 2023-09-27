@@ -21,6 +21,7 @@
     "@dz-web/request": "^0.1.12",
     "@loadable/component": "^5.15.3",
     "@reduxjs/toolkit": "^1.9.6",
+    "@websaber/string-utils": "^0.0.1",
     "ahooks": "^3.7.8",
     "antd": "^5.9.2",
     "antd-mobile": "^5.32.4",

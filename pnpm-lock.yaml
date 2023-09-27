@@ -22,6 +22,9 @@ dependencies:
   '@reduxjs/toolkit':
     specifier: ^1.9.6
     version: 10.10.11.236+4873/@reduxjs/toolkit@1.9.6(react-redux@8.1.2)(react@18.2.0)
+  '@websaber/string-utils':
+    specifier: ^0.0.1
+    version: 10.10.11.236+4873/@websaber/string-utils@0.0.1
   ahooks:
     specifier: ^3.7.8
     version: 10.10.11.236+4873/ahooks@3.7.8(react@18.2.0)
@@ -7290,6 +7293,12 @@ packages:
       webpack-cli: 10.10.11.236+4873/webpack-cli@5.1.4(webpack-bundle-analyzer@4.9.1)(webpack-dev-server@4.15.1)(webpack@5.88.2)
       webpack-dev-server: 10.10.11.236+4873/webpack-dev-server@4.15.1(webpack-cli@5.1.4)(webpack@5.88.2)
     dev: true
+
+  10.10.11.236+4873/@websaber/string-utils@0.0.1:
+    resolution: {integrity: sha512-pYkheCsSCk+3F1zv0xaRFiPmWoYl9CbwAqDjhLt1qgOeEz+Y9AygmevpbuwQws9jV8RaD9bxuIozG/4qpc9mUA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@websaber%2fstring-utils/-/string-utils-0.0.1.tgz}
+    name: '@websaber/string-utils'
+    version: 0.0.1
+    dev: false
 
   10.10.11.236+4873/@xtuc/ieee754@1.2.0:
     resolution: {integrity: sha1-7vAUoxRa5Hehy8AM0eVSM23Ot5A=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@xtuc%2fieee754/-/ieee754-1.2.0.tgz}
