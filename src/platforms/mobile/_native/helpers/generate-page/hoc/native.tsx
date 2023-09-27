@@ -3,14 +3,13 @@
  */
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
 import { getUserInfo, updateUserInfo, updateUserConfig } from '@dz-web/bridge/webview';
-import type { UserConfig } from '@dz-web/bridge/webview';
 import { requestProxyManager, RequestProxyScope } from '@dz-web/request';
-
 import { useAppStore } from '@mobile-native/model/app';
-
 import { QUOTE_COLOR_DICT } from '@/constants/config';
 import { DEFAULT_THEME, THEME_MAP } from '@mobile/constants/config';
-import { getUserConfig } from '../../msg';
+import { useMinimalAppDispatch, useMinimalAppSelector } from '@mobile/model/minimal-store';
+import { IStandardAppUserConfig, selectUserConfig } from '@mobile/model/app/slice';
+import { getUserConfig } from '@mobile-native/helpers/msg';
 
 const { classList } = document.documentElement;
 
@@ -20,13 +19,15 @@ export function getDisplayName(WrappedComponent: React.FC): string {
 
 export function withNative(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {
+    const dispatch = useMinimalAppDispatch();
+    const userConfig = useMinimalAppSelector(selectUserConfig);
     const setLanguage = useAppStore((state) => state.setLanguage);
     const setSessionCode = useAppStore((state) => state.setSessionCode);
     const setUserConfig = useAppStore((state) => state.setUserConfig);
     const setUserInfo = useAppStore((state) => state.setUserInfo);
 
-    function _updateUserConfig(config: UserConfig): void {
-      console.log('res: ', config);
+    function _updateUserConfig(config: IStandardAppUserConfig): void {
+      console.log('url: ', window.esboot_urlParams);
       const prevTheme = useAppStore.getState().userConfig.theme || window?.esboot_urlParams?.theme;
 
       const { raise, theme, language } = config;

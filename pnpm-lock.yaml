@@ -19,6 +19,9 @@ dependencies:
   '@loadable/component':
     specifier: ^5.15.3
     version: 10.10.11.236+4873/@loadable/component@5.15.3(react@18.2.0)
+  '@reduxjs/toolkit':
+    specifier: ^1.9.6
+    version: 10.10.11.236+4873/@reduxjs/toolkit@1.9.6(react-redux@8.1.2)(react@18.2.0)
   ahooks:
     specifier: ^3.7.8
     version: 10.10.11.236+4873/ahooks@3.7.8(react@18.2.0)
@@ -52,6 +55,9 @@ dependencies:
   react-intl:
     specifier: ^6.4.7
     version: 10.10.11.236+4873/react-intl@6.4.7(react@18.2.0)(typescript@5.2.2)
+  react-redux:
+    specifier: ^8.1.2
+    version: 10.10.11.236+4873/react-redux@8.1.2(@types/react-dom@18.2.7)(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
   react-router-dom:
     specifier: ^6.16.0
     version: 10.10.11.236+4873/react-router-dom@6.16.0(react-dom@18.2.0)(react@18.2.0)
@@ -4396,7 +4402,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.21.0
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
       hoist-non-react-statics: 10.10.11.236+4873/hoist-non-react-statics@3.3.2
       react: 10.10.11.236+4873/react@18.1.0
       react-is: 10.10.11.236+4873/react-is@16.13.1
@@ -4411,7 +4417,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.21.0
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
       hoist-non-react-statics: 10.10.11.236+4873/hoist-non-react-statics@3.3.2
       react: 10.10.11.236+4873/react@18.2.0
       react-is: 10.10.11.236+4873/react-is@16.13.1
@@ -4745,6 +4751,28 @@ packages:
       '@react-spring/types': 10.10.11.236+4873/@react-spring/types@9.6.1
       react: 10.10.11.236+4873/react@18.2.0
       react-dom: 10.10.11.236+4873/react-dom@18.2.0(react@18.2.0)
+    dev: false
+
+  10.10.11.236+4873/@reduxjs/toolkit@1.9.6(react-redux@8.1.2)(react@18.2.0):
+    resolution: {integrity: sha512-Gc4ikl90ORF4viIdAkY06JNUnODjKfGxZRwATM30EdHq8hLSVoSrwXne5dd739yenP5bJxAX7tLuOWK5RPGtrw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@reduxjs%2ftoolkit/-/toolkit-1.9.6.tgz}
+    id: 10.10.11.236+4873/@reduxjs/toolkit/1.9.6
+    name: '@reduxjs/toolkit'
+    version: 1.9.6
+    peerDependencies:
+      react: ^16.9.0 || ^17.0.0 || ^18
+      react-redux: ^7.2.1 || ^8.0.2
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-redux:
+        optional: true
+    dependencies:
+      immer: 10.10.11.236+4873/immer@9.0.21
+      react: 10.10.11.236+4873/react@18.2.0
+      react-redux: 10.10.11.236+4873/react-redux@8.1.2(@types/react-dom@18.2.7)(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
+      redux: 10.10.11.236+4873/redux@4.2.1
+      redux-thunk: 10.10.11.236+4873/redux-thunk@2.4.2(redux@4.2.1)
+      reselect: 10.10.11.236+4873/reselect@4.1.8
     dev: false
 
   10.10.11.236+4873/@remix-run/router@1.9.0:
@@ -5698,7 +5726,6 @@ packages:
     version: 18.2.7
     dependencies:
       '@types/react': 10.10.11.236+4873/@types/react@18.2.22
-    dev: true
 
   10.10.11.236+4873/@types/react-router-config@5.0.2:
     resolution: {integrity: sha1-TTtS5x7TY6GXahIyHmewmpmtbRA=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@types%2freact-router-config/-/react-router-config-5.0.2.tgz}
@@ -5846,6 +5873,12 @@ packages:
     name: '@types/unist'
     version: 2.0.8
     dev: true
+
+  10.10.11.236+4873/@types/use-sync-external-store@0.0.3:
+    resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@types%2fuse-sync-external-store/-/use-sync-external-store-0.0.3.tgz}
+    name: '@types/use-sync-external-store'
+    version: 0.0.3
+    dev: false
 
   10.10.11.236+4873/@types/webpack-env@1.18.1:
     resolution: {integrity: sha512-D0HJET2/UY6k9L6y3f5BL+IDxZmPkYmPT4+qBrRdmRLYRuV0qNKizMgTvYxXZYn+36zjPeoDZAEYBCM6XB+gww==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@types%2fwebpack-env/-/webpack-env-1.18.1.tgz}
@@ -6577,7 +6610,7 @@ packages:
     name: '@umijs/history'
     version: 5.3.1
     dependencies:
-      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.21.0
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
       query-string: 10.10.11.236+4873/query-string@6.14.1
     dev: true
 
@@ -14013,7 +14046,7 @@ packages:
     name: history
     version: 5.3.0
     dependencies:
-      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.21.0
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
     dev: true
 
   10.10.11.236+4873/hmac-drbg@1.0.1:
@@ -14503,6 +14536,12 @@ packages:
     resolution: {integrity: sha512-Rx3CqeqQ19sxUtYV9CU911Vhy8/721wRFnJv3REVGWUmoAcIwzifTsdmJte/MV+0/XpM35LZdQMBGkRIoLPwQA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/immer/-/immer-10.0.2.tgz}
     name: immer
     version: 10.0.2
+    dev: false
+
+  10.10.11.236+4873/immer@9.0.21:
+    resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/immer/-/immer-9.0.21.tgz}
+    name: immer
+    version: 9.0.21
     dev: false
 
   10.10.11.236+4873/immutable@4.3.4:
@@ -22250,7 +22289,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.21.0
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
       invariant: 10.10.11.236+4873/invariant@2.2.4
       prop-types: 10.10.11.236+4873/prop-types@15.8.1
       react: 10.10.11.236+4873/react@18.1.0
@@ -22268,7 +22307,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.21.0
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
       invariant: 10.10.11.236+4873/invariant@2.2.4
       prop-types: 10.10.11.236+4873/prop-types@15.8.1
       react: 10.10.11.236+4873/react@18.2.0
@@ -22318,6 +22357,43 @@ packages:
     name: react-merge-refs
     version: 1.1.0
     dev: true
+
+  10.10.11.236+4873/react-redux@8.1.2(@types/react-dom@18.2.7)(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-xJKYI189VwfsFc4CJvHqHlDrzyFTY/3vZACbE+rr/zQ34Xx1wQfB4OTOSeOSNrF6BDVe8OOdxIrAnMGXA3ggfw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/react-redux/-/react-redux-8.1.2.tgz}
+    id: 10.10.11.236+4873/react-redux/8.1.2
+    name: react-redux
+    version: 8.1.2
+    peerDependencies:
+      '@types/react': ^16.8 || ^17.0 || ^18.0
+      '@types/react-dom': ^16.8 || ^17.0 || ^18.0
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+      react-native: '>=0.59'
+      redux: ^4 || ^5.0.0-beta.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+      redux:
+        optional: true
+    dependencies:
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
+      '@types/hoist-non-react-statics': 10.10.11.236+4873/@types/hoist-non-react-statics@3.3.2
+      '@types/react': 10.10.11.236+4873/@types/react@18.2.22
+      '@types/react-dom': 10.10.11.236+4873/@types/react-dom@18.2.7
+      '@types/use-sync-external-store': 10.10.11.236+4873/@types/use-sync-external-store@0.0.3
+      hoist-non-react-statics: 10.10.11.236+4873/hoist-non-react-statics@3.3.2
+      react: 10.10.11.236+4873/react@18.2.0
+      react-dom: 10.10.11.236+4873/react-dom@18.2.0(react@18.2.0)
+      react-is: 10.10.11.236+4873/react-is@18.2.0
+      redux: 10.10.11.236+4873/redux@4.2.1
+      use-sync-external-store: 10.10.11.236+4873/use-sync-external-store@1.2.0(react@18.2.0)
+    dev: false
 
   10.10.11.236+4873/react-refresh@0.10.0:
     resolution: {integrity: sha1-L1NslmDAubHVAGhNnlKmXnQE9+M=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/react-refresh/-/react-refresh-0.10.0.tgz}
@@ -22706,6 +22782,25 @@ packages:
       indent-string: 10.10.11.236+4873/indent-string@5.0.0
       strip-indent: 10.10.11.236+4873/strip-indent@4.0.0
     dev: true
+
+  10.10.11.236+4873/redux-thunk@2.4.2(redux@4.2.1):
+    resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/redux-thunk/-/redux-thunk-2.4.2.tgz}
+    id: 10.10.11.236+4873/redux-thunk/2.4.2
+    name: redux-thunk
+    version: 2.4.2
+    peerDependencies:
+      redux: ^4
+    dependencies:
+      redux: 10.10.11.236+4873/redux@4.2.1
+    dev: false
+
+  10.10.11.236+4873/redux@4.2.1:
+    resolution: {integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/redux/-/redux-4.2.1.tgz}
+    name: redux
+    version: 4.2.1
+    dependencies:
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
+    dev: false
 
   10.10.11.236+4873/reflect.getprototypeof@1.0.4:
     resolution: {integrity: sha512-ECkTw8TmJwW60lOTR+ZkODISW6RQ8+2CL3COqtiJKLd6MmB45hN51HprHFziKLGkAuTGQhBb91V8cy+KHlaCjw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/reflect.getprototypeof/-/reflect.getprototypeof-1.0.4.tgz}
@@ -23136,7 +23231,6 @@ packages:
     resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/reselect/-/reselect-4.1.8.tgz}
     name: reselect
     version: 4.1.8
-    dev: true
 
   10.10.11.236+4873/resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz}
