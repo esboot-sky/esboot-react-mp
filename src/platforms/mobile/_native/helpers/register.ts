@@ -1,5 +1,5 @@
 import { bridge } from '@dz-web/bridge';
-import { IUserInfo } from '@mobile/custom-types';
+import { IUserInfo } from '../../customize';
 import { oldStyle2Standard } from './msg';
 
 /**

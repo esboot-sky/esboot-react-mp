@@ -1,6 +1,6 @@
 import { bridge } from '@dz-web/bridge';
 import { IStandardAppUserConfig } from '@mobile/model/app/slice';
-import { IRawAppUserConfig, IUserInfo } from '@mobile/custom-types';
+import { IRawAppUserConfig, IUserInfo } from '../../customize';
 
 export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
   const {

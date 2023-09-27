@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IRawAppUserConfig, IUserInfo } from '@mobile/custom-types';
+import { IRawAppUserConfig, IUserInfo, accessToken } from '../../customize';
 import { MinimalRootState } from '../minimal-store';
 
 /**
@@ -59,8 +59,14 @@ export const slice = createSlice({
       state.userConfig = action.payload;
       state.initialized = true;
     },
-    setUserInfo: (state, action: PayloadAction<any>) => {
+    setUserInfo: (state, action: PayloadAction<IUserInfo>) => {
       state.userInfo = action.payload;
+
+      const token = accessToken(action.payload);
+      if (token) {
+        console.log('拿到token了');
+        // globalBlocker.done();
+      }
     },
     setLanguage: (state, action: PayloadAction<any>) => {
       state.userConfig.language = action.payload;

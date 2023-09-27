@@ -17,3 +17,7 @@ export interface IRawAppUserConfig {
 export interface IUserInfo {
   sessionCode: string;
 }
+
+export function accessToken(userInfo: IUserInfo) {
+  return userInfo.sessionCode;
+}
