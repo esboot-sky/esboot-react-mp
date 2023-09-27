@@ -16,6 +16,17 @@ export interface IRawAppUserConfig {
  */
 export interface IUserInfo {
   sessionCode: string;
+  bcanStatus: string;
+  bindTrade: boolean;
+  isLogin: boolean;
+  mobile: string;
+  nickName: string;
+  orgCode: string;
+  sessionId: string;
+  trade2faCode: string;
+  tradeToken: string;
+  tradingAccSeq: string;
+  userId: string;
 }
 
 /**
