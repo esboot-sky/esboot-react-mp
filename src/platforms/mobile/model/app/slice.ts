@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { IRawAppUserConfig, IUserInfo } from '@mobile/custom-types';
 import { MinimalRootState } from '../minimal-store';
 
 /**
@@ -11,7 +12,7 @@ export interface IStandardAppUserConfig {
   language: 'zh-CN' | 'zh-TW' | 'en-US';
   raise: 'green' | 'red';
   deviceNo: string;
-  raw: any;
+  raw: IRawAppUserConfig;
 }
 
 // Define a type for the slice state
@@ -20,7 +21,7 @@ interface IState {
   /**
    * 类型待定，暂无标准
    */
-  userInfo: Record<string, any>;
+  userInfo: IUserInfo;
   /**
    * 标准dz web app用户设置, 不需要关心来源
    */
@@ -33,7 +34,9 @@ function createInitializedState(): IState {
      * 成功初始化，获取到pc主题信息, 防止抖动, 其它方案目前都有小问题未解决，暂时先这样处理
      */
     initialized: false,
-    userInfo: {},
+    userInfo: {
+      sessionCode: '',
+    },
     userConfig: {
       // TODO: 从url取默认值
       theme: 'light',
@@ -42,7 +45,7 @@ function createInitializedState(): IState {
       language: 'zh-CN',
       // TODO: 从url取默认值
       raise: 'red',
-      raw: {},
+      raw: {} as IRawAppUserConfig,
     },
   };
 }

@@ -2,14 +2,11 @@
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
-import { getUserInfo, updateUserInfo, updateUserConfig } from '@dz-web/bridge/webview';
-import { requestProxyManager, RequestProxyScope } from '@dz-web/request';
-import { useAppStore } from '@mobile-native/model/app';
-import { QUOTE_COLOR_DICT } from '@/constants/config';
 import { DEFAULT_THEME, THEME_MAP } from '@mobile/constants/config';
+import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
 import { useMinimalAppDispatch, useMinimalAppSelector } from '@mobile/model/minimal-store';
-import { IStandardAppUserConfig, selectUserConfig } from '@mobile/model/app/slice';
-import { getUserConfig } from '@mobile-native/helpers/msg';
+import { IStandardAppUserConfig, selectUserConfig, setUserConfig, setUserInfo } from '@mobile/model/app/slice';
+import { getUserInfo, getUserConfig } from '@mobile-native/helpers/msg';
 
 const { classList } = document.documentElement;
 
@@ -21,35 +18,23 @@ export function withNative(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {
     const dispatch = useMinimalAppDispatch();
     const userConfig = useMinimalAppSelector(selectUserConfig);
-    const setLanguage = useAppStore((state) => state.setLanguage);
-    const setSessionCode = useAppStore((state) => state.setSessionCode);
-    const setUserConfig = useAppStore((state) => state.setUserConfig);
-    const setUserInfo = useAppStore((state) => state.setUserInfo);
 
-    function _updateUserConfig(config: IStandardAppUserConfig): void {
-      console.log('url: ', window.esboot_urlParams);
-      const prevTheme = useAppStore.getState().userConfig.theme || window?.esboot_urlParams?.theme;
+    function _updateUserConfig(appUserConfig: IStandardAppUserConfig): void {
+      const { theme: prevTheme, raise: prevRaise } = userConfig;
 
-      const { raise, theme, language } = config;
+      const { theme } = appUserConfig;
       const nextTheme = THEME_MAP[theme] || DEFAULT_THEME;
 
-      const cfg = {
-        theme: nextTheme,
-        quoteColor: QUOTE_COLOR_DICT[raise],
-      };
-
-      setUserConfig(cfg);
-      setLanguage(language);
-
+      classList.remove(prevRaise);
+      classList.add(appUserConfig.raise);
       classList.remove(prevTheme || 'null');
       classList.add(nextTheme);
+
+      dispatch(setUserConfig(appUserConfig));
     }
 
-    function _updateUserInfo(userInfo, isInit = false): void {
-      setUserInfo({ ...userInfo });
-
-      setSessionCode(userInfo.sessionCode);
-      if (isInit) requestProxyManager.clear(RequestProxyScope.DEFAULT);
+    function _updateUserInfo(userInfo): void {
+      dispatch(setUserInfo(userInfo));
     }
 
     useEffect(() => {
@@ -57,13 +42,13 @@ export function withNative(Component: FC<any>) {
         .then((res) => _updateUserConfig(res))
         .catch((err) => console.log(`获取用户配置失败: ${err}`));
 
-      updateUserConfig((res) => _updateUserConfig(res));
+      onUpdateUserConfig((res) => _updateUserConfig(res));
 
       getUserInfo()
-        .then((res) => _updateUserInfo(res, true))
+        .then((res) => _updateUserInfo(res))
         .catch((err) => console.log('err:', err));
 
-      updateUserInfo((res) => _updateUserInfo(res));
+      onUpdateUserInfo((res) => _updateUserInfo(res));
     }, []);
 
     return <Component {...props} />;
