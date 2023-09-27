@@ -2,7 +2,7 @@
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
-import { getUserConfig, getUserInfo, updateUserInfo, updateUserConfig } from '@dz-web/bridge/webview';
+import { getUserInfo, updateUserInfo, updateUserConfig } from '@dz-web/bridge/webview';
 import type { UserConfig } from '@dz-web/bridge/webview';
 import { requestProxyManager, RequestProxyScope } from '@dz-web/request';
 
@@ -10,6 +10,7 @@ import { useAppStore } from '@mobile-native/model/app';
 
 import { QUOTE_COLOR_DICT } from '@/constants/config';
 import { DEFAULT_THEME, THEME_MAP } from '@mobile/constants/config';
+import { getUserConfig } from '../../msg';
 
 const { classList } = document.documentElement;
 
@@ -25,6 +26,7 @@ export function withNative(Component: FC<any>) {
     const setUserInfo = useAppStore((state) => state.setUserInfo);
 
     function _updateUserConfig(config: UserConfig): void {
+      console.log('res: ', config);
       const prevTheme = useAppStore.getState().userConfig.theme || window?.esboot_urlParams?.theme;
 
       const { raise, theme, language } = config;
