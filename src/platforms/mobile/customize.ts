@@ -1,3 +1,5 @@
+import { listenError } from '@/hoc/query-client';
+
 /**
  * app传过来的原始设置信息, 代码中不使用此类型，使用dz web app标准类型IStandardAppUserConfig
  */
@@ -35,3 +37,7 @@ export interface IUserInfo {
 export function accessToken(userInfo: IUserInfo) {
   return userInfo.sessionCode;
 }
+
+listenError((friendlyMessage, error, meta) => {
+  console.error('还未添加全局错误提示', friendlyMessage, error, meta);
+});

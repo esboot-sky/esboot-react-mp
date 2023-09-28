@@ -3,6 +3,7 @@ import { mounteReact } from '@/helpers/react';
 import { useBridgeMock } from '@/constants/config';
 
 import { wrapRedux } from '@/hoc/redux';
+import { wrapReactQuery } from '@/hoc/query-client';
 import wrapNative from './hoc/native';
 import wrapI18n, { I18nOption } from './hoc/i18n';
 
@@ -35,6 +36,7 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
     wrapApp = wrapNative(wrapApp);
   }
 
+  wrapApp = wrapReactQuery(wrapApp);
   wrapApp = wrapRedux(wrapApp, store);
   mounte(native, wrapApp as React.ReactElement);
 }

@@ -1,12 +1,13 @@
 import { Button } from 'antd-mobile';
 import classNames from 'classnames';
-import { useAppStore } from '@/model';
 import { a, sayHi } from '@/helpers/multi-platforms';
 import './trade.scss';
+import { useAppDispatch, useAppSelector } from '../model/store';
+import { increase, selectCount } from '../model/hello/slice';
 
 const AppHome: React.FC = () => {
-  const bears = useAppStore((state) => state.bears);
-  const increase = useAppStore((state) => state.increase);
+  const dispatch = useAppDispatch();
+  const count = useAppSelector(selectCount);
 
   sayHi();
   console.log(a);
@@ -14,12 +15,12 @@ const AppHome: React.FC = () => {
   return (
     <div>
       <p styleName={classNames({ test: true })}>
-        Bears:
+        Counter:
         {' '}
-        {bears}
+        {count}
       </p>
 
-      <Button onClick={increase}>Add Bears</Button>
+      <Button onClick={() => dispatch(increase(1))}>Add</Button>
     </div>
   );
 };

@@ -15,5 +15,5 @@ export function onUpdateUserConfig(handle: (data: any) => void) {
  *
  */
 export function onUpdateUserInfo(handle: (data: IUserInfo) => void) {
-  return bridge.register('updateUserInfo', ((res) => handle(res)) as any);
+  return bridge.register<typeof handle>('updateUserInfo', handle);
 }
