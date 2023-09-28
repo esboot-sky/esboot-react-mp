@@ -8,8 +8,8 @@ dependencies:
     specifier: ^0.0.1
     version: 10.10.11.236+4873/@dz-web/axios-middlewares@0.0.1(@dz-web/axios@0.0.6)(axios@1.5.0)
   '@dz-web/bridge':
-    specifier: ^2.2.8
-    version: 10.10.11.236+4873/@dz-web/bridge@2.2.8
+    specifier: ^2.2.10
+    version: 10.10.11.236+4873/@dz-web/bridge@2.2.10
   '@dz-web/o-orange':
     specifier: ^3.7.14
     version: 10.10.11.236+4873/@dz-web/o-orange@3.7.14
@@ -76,8 +76,8 @@ dependencies:
 
 devDependencies:
   '@dz-web/esboot':
-    specifier: ^2.6.0
-    version: 10.10.11.236+4873/@dz-web/esboot@2.6.0(@types/node@20.6.5)(@types/react@18.2.22)(@umijs/preset-dumi@1.1.53)(browserslist@4.21.11)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.0.8)
+    specifier: ^2.6.1
+    version: 10.10.11.236+4873/@dz-web/esboot@2.6.1(@types/node@20.6.5)(@types/react@18.2.22)(@umijs/preset-dumi@1.1.53)(browserslist@4.21.11)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.0.8)
   '@types/node':
     specifier: ^20.6.5
     version: 10.10.11.236+4873/@types/node@20.6.5
@@ -3326,19 +3326,19 @@ packages:
       - utf-8-validate
     dev: true
 
-  10.10.11.236+4873/@dz-web/bridge@2.2.8:
-    resolution: {integrity: sha512-a2r+Pjyl/nEFXsBoHBvi2EBWz3Ut+ig+z0tGaVYTz0/QIq2RxGPFmjJc5Qr9Ga/ZuO2OXUJKxyfuil3psnBXkw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fbridge/-/bridge-2.2.8.tgz}
+  10.10.11.236+4873/@dz-web/bridge@2.2.10:
+    resolution: {integrity: sha512-hcabDgsDVTOeRnWMZahqDSg1c5YJ/HqKoTlo8bTHFwX7CaMDMYmEnhv7a0sdiVALtOpBJMasKXNxHWnDzSmI6Q==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fbridge/-/bridge-2.2.10.tgz}
     name: '@dz-web/bridge'
-    version: 2.2.8
+    version: 2.2.10
     dependencies:
       query-string: 10.10.11.236+4873/query-string@8.1.0
     dev: false
 
-  10.10.11.236+4873/@dz-web/esboot@2.6.0(@types/node@20.6.5)(@types/react@18.2.22)(@umijs/preset-dumi@1.1.53)(browserslist@4.21.11)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.0.8):
-    resolution: {integrity: sha512-DHuvnrVUwIz9N+CG2jpIUwfcK69pEX5W4sKNnZWmKaoFptddg00w0hZlbhcebXv7gtEZrWEUt9EjaUcOQskBig==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fesboot/-/esboot-2.6.0.tgz}
-    id: 10.10.11.236+4873/@dz-web/esboot/2.6.0
+  10.10.11.236+4873/@dz-web/esboot@2.6.1(@types/node@20.6.5)(@types/react@18.2.22)(@umijs/preset-dumi@1.1.53)(browserslist@4.21.11)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.0.8):
+    resolution: {integrity: sha512-LNK/7cZGSOmCezCi4i8e8/hk8VisLPLQyryn95Zui9pt/Gq7gxsO1q1xXe4DitmpbxqwPKo02E2uSIErHwgWAg==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fesboot/-/esboot-2.6.1.tgz}
+    id: 10.10.11.236+4873/@dz-web/esboot/2.6.1
     name: '@dz-web/esboot'
-    version: 2.6.0
+    version: 2.6.1
     hasBin: true
     dependencies:
       '@alitajs/postcss-plugin-px2rem': 10.10.11.236+4873/@alitajs/postcss-plugin-px2rem@0.0.1

@@ -16,7 +16,7 @@
   "dependencies": {
     "@dz-web/axios": "^0.0.6",
     "@dz-web/axios-middlewares": "^0.0.1",
-    "@dz-web/bridge": "^2.2.9",
+    "@dz-web/bridge": "^2.2.10",
     "@dz-web/o-orange": "^3.7.14",
     "@dz-web/request": "^0.1.12",
     "@loadable/component": "^5.15.3",
@@ -40,7 +40,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^2.6.0",
+    "@dz-web/esboot": "^2.6.1",
     "@types/node": "^20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "^18.2.7",
