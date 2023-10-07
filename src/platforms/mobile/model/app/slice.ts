@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { parseKeyValues } from '@websaber/string-utils';
 import { globalBlocker } from '@dz-web/axios-middlewares';
+import { Language, defaultLanguage } from '@/constants/config';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '../../customize';
 import { MinimalRootState } from '../minimal-store';
 
@@ -11,7 +12,7 @@ import { MinimalRootState } from '../minimal-store';
  */
 export interface IStandardAppUserConfig {
   theme: 'dark' | 'light';
-  language: 'zh-CN' | 'zh-TW' | 'en-US';
+  language: Language;
   raise: 'green' | 'red';
   deviceNo: string;
   raw: IRawAppUserConfig;
@@ -50,7 +51,7 @@ function createInitializedState(): IState {
       theme: 'light',
       deviceNo: '',
       // TODO: 从url取默认值
-      language: 'zh-CN',
+      language: defaultLanguage.ZH_CN,
       // TODO: 从url取默认值
       raise: 'red',
       raw: {} as IRawAppUserConfig,

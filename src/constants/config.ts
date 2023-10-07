@@ -11,13 +11,15 @@ export const useBridgeMock = defaultUseBridgeMock;
  * 多语言
  *
  */
-export enum Language {
-  ZH_CN = 'zh-CN',
-  ZH_TW = 'zh-TW',
-  EN_US = 'en-US',
-}
+export const defaultLanguage = {
+  ZH_CN: 'zh-CN',
+  ZH_TW: 'zh-TW',
+  EN_US: 'en-US',
+} as const;
 
-export const DEFAULT_LAN = Language.ZH_CN;
+export type Language = typeof defaultLanguage[keyof typeof defaultLanguage];
+
+export const DEFAULT_LAN = defaultLanguage.ZH_CN;
 
 // Quote Color
 const GREEN_COLOR = '#2d9e00';

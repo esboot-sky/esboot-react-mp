@@ -1,14 +1,13 @@
 import { IntlProvider } from 'react-intl';
 import { Language } from '@/constants/config';
 import { useLanguage } from '@mobile/hooks/use-language';
-import { getDisplayName } from './native';
 
 export interface I18nOption {
   messageDict: Record<Language, Record<string, string>>;
 }
 
 export default function wrapI18n(App: any, options: I18nOption): React.ReactNode {
-  const InternalApp: React.FC = () => {
+  function I18nApp() {
     const language = useLanguage();
 
     return (
@@ -16,8 +15,7 @@ export default function wrapI18n(App: any, options: I18nOption): React.ReactNode
         {App}
       </IntlProvider>
     );
-  };
+  }
 
-  InternalApp.displayName = `wrapI18n(${getDisplayName(App)})`;
-  return <InternalApp />;
+  return <I18nApp />;
 }
