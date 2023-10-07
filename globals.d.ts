@@ -19,3 +19,8 @@ declare namespace React {
     styleName?: string | undefined;
   }
 }
+
+declare module '*.json' {
+  const value: any;
+  export default value;
+}

@@ -6,7 +6,7 @@ export default defineConfig((runtimeCfg) => ({
   /**
    * 调试库兼容性问题时，可以关闭mfsu
    */
-  mfsu: true,
+  mfsu: false,
   pxtorem: {
     enable: true,
     rootValue: runtimeCfg.isMobile ? 200 : 13,
@@ -48,6 +48,10 @@ export default defineConfig((runtimeCfg) => ({
         'perfect-scrollbar',
       ]
     },
+  },
+  define: {
+    'process.env.isMobile': runtimeCfg.isMobile as any,
+    'process.env.isBrowser': runtimeCfg.isBrowser as any,
   },
 }));
 

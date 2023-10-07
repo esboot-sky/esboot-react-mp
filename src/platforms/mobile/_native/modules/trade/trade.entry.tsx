@@ -1,22 +1,21 @@
 import generatePage from '@mobile-native/helpers/generate-page';
-import { defaultLanguage } from '@/constants/config';
 
-import zhCN from '@/lang/zh-CN';
-import zhTW from '@/lang/zh-TW';
-import enUS from '@/lang/en-US';
+import zhTW from '@mobile/modules/trade/locales/zh-TW.json';
+import enUS from '@mobile/modules/trade/locales/en-US.json';
 
 import App from '@mobile/modules/trade/trade';
 import { store } from '@mobile/modules/trade/model/store';
+import { getPageI18n } from '@/locales/import-locales';
+
+const zhCN = require('@mobile/modules/trade/locales/zh-CN.json');
 
 generatePage(<App />, {
   store,
-  i18n: {
-    messageDict: {
-      [defaultLanguage.ZH_TW]: zhTW,
-      [defaultLanguage.ZH_CN]: zhCN,
-      [defaultLanguage.EN_US]: enUS,
-    },
-  },
+  i18n: getPageI18n({
+    'zh-CN': zhCN,
+    'zh-TW': zhTW,
+    'en-US': enUS,
+  }),
 });
 
 export default {

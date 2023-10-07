@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import { Button } from 'antd-mobile';
 import { useQueryClient } from '@tanstack/react-query';
 import classNames from 'classnames';
@@ -19,12 +20,13 @@ const AppHome: React.FC = () => {
   return (
     <div>
       <p styleName={classNames({ test: true })}>
-        Counter:
+        <FormattedMessage id="global.mobile.page.quantity" />
+        :
         {' '}
         {count}
       </p>
 
-      <Button onClick={() => dispatch(increase(1))}>Add</Button>
+      <Button onClick={() => dispatch(increase(1))}><FormattedMessage id="global.mobile.page.increase" /></Button>
     </div>
   );
 };

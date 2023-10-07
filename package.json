@@ -40,7 +40,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^2.6.1",
+    "@dz-web/esboot": "^2.6.2",
     "@types/node": "^20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "^18.2.7",
