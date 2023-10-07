@@ -1,13 +1,12 @@
 import generatePage from '@mobile-native/helpers/generate-page';
 
+import zhCN from '@mobile/modules/trade/locales/zh-CN.json';
 import zhTW from '@mobile/modules/trade/locales/zh-TW.json';
 import enUS from '@mobile/modules/trade/locales/en-US.json';
 
 import App from '@mobile/modules/trade/trade';
 import { store } from '@mobile/modules/trade/model/store';
 import { getPageI18n } from '@/locales/import-locales';
-
-const zhCN = require('@mobile/modules/trade/locales/zh-CN.json');
 
 generatePage(<App />, {
   store,
