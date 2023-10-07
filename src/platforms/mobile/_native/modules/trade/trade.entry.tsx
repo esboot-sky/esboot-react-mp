@@ -5,8 +5,8 @@ import zhCN from '@/lang/zh-CN';
 import zhTW from '@/lang/zh-TW';
 import enUS from '@/lang/en-US';
 
-import App from './trade';
-import { store } from '../model/store';
+import App from '@mobile/modules/trade/trade';
+import { store } from '@mobile/modules/model/store';
 
 generatePage(<App />, {
   store,
