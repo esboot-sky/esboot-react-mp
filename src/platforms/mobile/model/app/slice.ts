@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { parseKeyValues } from '@websaber/string-utils';
+import { globalBlocker } from '@dz-web/axios-middlewares';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '../../customize';
 import { MinimalRootState } from '../minimal-store';
 
@@ -85,8 +86,7 @@ export const slice = createSlice({
 
       const token = accessToken(action.payload);
       if (token) {
-        console.log('拿到token了');
-        // globalBlocker.done();
+        globalBlocker.done();
       }
     },
     setLanguage: (state, action: PayloadAction<any>) => {
