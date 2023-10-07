@@ -16,27 +16,15 @@ interface GeneratePageOptions {
   i18n?: I18nOption;
 }
 
-function mounte(native: boolean, innerApp: React.ReactElement) {
-  if (native) {
-    bridge.ready(() => {
-      mounteReact(innerApp);
-    });
-  } else {
-    mounteReact(innerApp);
-  }
-}
-
 export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
-  const { native = true, i18n, store } = options;
+  const { i18n, store } = options;
   let wrapApp: React.ReactNode = App;
 
   if (i18n) wrapApp = wrapI18n(wrapApp, i18n);
-  if (native) {
-    bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.webview);
-    wrapApp = wrapNative(wrapApp);
-  }
+  bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.webview);
+  wrapApp = wrapNative(wrapApp);
 
   wrapApp = wrapReactQuery(wrapApp);
   wrapApp = wrapRedux(wrapApp, store);
-  mounte(native, wrapApp as React.ReactElement);
+  mounteReact(wrapApp as React.ReactElement);
 }
