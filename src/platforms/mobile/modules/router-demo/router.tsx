@@ -1,17 +1,19 @@
 import { createHashRouter } from 'react-router-dom';
 import loadable from '@loadable/component';
 
-import App from './app';
+import Index from './pages/index';
+import Detail from './pages/detail/detail';
 
-import demoRouters from '../demo/router';
-
-const NotFound = loadable(() => import('../misc/not-found/not-found'));
+const NotFound = loadable(() => import('./pages/not-found/not-found'));
 
 const router = createHashRouter([
   {
     path: '/',
-    element: <App />,
-    children: [demoRouters],
+    element: <Index />,
+  },
+  {
+    path: '/detail',
+    element: <Detail />,
   },
   {
     path: '*',

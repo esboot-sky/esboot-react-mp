@@ -1,5 +1,11 @@
 declare interface Window {
+  __router__?: any;
+  /**
+   * 页面覆盖自己的退出登录方法，请求失败时使用
+   */
+  __logout__?: () => void;
   __mobile__store__: any;
+  __pc__store__: any;
   GLOBAL_CONFIG: {
     COMMON_SERVERS: any;
   };
