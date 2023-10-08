@@ -26,5 +26,7 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
 
   wrapApp = wrapReactQuery(wrapApp);
   wrapApp = wrapRedux(wrapApp, store);
-  mounteReact(wrapApp as React.ReactElement);
+  bridge.ready(() => {
+    mounteReact(wrapApp as React.ReactElement);
+  });
 }

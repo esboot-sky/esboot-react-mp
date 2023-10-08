@@ -4,9 +4,10 @@
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
 import { DEFAULT_THEME, THEME_MAP } from '@mobile/constants/config';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
-import { useMinimalAppDispatch, useMinimalAppSelector } from '@mobile/model/minimal-store';
-import { IStandardAppUserConfig, selectUserConfig, setUserConfig, setUserInfo } from '@mobile/model/app/slice';
+import { useMinimalAppDispatch } from '@mobile/model/minimal-store';
+import { IStandardAppUserConfig, setUserInfo } from '@mobile/model/app/slice';
 import { getUserInfo, getUserConfig } from '@mobile-native/helpers/msg';
+import { useUserConfig } from '@mobile/hooks/use-user-config';
 
 const { classList } = document.documentElement;
 
@@ -17,7 +18,10 @@ export function getDisplayName(WrappedComponent: React.FC): string {
 export function withNative(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {
     const dispatch = useMinimalAppDispatch();
-    const userConfig = useMinimalAppSelector(selectUserConfig);
+    const {
+      userConfig,
+      setUserConfig,
+    } = useUserConfig();
 
     function _updateUserConfig(appUserConfig: IStandardAppUserConfig): void {
       const { theme: prevTheme, raise: prevRaise } = userConfig;
@@ -30,7 +34,7 @@ export function withNative(Component: FC<any>) {
       classList.remove(prevTheme || 'null');
       classList.add(nextTheme);
 
-      dispatch(setUserConfig(appUserConfig));
+      setUserConfig(appUserConfig);
     }
 
     function _updateUserInfo(userInfo): void {
