@@ -1,18 +1,10 @@
 import React, { ReactNode } from 'react';
-import EventEmitter from 'eventemitter3';
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { globalEventsCenter } from '@/global-events';
 
 const EVENTS = {
   ERROR: 'error',
 };
-
-const errorEmitter = new EventEmitter();
-
-export type ErrorCallback = (friendlyMessage: string, error: Error, meta: IMeta) => void;
-
-export function listenError(callback: ErrorCallback) {
-  errorEmitter.on(EVENTS.ERROR, callback);
-}
 
 export interface IMeta {
   /**
@@ -34,7 +26,7 @@ function handleRequestError(
     if (!suppressErrorNotification) {
       const message = errorMessage || error?.message || '系统异常';
 
-      errorEmitter.emit(EVENTS.ERROR, message, error, meta);
+      globalEventsCenter.emit(EVENTS.ERROR, message, error, meta);
     }
   }
 }

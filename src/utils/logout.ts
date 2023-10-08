@@ -1,3 +1,5 @@
+import { GlobalEvents, globalEventsCenter } from '@/global-events';
+
 export function logout() {
-  window.__logout__?.();
+  globalEventsCenter.emit(GlobalEvents.LOGIN_EXPIRED);
 }

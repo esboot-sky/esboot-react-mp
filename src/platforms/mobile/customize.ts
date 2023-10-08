@@ -1,5 +1,5 @@
-import { listenError } from '@/hoc/query-client';
 import { Language } from '@/constants/config';
+import { listenReactQueryError } from '../../global-events';
 
 /**
  * app传过来的原始设置信息, 代码中不使用此类型，使用dz web app标准类型IStandardAppUserConfig
@@ -43,6 +43,9 @@ export function accessToken(userInfo: IUserInfo) {
   return userInfo.sessionCode;
 }
 
-listenError((friendlyMessage, error, meta) => {
+// 监听react query错误
+listenReactQueryError((friendlyMessage, error, meta) => {
   console.error('还未添加全局错误提示', friendlyMessage, error, meta);
 });
+
+// TODO: 监听请求失败错误

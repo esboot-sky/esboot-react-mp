@@ -20,10 +20,3 @@ generatePage(<App />, {
 export default {
   title: 'Mobile-Native',
 };
-
-/**
- * 为api请求失败时，提供自定义的退出登录的方法, 如不提供，不会调用
- */
-window.__logout__ = () => {
-  console.warn('call logout native app');
-};
