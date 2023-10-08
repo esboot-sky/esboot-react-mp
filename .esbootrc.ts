@@ -10,6 +10,8 @@ export default defineConfig((runtimeCfg) => ({
   mfsu: false,
   pxtorem: {
     enable: true,
+    // root rem设置为200，编译生成的值，心算的时候x rem X 100即可得到在375px浏览器下的px值
+    // 如375px编译为1.875rem，心算时1.875rem X 100 = 187.5px, 即在375浏览器窗口下，半屏宽度
     rootValue: runtimeCfg.isMobile ? 200 : 13,
   },
   extraBabelIncludes: [
@@ -28,6 +30,7 @@ export default defineConfig((runtimeCfg) => ({
     jsStrategy: CodeSplittingType.granularChunks,
     jsStrategyOptions: {
       frameworkBundles: [
+        // 不要添加router进来，我们绝大多数页面都是嵌入到webview中用的小页面，不需要router，所以router不需要打进公共代码库里。会影响大部分页面的加载速度
         '@dz-web/bridge',
         '@dz-web/request',
         'dayjs',

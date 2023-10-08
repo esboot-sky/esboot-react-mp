@@ -1,5 +1,6 @@
 import { genericMemo } from '@/utils/react-utils';
 import { Link } from 'react-router-dom';
+import './index.scss';
 
 const Index = genericMemo(function Index() {
   return (
@@ -12,6 +13,9 @@ const Index = genericMemo(function Index() {
       >
         go to detail
       </Link>
+      <div styleName="w375">
+        375 width in 750 design
+      </div>
     </div>
   );
 });

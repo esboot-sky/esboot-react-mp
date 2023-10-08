@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createDZAxiosInstance } from '@dz-web/axios';
 import { createBasicPatternMiddleware } from '@dz-web/axios-middlewares';
 import { logout } from '@/utils/logout';
-import { getPlatformIndependentUserConfig } from '../../utils/platfom-indepent/user-config';
+import { getPlatformIndependentUserConfig } from '@/utils/platfom-indepent/user-config';
 
 export interface IJavaBaseResponse<Data = any> {
   code: number;
