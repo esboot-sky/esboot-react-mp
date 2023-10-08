@@ -5,8 +5,8 @@ dependencies:
     specifier: ^0.0.6
     version: 10.10.11.236+4873/@dz-web/axios@0.0.6(axios@1.5.0)
   '@dz-web/axios-middlewares':
-    specifier: ^0.0.1
-    version: 10.10.11.236+4873/@dz-web/axios-middlewares@0.0.1(@dz-web/axios@0.0.6)(axios@1.5.0)
+    specifier: ^0.1.1
+    version: 10.10.11.236+4873/@dz-web/axios-middlewares@0.1.1(@dz-web/axios@0.0.6)(axios@1.5.0)
   '@dz-web/bridge':
     specifier: ^2.2.10
     version: 10.10.11.236+4873/@dz-web/bridge@2.2.10
@@ -3247,11 +3247,11 @@ packages:
       postcss: 10.10.11.236+4873/postcss@8.4.30
     dev: true
 
-  10.10.11.236+4873/@dz-web/axios-middlewares@0.0.1(@dz-web/axios@0.0.6)(axios@1.5.0):
-    resolution: {integrity: sha512-uEotfCjwEaKcs0aHN9kwMyumI25yEDuaIgya8wCLaMMXA8pFjF+edw0h29Ijm6M8mPOGw9CEj7ZhsKDULBRoPw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2faxios-middlewares/-/axios-middlewares-0.0.1.tgz}
-    id: 10.10.11.236+4873/@dz-web/axios-middlewares/0.0.1
+  10.10.11.236+4873/@dz-web/axios-middlewares@0.1.1(@dz-web/axios@0.0.6)(axios@1.5.0):
+    resolution: {integrity: sha512-dmrPh1aqvFU4KEofSDA5vMFdv8o9sAzkSY/1aclz5j7LoH+e4y/7yW/a/sXEM3Y09Su6d4IQnZdVY5TzS+ER5A==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2faxios-middlewares/-/axios-middlewares-0.1.1.tgz}
+    id: 10.10.11.236+4873/@dz-web/axios-middlewares/0.1.1
     name: '@dz-web/axios-middlewares'
-    version: 0.0.1
+    version: 0.1.1
     peerDependencies:
       '@dz-web/axios': '*'
       axios: '*'
