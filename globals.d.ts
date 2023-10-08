@@ -1,4 +1,5 @@
 declare interface Window {
+  __mobile__store__: any;
   GLOBAL_CONFIG: {
     COMMON_SERVERS: any;
   };

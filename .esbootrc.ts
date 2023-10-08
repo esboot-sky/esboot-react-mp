@@ -1,6 +1,7 @@
 import { defineConfig, CodeSplittingType } from '@dz-web/esboot';
 
 export default defineConfig((runtimeCfg) => ({
+  TSChecker: false,
   // port: 8081,
   analyze: false,
   /**

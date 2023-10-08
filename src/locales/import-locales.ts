@@ -19,7 +19,7 @@ import pcBrowserENLocales from '@pc-browser/locales/en-US.json';
 import pcNativeCNLocales from '@pc-native/locales/zh-CN.json';
 import pcNativeTWLocales from '@pc-native/locales/zh-TW.json';
 import pcNativeENLocales from '@pc-native/locales/en-US.json';
-import { Language, defaultLanguage } from '../constants/config';
+import { Language, supportedLanguage } from '../constants/config';
 import type { I18nOption } from '../platforms/mobile/hoc/i18n';
 
 export function importLocales(pageLocales: Record<string, string>, lang: Language) {
@@ -28,7 +28,7 @@ export function importLocales(pageLocales: Record<string, string>, lang: Languag
   // eslint-disable-next-line prefer-destructuring
   const isBrowser = process.env.isBrowser;
 
-  if (lang === defaultLanguage.ZH_CN) {
+  if (lang === supportedLanguage.ZH_CN) {
     return {
       ...globalCNLocales,
       ...(isMobile ? {
@@ -41,7 +41,7 @@ export function importLocales(pageLocales: Record<string, string>, lang: Languag
       ...pageLocales,
     };
   }
-  if (lang === defaultLanguage.ZH_TW) {
+  if (lang === supportedLanguage.ZH_TW) {
     return {
       ...globalTWLocales,
       ...(isMobile ? {
@@ -54,7 +54,7 @@ export function importLocales(pageLocales: Record<string, string>, lang: Languag
       ...pageLocales,
     };
   }
-  if (lang === defaultLanguage.EN_US) {
+  if (lang === supportedLanguage.EN_US) {
     return {
       ...globalENLocales,
       ...(isMobile ? {
@@ -73,9 +73,9 @@ export function importLocales(pageLocales: Record<string, string>, lang: Languag
 
 export function getPageI18n(dict: I18nOption['messageDict']) {
   const locales = {
-    [defaultLanguage.ZH_TW]: importLocales(dict['zh-TW'], defaultLanguage.ZH_TW),
-    [defaultLanguage.ZH_CN]: importLocales(dict['zh-CN'], defaultLanguage.ZH_CN),
-    [defaultLanguage.EN_US]: importLocales(dict['en-US'], defaultLanguage.EN_US),
+    [supportedLanguage.ZH_TW]: importLocales(dict['zh-TW'], supportedLanguage.ZH_TW),
+    [supportedLanguage.ZH_CN]: importLocales(dict['zh-CN'], supportedLanguage.ZH_CN),
+    [supportedLanguage.EN_US]: importLocales(dict['en-US'], supportedLanguage.EN_US),
   };
 
   console.log('多语言配置:', locales);

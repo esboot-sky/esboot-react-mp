@@ -13,11 +13,15 @@ export interface IRawAppUserConfig {
   global_font_scale: number;
 }
 
+export interface IRequiredUserInfo {
+  token: string;
+}
+
 /**
  * 不同的app user info不可能统一格式
  * 在这里根据app提供的内容，改成自己的格式即可
  */
-export interface IUserInfo {
+export interface IUserInfo extends IRequiredUserInfo {
   sessionCode: string;
   bcanStatus: string;
   bindTrade: boolean;

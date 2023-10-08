@@ -16,6 +16,8 @@ const store = configureStore({
   },
 });
 
+export type MinimalStoreType = typeof store;
+
 // // Infer the `RootState` and `AppDispatch` types from the store itself
 
 export type MinimalRootState = ReturnType<typeof store.getState>;
