@@ -17,5 +17,5 @@ export default defineConfig({
 });
 
 export const afterHooks = (compileTimeConfig: CompileTimeConfig) => {
-  console.log(compileTimeConfig, '<-- compileTimeConfig');
+  // console.log(compileTimeConfig, '<-- compileTimeConfig');
 }
