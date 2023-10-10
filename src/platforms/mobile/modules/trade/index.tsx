@@ -1,6 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 import { Button } from 'antd-mobile';
 import { useQueryClient } from '@tanstack/react-query';
+import { CacheStore } from '@dz-web/cache';
 import classNames from 'classnames';
 import { a, sayHi } from '@/helpers/multi-platforms';
 import './index.scss';
@@ -11,6 +12,7 @@ const AppHome: React.FC = () => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const queryClient = useQueryClient();
+  CacheStore.setItem('userInfoTest', { name: 'test' });
 
   console.log('query client: ', queryClient);
 

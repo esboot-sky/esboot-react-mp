@@ -10,6 +10,9 @@ dependencies:
   '@dz-web/bridge':
     specifier: ^2.2.10
     version: 10.10.11.236+4873/@dz-web/bridge@2.2.10
+  '@dz-web/cache':
+    specifier: ^2.0.0
+    version: 10.10.11.236+4873/@dz-web/cache@2.0.0
   '@dz-web/o-orange':
     specifier: ^3.7.14
     version: 10.10.11.236+4873/@dz-web/o-orange@3.7.14
@@ -3332,6 +3335,14 @@ packages:
     version: 2.2.10
     dependencies:
       query-string: 10.10.11.236+4873/query-string@8.1.0
+    dev: false
+
+  10.10.11.236+4873/@dz-web/cache@2.0.0:
+    resolution: {integrity: sha512-l6pn9pAXRC/7nmPmoNMn4KG/e2KIJLkbgOAUzgXdF6gJ2ZYViICEo0p0UyshlnwQTcEsv1+fYv8LYGWveACw3w==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@dz-web%2fcache/-/cache-2.0.0.tgz}
+    name: '@dz-web/cache'
+    version: 2.0.0
+    dependencies:
+      crypto-js: 10.10.11.236+4873/crypto-js@4.1.1
     dev: false
 
   10.10.11.236+4873/@dz-web/esboot@2.6.2(@types/node@20.6.5)(@types/react@18.2.22)(@umijs/preset-dumi@1.1.53)(browserslist@4.21.11)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.0.8):

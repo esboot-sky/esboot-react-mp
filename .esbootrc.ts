@@ -29,6 +29,7 @@ export default defineConfig((runtimeCfg) => ({
   codeSplitting: {
     jsStrategy: CodeSplittingType.granularChunks,
     jsStrategyOptions: {
+      // 为了提高首屏速度，我们把一些非常非常常用的库打进公共代码库里, 不常用的让跟着页面js加载，以免影响大部分小页面的加载与js解析速度
       frameworkBundles: [
         // 不要添加router进来，我们绝大多数页面都是嵌入到webview中用的小页面，不需要router，所以router不需要打进公共代码库里。会影响大部分页面的加载速度
         '@dz-web/bridge',
