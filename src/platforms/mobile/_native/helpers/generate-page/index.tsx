@@ -5,7 +5,7 @@ import { useBridgeMock } from '@/constants/config';
 import wrapI18n, { I18nOption } from '@mobile/hoc/i18n';
 import { wrapRedux } from '@/hoc/redux';
 import { wrapReactQuery } from '@/hoc/query-client';
-import wrapNative from './hoc/native';
+import wrapNative from '../../hoc/native';
 
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';

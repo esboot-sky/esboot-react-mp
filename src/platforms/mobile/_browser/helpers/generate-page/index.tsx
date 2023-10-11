@@ -6,6 +6,7 @@ import { wrapReactQuery } from '@/hoc/query-client';
 
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';
+import '@/helpers/browser/init-page-query';
 
 interface GeneratePageOptions {
   store: any;

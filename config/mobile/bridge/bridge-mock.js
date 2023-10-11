@@ -26,7 +26,7 @@ const userConfig = {
   global_font_scale: 2,
   language: 'zh-CN', // zh-TW  zh-CN
   raise: 'green', // 红涨绿跌 还是绿涨红跌
-  theme: 'light', // dark light red
+  theme: 'dark', // dark light red
   themeMode: 'dark',
 
   // 发现app目前没有提供的

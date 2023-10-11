@@ -5,7 +5,7 @@ import zhTW from '@mobile/modules/trade/locales/zh-TW.json';
 import enUS from '@mobile/modules/trade/locales/en-US.json';
 
 import App from '@mobile/modules/router-demo';
-import { store } from '@mobile/modules/trade/model/store';
+import { store } from '@mobile/modules/router-demo/model/store';
 import { getPageI18n } from '@/locales/import-locales';
 
 generatePage(<App />, {

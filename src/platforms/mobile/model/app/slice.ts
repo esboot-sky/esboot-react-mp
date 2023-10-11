@@ -1,10 +1,20 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { parseKeyValues } from '@websaber/string-utils';
 import { globalBlocker } from '@dz-web/axios-middlewares';
 import { Language, RaiseMode, supportedLanguage } from '@/constants/config';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
 import { SupportedThemes, ThemeValues } from '@mobile/constants/config';
+import { initPageQuery } from '@/helpers/browser/init-page-query';
+import { CacheStore } from '@dz-web/cache';
+import { isSupportedLanguage, isSupportedTheme, isValidRaiseMode } from '@/utils/capacities';
+import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
 import { MinimalRootState } from '../minimal-store';
+
+const getDefaultTheme = () => {
+  const { theme } = initPageQuery;
+  if (isSupportedTheme(theme)) return theme as ThemeValues;
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? SupportedThemes.dark : SupportedThemes.light;
+};
 
 /**
  * 点证web app移动端标准用户设置
@@ -35,40 +45,38 @@ interface IState {
 function createInitializedState(): IState {
   const {
     theme,
-    language,
+    lang,
     raise,
-  } = parseKeyValues(window.location.href);
+  } = initPageQuery;
 
   const defaultState = {
     /**
      * 成功初始化，获取到pc主题信息, 防止抖动, 其它方案目前都有小问题未解决，暂时先这样处理
      */
     initialized: false,
-    userInfo: {
+    userInfo: CacheStore.getItem(CACHE_KEY_USER_INFO, {
       sessionCode: '',
-    },
-    userConfig: {
-      // TODO: 从url取默认值
-      theme: SupportedThemes.light,
+    }),
+    userConfig: CacheStore.getItem(CACHE_KEY_USER_CONFIG, {
+      theme: getDefaultTheme(),
+      // 浏览器环境自动生成虚拟设备号
       deviceNo: '',
-      // TODO: 从url取默认值
       language: supportedLanguage.ZH_CN,
-      // TODO: 从url取默认值
       raise: 'red',
       raw: {} as IRawAppUserConfig,
-    },
+    }),
   } as IState;
 
-  if (theme === 'dark' || theme === 'light') {
-    defaultState.userConfig.theme = theme;
+  if (isSupportedTheme(theme)) {
+    defaultState.userConfig.theme = theme as ThemeValues;
   }
 
-  if (raise === 'green' || raise === 'red') {
-    defaultState.userConfig.raise = raise as 'green' | 'red';
+  if (isValidRaiseMode(raise)) {
+    defaultState.userConfig.raise = raise as RaiseMode;
   }
 
-  if (language === 'zh-CN' || language === 'zh-TW' || language === 'en-US') {
-    defaultState.userConfig.language = language;
+  if (isSupportedLanguage(lang)) {
+    defaultState.userConfig.language = lang as Language;
   }
 
   return defaultState;

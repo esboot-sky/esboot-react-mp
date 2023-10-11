@@ -1,6 +1,6 @@
 import { MinimalStoreType } from '@mobile/model/minimal-store';
 import { accessToken } from '@mobile/customize';
-import { supportedLanguage } from '../../constants/config';
+import { supportedLanguage } from '@/constants/config';
 
 export function getPlatformIndependentUserConfig() {
   if (process.env.isMobile) {
