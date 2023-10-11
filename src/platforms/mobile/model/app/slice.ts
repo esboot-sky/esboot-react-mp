@@ -1,8 +1,9 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { parseKeyValues } from '@websaber/string-utils';
 import { globalBlocker } from '@dz-web/axios-middlewares';
-import { Language, supportedLanguage } from '@/constants/config';
-import { IRawAppUserConfig, IUserInfo, accessToken } from '../../customize';
+import { Language, RaiseMode, supportedLanguage } from '@/constants/config';
+import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
+import { SupportedThemes, ThemeValues } from '@mobile/constants/config';
 import { MinimalRootState } from '../minimal-store';
 
 /**
@@ -11,9 +12,9 @@ import { MinimalRootState } from '../minimal-store';
  * 需要读取原始配置，请读取raw字段
  */
 export interface IStandardAppUserConfig {
-  theme: 'dark' | 'light';
+  theme: ThemeValues;
   language: Language;
-  raise: 'green' | 'red';
+  raise: RaiseMode;
   deviceNo: string;
   raw: IRawAppUserConfig;
 }
@@ -48,7 +49,7 @@ function createInitializedState(): IState {
     },
     userConfig: {
       // TODO: 从url取默认值
-      theme: 'light',
+      theme: SupportedThemes.light,
       deviceNo: '',
       // TODO: 从url取默认值
       language: supportedLanguage.ZH_CN,
@@ -91,7 +92,31 @@ export const slice = createSlice({
       }
     },
     setLanguage: (state, action: PayloadAction<any>) => {
-      state.userConfig.language = action.payload;
+      const language = action.payload;
+
+      const langs = Object.keys(supportedLanguage).map((key) => supportedLanguage[key]);
+      if (langs.includes(language)) {
+        state.userConfig.language = language;
+      } else {
+        console.error('无效语言设置: ', action.payload);
+      }
+    },
+    setTheme(state, action: PayloadAction<ThemeValues>) {
+      const theme = SupportedThemes[action.payload];
+
+      // 判断主题是否有效
+      if (theme) {
+        state.userConfig.theme = theme;
+      } else {
+        console.error('无效主题设置: ', action.payload);
+      }
+    },
+    setRaise(state, action: PayloadAction<RaiseMode>) {
+      if (action.payload === 'green' || action.payload === 'red') {
+        state.userConfig.raise = action.payload;
+      } else {
+        console.error('无效涨跌颜色设置: ', action.payload);
+      }
     },
   },
 });
@@ -99,6 +124,8 @@ export const slice = createSlice({
 export const {
   setUserConfig,
   setUserInfo,
+  setTheme,
+  setRaise,
 } = slice.actions;
 
 export const selectUserConfig = (state: MinimalRootState) => state.app.userConfig;

@@ -2,7 +2,7 @@
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
-import { DEFAULT_THEME, THEME_MAP } from '@mobile/constants/config';
+import { DEFAULT_THEME, SupportedThemes } from '@mobile/constants/config';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
 import { useMinimalAppDispatch } from '@mobile/model/minimal-store';
 import { IStandardAppUserConfig, setUserInfo } from '@mobile/model/app/slice';
@@ -28,12 +28,12 @@ export function withNative(Component: FC<any>) {
       const { theme: prevTheme, raise: prevRaise } = userConfig;
 
       const { theme } = appUserConfig;
-      const nextTheme = THEME_MAP[theme] || DEFAULT_THEME;
+      const nextTheme = SupportedThemes[theme] || DEFAULT_THEME;
 
       classList.remove(prevRaise);
       classList.add(appUserConfig.raise);
       classList.remove(`dz-theme-${prevTheme}` || 'null');
-      classList.add(`dz-theme${nextTheme}`);
+      classList.add(`dz-theme-${nextTheme}`);
 
       setUserConfig(appUserConfig);
     }

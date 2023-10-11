@@ -25,8 +25,8 @@ const userConfig = {
   font_size: 2, // 0 - 4  最小 - 最大 默认值2
   global_font_scale: 2,
   language: 'zh-CN', // zh-TW  zh-CN
-  raise: 'red', // 红涨绿跌 还是绿涨红跌
-  theme: 'dark', // dark light red
+  raise: 'green', // 红涨绿跌 还是绿涨红跌
+  theme: 'light', // dark light red
   themeMode: 'dark',
 
   // 发现app目前没有提供的

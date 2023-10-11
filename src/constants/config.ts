@@ -18,6 +18,7 @@ export const supportedLanguage = {
 } as const;
 
 export type Language = typeof supportedLanguage[keyof typeof supportedLanguage];
+export type RaiseMode = 'green' | 'red';
 
 export const DEFAULT_LAN = supportedLanguage.ZH_CN;
 

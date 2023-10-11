@@ -1,11 +1,12 @@
 import { Language } from '@/constants/config';
-import { listenReactQueryError } from '../../global-events';
+import { listenReactQueryError } from '@/global-events';
+import { ThemeValues } from './constants/config';
 
 /**
  * app传过来的原始设置信息, 代码中不使用此类型，使用dz web app标准类型IStandardAppUserConfig
  */
 export interface IRawAppUserConfig {
-  theme: 'dark' | 'light';
+  theme: ThemeValues;
   deviceNo: string;
   language: Language;
   orderToConfirmByDialog: boolean;
