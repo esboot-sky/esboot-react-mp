@@ -32,8 +32,8 @@ export function withNative(Component: FC<any>) {
 
       classList.remove(prevRaise);
       classList.add(appUserConfig.raise);
-      classList.remove(prevTheme || 'null');
-      classList.add(nextTheme);
+      classList.remove(`dz-theme-${prevTheme}` || 'null');
+      classList.add(`dz-theme${nextTheme}`);
 
       setUserConfig(appUserConfig);
     }
