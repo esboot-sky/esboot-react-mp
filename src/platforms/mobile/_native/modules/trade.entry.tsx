@@ -1,4 +1,4 @@
-import generatePage from '@mobile-native/helpers/generate-page';
+import generatePage from '@mobile-browser/helpers/generate-page';
 
 import zhCN from '@mobile/modules/trade/locales/zh-CN.json';
 import zhTW from '@mobile/modules/trade/locales/zh-TW.json';

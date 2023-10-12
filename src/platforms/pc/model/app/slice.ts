@@ -6,7 +6,7 @@ import { DEFAULT_THEME, SupportedThemes, ThemeValues } from '@pc/constants/confi
 import { initPageQuery } from '@/helpers/browser/init-page-query';
 import { CacheStore } from '@dz-web/cache';
 import { isSupportedLanguage, isSupportedTheme, isValidRaiseMode } from '@/utils/capacities';
-import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
+import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
 import { isBrowser } from '@/utils/platforms';
 import { MinimalRootState } from '@pc/model/minimal-store';
 import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
@@ -76,10 +76,10 @@ function createInitializedState(): IState {
   }
 
   const defaultState = {
-    userInfo: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_INFO), {
+    userInfo: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_PC_USER_INFO), {
       sessionCode: '',
     } as IUserInfo),
-    userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_CONFIG), {
+    userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_PC_USER_CONFIG), {
       theme: DEFAULT_THEME,
       deviceNo: '',
       followSystemPrefersColorSchemeWhenInBrowser: isBrowser(),

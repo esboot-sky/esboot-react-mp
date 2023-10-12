@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import app from '@mobile/model/app/slice';
-import { subscribeUserAndCache } from '@mobile/model/subscriber';
+import app from '@pc/model/app/slice';
+import { subscribeUserAndCache } from '@pc/model/subscriber';
 import hello from './hello/slice';
 
 export const store = configureStore({
