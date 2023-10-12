@@ -3,8 +3,7 @@
  */
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
-import { useMinimalAppDispatch } from '@mobile/model/minimal-store';
-import { IStandardAppUserConfig, setUserInfo } from '@mobile/model/app/slice';
+import { setUserInfo } from '@mobile/model/app/slice';
 import { getUserInfo, getUserConfig } from '@mobile-native/helpers/msg';
 import { useUserConfig } from '@mobile/hooks/use-user-config';
 import { listenLoginExpired } from '@/global-events';
@@ -15,31 +14,22 @@ export function getDisplayName(WrappedComponent: React.FC): string {
 
 export function withNative(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {
-    const dispatch = useMinimalAppDispatch();
     const {
       setUserConfig,
     } = useUserConfig();
-
-    function _updateUserConfig(appUserConfig: IStandardAppUserConfig): void {
-      setUserConfig(appUserConfig);
-    }
-
-    function _updateUserInfo(userInfo): void {
-      dispatch(setUserInfo(userInfo));
-    }
 
     useEffect(() => {
       getUserConfig()
         .then(setUserConfig)
         .catch((err) => console.log(`获取用户配置失败: ${err}`));
 
-      const disposeUserConfigListener = onUpdateUserConfig((res) => _updateUserConfig(res));
+      const disposeUserConfigListener = onUpdateUserConfig(setUserConfig);
 
       getUserInfo()
-        .then((res) => _updateUserInfo(res))
+        .then(setUserInfo)
         .catch((err) => console.log('err:', err));
 
-      const disposeUserInfoListener = onUpdateUserInfo((res) => _updateUserInfo(res));
+      const disposeUserInfoListener = onUpdateUserInfo(setUserInfo);
 
       return () => {
         disposeUserConfigListener();
