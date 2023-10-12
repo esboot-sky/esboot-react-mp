@@ -1,14 +1,15 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { globalBlocker } from '@dz-web/axios-middlewares';
 import { Language, RaiseMode, DEFAULT_RAISE_MODE, supportedLanguage, DEFAULT_LANGUAGE } from '@/constants/config';
-import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
-import { DEFAULT_THEME, SupportedThemes, ThemeValues } from '@mobile/constants/config';
+import { IRawAppUserConfig, IUserInfo, accessToken } from '@pc/customize';
+import { DEFAULT_THEME, SupportedThemes, ThemeValues } from '@pc/constants/config';
 import { initPageQuery } from '@/helpers/browser/init-page-query';
 import { CacheStore } from '@dz-web/cache';
 import { isSupportedLanguage, isSupportedTheme, isValidRaiseMode } from '@/utils/capacities';
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
 import { isBrowser } from '@/utils/platforms';
-import { MinimalRootState } from '@mobile/model/minimal-store';
+import { MinimalRootState } from '@pc/model/minimal-store';
+import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
 
 const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {
   const { theme } = initPageQuery;
@@ -37,6 +38,8 @@ export interface IStandardAppUserConfig {
    */
   followSystemPrefersColorSchemeWhenInBrowser: boolean;
   deviceNo: string;
+  appFontSize: number;
+  appFontWeight: 'normal' | 'bold';
   raw: IRawAppUserConfig;
 }
 
@@ -56,6 +59,8 @@ function createInitializedState(): IState {
   const {
     lang,
     raise,
+    additionalSize,
+    fontWeight,
   } = initPageQuery;
 
   function getValueButIgnoreInNative<T>(run: () => T | undefined | null, defaultValue: T) {
@@ -76,14 +81,12 @@ function createInitializedState(): IState {
     } as IUserInfo),
     userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_CONFIG), {
       theme: DEFAULT_THEME,
-      // TODO: 浏览器环境自动生成虚拟设备号
       deviceNo: '',
-      /**
-       * 跟随系统颜色模式，默认为true
-       */
       followSystemPrefersColorSchemeWhenInBrowser: isBrowser(),
       language: DEFAULT_LANGUAGE,
       raise: DEFAULT_RAISE_MODE,
+      appFontSize: 14,
+      appFontWeight: 'normal',
       raw: {} as IRawAppUserConfig,
     }),
   } as IState;
@@ -103,6 +106,14 @@ function createInitializedState(): IState {
 
   if (isSupportedLanguage(lang)) {
     defaultState.userConfig.language = lang as Language;
+  }
+
+  if (additionalSize) {
+    defaultState.userConfig.appFontSize = getRealPCNativeFontSizee(additionalSize);
+  }
+
+  if (fontWeight === 'bold' || fontWeight === 'normal') {
+    defaultState.userConfig.appFontWeight = fontWeight;
   }
 
   return defaultState;

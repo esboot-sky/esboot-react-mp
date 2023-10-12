@@ -2,13 +2,20 @@ import isDeepEqual from 'react-fast-compare';
 import { CacheStore } from '@dz-web/cache';
 import { isBrowser } from '@/utils/platforms';
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
-import { updateRootClass } from '../helpers/theme';
+import { updateRootClass } from '@pc/helpers/theme';
 import { MinimalStoreType } from './minimal-store';
 
+// 与app端重复程度很大，看看是否有优化空间
 export function subscribeUserAndCache(store: MinimalStoreType) {
   const previousApp = store.getState().app;
 
-  updateRootClass(previousApp.userConfig.theme, previousApp.userConfig.raise, previousApp.userConfig.language);
+  updateRootClass(
+    previousApp.userConfig.theme,
+    previousApp.userConfig.raise,
+    previousApp.userConfig.language,
+    previousApp.userConfig.appFontSize,
+    previousApp.userConfig.appFontWeight,
+  );
 
   // 浏览器环境初始化时，会从url参数获取初始参数，需要更新到storage
   if (isBrowser()) {
@@ -22,7 +29,13 @@ export function subscribeUserAndCache(store: MinimalStoreType) {
     // 引用相同，不需要任何判断
     if (currentApp === previousApp) return;
 
-    updateRootClass(currentApp.userConfig.theme, currentApp.userConfig.raise, currentApp.userConfig.language);
+    updateRootClass(
+      currentApp.userConfig.theme,
+      currentApp.userConfig.raise,
+      currentApp.userConfig.language,
+      currentApp.userConfig.appFontSize,
+      currentApp.userConfig.appFontWeight,
+    );
 
     // 原生环境里运行，让原生端管理用户数据，不需要缓存
     if (isBrowser()) {

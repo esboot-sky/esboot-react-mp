@@ -87,6 +87,9 @@ devDependencies:
   '@types/dz-web':
     specifier: ^1.0.1
     version: 10.10.11.236+4873/@types/dz-web@1.0.1
+  '@types/lodash-es':
+    specifier: ^4.17.9
+    version: 10.10.11.236+4873/@types/lodash-es@4.17.9
   '@types/node':
     specifier: ^20.6.5
     version: 10.10.11.236+4873/@types/node@20.6.5
@@ -5843,6 +5846,20 @@ packages:
     version: 3.1.4
     dependencies:
       '@types/node': 10.10.11.236+4873/@types/node@20.6.5
+    dev: true
+
+  10.10.11.236+4873/@types/lodash-es@4.17.9:
+    resolution: {integrity: sha512-ZTcmhiI3NNU7dEvWLZJkzG6ao49zOIjEgIE0RgV7wbPxU0f2xT3VSAHw2gmst8swH6V0YkLRGp4qPlX/6I90MQ==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@types%2flodash-es/-/lodash-es-4.17.9.tgz}
+    name: '@types/lodash-es'
+    version: 4.17.9
+    dependencies:
+      '@types/lodash': 10.10.11.236+4873/@types/lodash@4.14.199
+    dev: true
+
+  10.10.11.236+4873/@types/lodash@4.14.199:
+    resolution: {integrity: sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@types%2flodash/-/lodash-4.14.199.tgz}
+    name: '@types/lodash'
+    version: 4.14.199
     dev: true
 
   10.10.11.236+4873/@types/mathjax@0.0.36:

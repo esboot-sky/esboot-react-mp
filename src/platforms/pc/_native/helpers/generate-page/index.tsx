@@ -2,43 +2,35 @@ import { bridge, BridgePlatforms } from '@dz-web/bridge';
 import { mounteReact } from '@/helpers/react';
 import { useBridgeMock } from '@/constants/config';
 
-import wrapNative from './hoc/native';
-import wrapI18n, { I18nOption } from './hoc/i18n';
-import wrapAntd from './hoc/antd';
+import wrapI18n from '@pc/hoc/i18n';
+import { wrapRedux } from '@/hoc/redux';
+import { subscribeUserAndCache } from '@pc/model/subscriber';
+import { wrapReactQuery } from '@/hoc/query-client';
+import { I18nOption } from '@/types';
+import wrapNative from '@pc-native/hoc/native';
 
 import '@/styles/index.scss';
 import '@pc/styles/index.scss';
 
-interface IOptions {
-  store?: any;
+interface GeneratePageOptions {
+  store: any;
   native?: boolean;
   i18n?: I18nOption;
-  antd?: boolean;
-  quote?: boolean;
 }
 
-function mounte(native: boolean, innerApp: React.ReactElement) {
-  if (native) {
-    bridge.ready(() => {
-      mounteReact(innerApp);
-    });
-  } else {
-    mounteReact(innerApp);
-  }
-}
-
-export default function generatePage(wrapApp: React.ReactNode, options: IOptions = {}): void {
-  const { native = true, i18n, antd = true } = options;
+export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
+  const { i18n, store } = options;
+  let wrapApp: React.ReactNode = App;
 
   if (i18n) wrapApp = wrapI18n(wrapApp, i18n);
+  bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.pc);
+  wrapApp = wrapNative(wrapApp);
 
-  if (native) {
-    bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.pc);
+  wrapApp = wrapReactQuery(wrapApp);
+  wrapApp = wrapRedux(wrapApp, store);
+  bridge.ready(() => {
+    mounteReact(wrapApp as React.ReactElement);
+  });
 
-    wrapApp = wrapNative(wrapApp);
-  }
-
-  if (antd) wrapApp = wrapAntd(wrapApp);
-
-  mounte(native, wrapApp as React.ReactElement);
+  subscribeUserAndCache(store);
 }

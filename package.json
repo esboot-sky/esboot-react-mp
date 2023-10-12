@@ -44,6 +44,7 @@
   "devDependencies": {
     "@dz-web/esboot": "^2.7.0",
     "@types/dz-web": "^1.0.1",
+    "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "^18.2.7",
@@ -72,7 +73,7 @@
   "prettier": "@dz-web/esboot/config/prettier/index.json",
   "browserslist": {
     "development": [
-      "last 1 chrome version"
+      "Chrome >= 67"
     ],
     "pc-native-production": [
       "Chrome >= 67"

@@ -7,7 +7,7 @@ export default defineConfig((runtimeCfg) => ({
   /**
    * 调试库兼容性问题时，可以关闭mfsu
    */
-  mfsu: true,
+  mfsu: false,
   pxtorem: {
     enable: true,
     // root rem设置为200，编译生成的值，心算的时候x rem X 100即可得到在375px浏览器下的px值
