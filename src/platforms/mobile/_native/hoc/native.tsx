@@ -3,7 +3,7 @@
  */
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
-import { getUserInfo, getUserConfig } from '@mobile-native/helpers/msg';
+import { getUserInfo, getUserConfig, sendLoginStatus } from '@mobile-native/helpers/msg';
 import { useUserConfig } from '@mobile/hooks/use-user-config';
 import { listenLoginExpired } from '@/global-events';
 import { useUserInfo } from '@mobile/hooks/use-user-info';
@@ -46,6 +46,10 @@ export default function wrapNative(App: ReactNode): React.ReactNode {
   return <WrappedComponent />;
 }
 
-listenLoginExpired(() => {
+listenLoginExpired((serverResponse) => {
   console.warn('原生app登录过期, 调用退出登录交互');
+  sendLoginStatus({
+    code: serverResponse?.code || 76,
+    message: serverResponse?.message || '登录过期',
+  });
 });

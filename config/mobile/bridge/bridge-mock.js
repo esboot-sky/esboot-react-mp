@@ -57,7 +57,8 @@ module.exports = {
       {
         userInfo: () => userInfo,
         getTradeConfig: () => tradeConfig,
-        sessionCodeExpire: (args) => {
+        // code 后端返回的code, message 后端返回的message
+        loginStatus: ({ code, message }) => {
           console.log(`登录超时: \n${JSON.stringify(args)}`);
         },
         getUserConfiguration: () => userConfig,

@@ -27,13 +27,19 @@ export const authedAxiosInst = createDZAxiosInstance(() => axios.create({
     // 正常返回，但业务code指示为非0，业务错误
     onBusinessError: (data) => {
       if (data.code === 401) {
-        logout();
+        logout({
+          code: data.code,
+          message: data.message,
+        });
       }
     },
     // 非2xx请求，或网络错误
     onFatalError(error, res) {
       if (res.status === 401) {
-        logout();
+        logout({
+          code: 76,
+          message: res.statusText,
+        });
       }
     },
   }),

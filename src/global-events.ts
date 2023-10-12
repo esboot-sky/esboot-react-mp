@@ -17,6 +17,6 @@ export function listenReactQueryError(callback: ErrorCallback) {
   globalEventsCenter.on(GlobalEvents.REACT_QUERY_REQUEST_ERROR, callback);
 }
 
-export function listenLoginExpired(callback: () => void) {
+export function listenLoginExpired(callback: (serverResponse) => void) {
   globalEventsCenter.on(GlobalEvents.LOGIN_EXPIRED, callback);
 }

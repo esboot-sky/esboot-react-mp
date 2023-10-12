@@ -1,6 +1,7 @@
 import { Language, RaiseMode } from '@/constants/config';
 import { listenReactQueryError } from '@/global-events';
-import { ThemeValues } from './constants/config';
+import { ThemeValues } from '@mobile/constants/config';
+import { IStandardAppUserConfig } from '@mobile/model/app/slice';
 
 /**
  * app传过来的原始设置信息, 代码中不使用此类型，使用dz web app标准类型IStandardAppUserConfig
@@ -12,6 +13,26 @@ export interface IRawAppUserConfig {
   orderToConfirmByDialog: boolean;
   raise: RaiseMode;
   global_font_scale: number;
+}
+
+export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
+  const {
+    theme,
+    language,
+    raise,
+    deviceNo,
+  } = rawAppUserConfig;
+
+  const standardUserConfig: IStandardAppUserConfig = {
+    deviceNo,
+    theme,
+    language,
+    raw: rawAppUserConfig,
+    raise,
+  };
+
+  console.log('AppUserConfig(dz标准app用户配置): ', standardUserConfig);
+  return standardUserConfig;
 }
 
 /**

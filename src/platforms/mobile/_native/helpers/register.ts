@@ -1,6 +1,5 @@
 import { bridge } from '@dz-web/bridge';
-import { IUserInfo } from '../../customize';
-import { oldStyle2Standard } from './msg';
+import { IUserInfo, oldStyle2Standard } from '@mobile/customize';
 
 /**
  * 换肤等配置信息变化
