@@ -54,7 +54,7 @@ interface IState {
 
 function createInitializedState(): IState {
   const {
-    lang,
+    language: lang,
     raise,
   } = initPageQuery;
 

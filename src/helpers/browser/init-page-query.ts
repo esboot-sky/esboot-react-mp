@@ -1,7 +1,7 @@
 import { parseKeyValues } from '@websaber/string-utils';
 
 export const initPageQuery: {
-  lang?: string;
+  language?: string;
   theme?: string;
   raise?: string;
   [key: string]: string | number | undefined;
