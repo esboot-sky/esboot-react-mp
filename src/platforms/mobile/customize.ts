@@ -15,6 +15,9 @@ export interface IRawAppUserConfig {
   global_font_scale: number;
 }
 
+/**
+ * 转换原始app用户配置为标准app用户配置
+ */
 export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
   const {
     theme,
@@ -27,6 +30,7 @@ export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
     deviceNo,
     theme,
     language,
+    // app端不需要跟随系统颜色设置，因为app端有自己的颜色设置，变化了会通知webview页面
     followSystemPrefersColorSchemeWhenInBrowser: false,
     raw: rawAppUserConfig,
     raise,
