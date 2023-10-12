@@ -13,6 +13,10 @@ html {
   text-size-adjust: 100%; /* 2 */
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Sections
    ========================================================================== */
 
@@ -370,8 +374,4 @@ template {
 
 [hidden] {
   display: none;
-}
-
-* {
-  box-sizing: border-box;
 }
