@@ -27,7 +27,7 @@ const userConfig = {
   language: 'zh-CN', // zh-TW  zh-CN
   raise: 'green', // 红涨绿跌 还是绿涨红跌
   theme: 'dark', // dark light red
-  themeMode: 'dark',
+  // themeMode: 'dark',
 
   // 发现app目前没有提供的
   env: 'dev',

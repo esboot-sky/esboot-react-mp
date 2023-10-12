@@ -8,6 +8,7 @@ import { CacheStore } from '@dz-web/cache';
 import { isSupportedLanguage, isSupportedTheme, isValidRaiseMode } from '@/utils/capacities';
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
 import { MinimalRootState } from '../minimal-store';
+import { isBrowser } from '../../../../utils/platforms';
 
 const getDefaultTheme = () => {
   const { theme } = initPageQuery;
@@ -49,15 +50,27 @@ function createInitializedState(): IState {
     raise,
   } = initPageQuery;
 
+  function getValueButIgnoreInNative<T>(run: () => T | undefined | null, defaultValue: T) {
+    if (isBrowser()) {
+      const v = run();
+
+      if (v) return v;
+
+      return defaultValue;
+    }
+
+    return defaultValue;
+  }
+
   const defaultState = {
     /**
      * 成功初始化，获取到pc主题信息, 防止抖动, 其它方案目前都有小问题未解决，暂时先这样处理
      */
     initialized: false,
-    userInfo: CacheStore.getItem(CACHE_KEY_USER_INFO, {
+    userInfo: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_INFO), {
       sessionCode: '',
-    }),
-    userConfig: CacheStore.getItem(CACHE_KEY_USER_CONFIG, {
+    } as IUserInfo),
+    userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_CONFIG), {
       theme: getDefaultTheme(),
       // 浏览器环境自动生成虚拟设备号
       deviceNo: '',
@@ -67,6 +80,7 @@ function createInitializedState(): IState {
     }),
   } as IState;
 
+  // 从url中获取初始配置信息, 主题、语言、涨跌颜色
   if (isSupportedTheme(theme)) {
     defaultState.userConfig.theme = theme as ThemeValues;
   }

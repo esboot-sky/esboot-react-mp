@@ -8,7 +8,6 @@ import { useMinimalAppDispatch } from '@mobile/model/minimal-store';
 import { IStandardAppUserConfig, setUserInfo } from '@mobile/model/app/slice';
 import { getUserInfo, getUserConfig } from '@mobile-native/helpers/msg';
 import { useUserConfig } from '@mobile/hooks/use-user-config';
-import { listenLoginExpired } from '@/global-events';
 
 const { classList } = document.documentElement;
 
@@ -65,6 +64,6 @@ export default function wrapBrowser(App: ReactNode): React.ReactNode {
   return <WrappedComponent />;
 }
 
-listenLoginExpired(() => {
-  console.warn('原生app登录过期, 调用退出登录交互');
-});
+// listenLoginExpired(() => {
+//   console.warn('原生app登录过期, 调用退出登录交互');
+// });
