@@ -3,10 +3,10 @@
  */
 import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
-import { setUserInfo } from '@mobile/model/app/slice';
 import { getUserInfo, getUserConfig } from '@mobile-native/helpers/msg';
 import { useUserConfig } from '@mobile/hooks/use-user-config';
 import { listenLoginExpired } from '@/global-events';
+import { useUserInfo } from '@mobile/hooks/use-user-info';
 
 export function getDisplayName(WrappedComponent: React.FC): string {
   return WrappedComponent.displayName || 'Component';
@@ -17,6 +17,10 @@ export function withNative(Component: FC<any>) {
     const {
       setUserConfig,
     } = useUserConfig();
+
+    const {
+      setUserInfo,
+    } = useUserInfo();
 
     useEffect(() => {
       getUserConfig()

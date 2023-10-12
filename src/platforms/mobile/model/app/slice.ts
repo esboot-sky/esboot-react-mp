@@ -63,10 +63,6 @@ function createInitializedState(): IState {
   }
 
   const defaultState = {
-    /**
-     * 成功初始化，获取到pc主题信息, 防止抖动, 其它方案目前都有小问题未解决，暂时先这样处理
-     */
-    initialized: false,
     userInfo: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_INFO), {
       sessionCode: '',
     } as IUserInfo),
@@ -103,7 +99,6 @@ export const slice = createSlice({
   reducers: {
     setUserConfig: (state, action: PayloadAction<IStandardAppUserConfig>) => {
       state.userConfig = action.payload;
-      state.initialized = true;
     },
     setUserInfo: (state, action: PayloadAction<IUserInfo>) => {
       state.userInfo = action.payload;
@@ -151,6 +146,7 @@ export const {
 } = slice.actions;
 
 export const selectUserConfig = (state: MinimalRootState) => state.app.userConfig;
+export const selectUserInfo = (state: MinimalRootState) => state.app.userInfo;
 export const selectLanguage: (state: MinimalRootState) => string = (state) => state.app.userConfig.language;
 export const selectInitialized = (state: MinimalRootState) => state.app.initialized;
 

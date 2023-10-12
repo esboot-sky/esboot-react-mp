@@ -7,6 +7,7 @@ import { wrapReactQuery } from '@/hoc/query-client';
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';
 import '@/helpers/browser/init-page-query';
+import { subscribeUserAndCache } from '../../../model/subscriber';
 
 interface GeneratePageOptions {
   store: any;
@@ -22,4 +23,6 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
   wrapApp = wrapReactQuery(wrapApp);
   wrapApp = wrapRedux(wrapApp, store);
   mounteReact(wrapApp as React.ReactElement);
+
+  subscribeUserAndCache(store);
 }

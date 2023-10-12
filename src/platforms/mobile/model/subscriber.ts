@@ -2,8 +2,8 @@ import isDeepEqual from 'react-fast-compare';
 import { CacheStore } from '@dz-web/cache';
 import { isBrowser } from '@/utils/platforms';
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
+import { updateRootClass } from '@/helpers/theme';
 import { MinimalStoreType } from './minimal-store';
-import { updateRootClass } from '../../../helpers/theme';
 
 export function subscribeUserAndCache(store: MinimalStoreType) {
   const previousApp = store.getState().app;

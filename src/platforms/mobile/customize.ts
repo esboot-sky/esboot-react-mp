@@ -1,4 +1,4 @@
-import { Language } from '@/constants/config';
+import { Language, RaiseMode } from '@/constants/config';
 import { listenReactQueryError } from '@/global-events';
 import { ThemeValues } from './constants/config';
 
@@ -10,19 +10,15 @@ export interface IRawAppUserConfig {
   deviceNo: string;
   language: Language;
   orderToConfirmByDialog: boolean;
-  raise: 'green' | 'red';
+  raise: RaiseMode;
   global_font_scale: number;
-}
-
-export interface IRequiredUserInfo {
-  token: string;
 }
 
 /**
  * 不同的app user info不可能统一格式
  * 在这里根据app提供的内容，改成自己的格式即可
  */
-export interface IUserInfo extends IRequiredUserInfo {
+export interface IUserInfo {
   sessionCode: string;
   bcanStatus: string;
   bindTrade: boolean;

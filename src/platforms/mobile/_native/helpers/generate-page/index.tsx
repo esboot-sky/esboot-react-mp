@@ -4,6 +4,7 @@ import { useBridgeMock } from '@/constants/config';
 
 import wrapI18n, { I18nOption } from '@mobile/hoc/i18n';
 import { wrapRedux } from '@/hoc/redux';
+import { subscribeUserAndCache } from '@mobile/model/subscriber';
 import { wrapReactQuery } from '@/hoc/query-client';
 import wrapNative from '../../hoc/native';
 
@@ -29,4 +30,6 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
   bridge.ready(() => {
     mounteReact(wrapApp as React.ReactElement);
   });
+
+  subscribeUserAndCache(store);
 }
