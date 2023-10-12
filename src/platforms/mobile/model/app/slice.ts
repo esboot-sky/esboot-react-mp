@@ -1,14 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { globalBlocker } from '@dz-web/axios-middlewares';
-import { Language, RaiseMode, supportedLanguage } from '@/constants/config';
+import { Language, RaiseMode, DEFAULT_RAISE_MODE, supportedLanguage, DEFAULT_LANGUAGE } from '@/constants/config';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
 import { SupportedThemes, ThemeValues } from '@mobile/constants/config';
 import { initPageQuery } from '@/helpers/browser/init-page-query';
 import { CacheStore } from '@dz-web/cache';
 import { isSupportedLanguage, isSupportedTheme, isValidRaiseMode } from '@/utils/capacities';
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
-import { MinimalRootState } from '../minimal-store';
-import { isBrowser } from '../../../../utils/platforms';
+import { isBrowser } from '@/utils/platforms';
+import { MinimalRootState } from '@mobile/model/minimal-store';
 
 const getDefaultTheme = () => {
   const { theme } = initPageQuery;
@@ -68,10 +68,10 @@ function createInitializedState(): IState {
     } as IUserInfo),
     userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_CONFIG), {
       theme: getDefaultTheme(),
-      // 浏览器环境自动生成虚拟设备号
+      // TODO: 浏览器环境自动生成虚拟设备号
       deviceNo: '',
-      language: supportedLanguage.ZH_CN,
-      raise: 'red',
+      language: DEFAULT_LANGUAGE,
+      raise: DEFAULT_RAISE_MODE,
       raw: {} as IRawAppUserConfig,
     }),
   } as IState;

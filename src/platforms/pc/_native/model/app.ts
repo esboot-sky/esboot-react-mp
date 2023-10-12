@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { DEFAULT_LAN, QuoteColorDirection } from '@/constants/config';
+import { DEFAULT_LANGUAGE, QuoteColorDirection } from '@/constants/config';
 
 export interface UserConfig {
   riseFallColor?: QuoteColorDirection;
@@ -43,7 +43,7 @@ interface AppStore {
 
 const useAppStore = create<AppStore>()(
   immer((set) => ({
-    language: DEFAULT_LAN,
+    language: DEFAULT_LANGUAGE,
     setLanguage: (language) => set((state) => {
       state.language = language;
     }),
@@ -52,7 +52,7 @@ const useAppStore = create<AppStore>()(
       state.sessionCode = sessionCode;
     }),
     userConfig: {
-      language: DEFAULT_LAN,
+      language: DEFAULT_LANGUAGE,
     },
     setUserConfig: (conf) => set((state) => {
       state.userConfig = conf;
