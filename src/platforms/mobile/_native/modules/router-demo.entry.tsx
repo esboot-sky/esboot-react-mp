@@ -6,7 +6,7 @@ import enUS from '@mobile/modules/trade/locales/en-US.json';
 
 import App from '@mobile/modules/router-demo';
 import { store } from '@mobile/modules/router-demo/model/store';
-import { getPageI18n } from '@/locales/import-locales';
+import { getPageI18n } from '@/helpers/import-locales';
 
 generatePage(<App />, {
   store,

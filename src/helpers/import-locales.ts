@@ -19,8 +19,8 @@ import pcBrowserENLocales from '@pc-browser/locales/en-US.json';
 import pcNativeCNLocales from '@pc-native/locales/zh-CN.json';
 import pcNativeTWLocales from '@pc-native/locales/zh-TW.json';
 import pcNativeENLocales from '@pc-native/locales/en-US.json';
-import { Language, supportedLanguage } from '../constants/config';
-import type { I18nOption } from '../platforms/mobile/hoc/i18n';
+import { I18nOption } from '@/types';
+import { Language, supportedLanguage } from '@/constants/config';
 
 export function importLocales(pageLocales: Record<string, string>, lang: Language) {
   // eslint-disable-next-line prefer-destructuring
@@ -78,7 +78,10 @@ export function getPageI18n(dict: I18nOption['messageDict']) {
     [supportedLanguage.EN_US]: importLocales(dict['en-US'], supportedLanguage.EN_US),
   };
 
-  console.log('多语言配置:', locales);
+  if (process.env.NODE_ENV === 'development') {
+    console.log('多语言配置:', locales);
+  }
+
   return {
     messageDict: locales,
   };
