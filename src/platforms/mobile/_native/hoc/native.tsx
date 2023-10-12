@@ -8,10 +8,6 @@ import { useUserConfig } from '@mobile/hooks/use-user-config';
 import { listenLoginExpired } from '@/global-events';
 import { useUserInfo } from '@mobile/hooks/use-user-info';
 
-export function getDisplayName(WrappedComponent: React.FC): string {
-  return WrappedComponent.displayName || 'Component';
-}
-
 export function withNative(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {
     const {
