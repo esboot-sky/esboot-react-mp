@@ -27,6 +27,7 @@ export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
     deviceNo,
     theme,
     language,
+    followSystemPrefersColorSchemeWhenInBrowser: false,
     raw: rawAppUserConfig,
     raise,
   };

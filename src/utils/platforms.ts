@@ -7,7 +7,7 @@ export function isPC() {
 }
 
 export function isBrowser() {
-  return process.env.isBrowser;
+  return !!process.env.isBrowser;
 }
 
 export function isNative() {

@@ -2,11 +2,12 @@ import { bridge, BridgePlatforms } from '@dz-web/bridge';
 import { mounteReact } from '@/helpers/react';
 import { useBridgeMock } from '@/constants/config';
 
-import wrapI18n, { I18nOption } from '@mobile/hoc/i18n';
+import wrapI18n from '@mobile/hoc/i18n';
 import { wrapRedux } from '@/hoc/redux';
 import { subscribeUserAndCache } from '@mobile/model/subscriber';
 import { wrapReactQuery } from '@/hoc/query-client';
-import wrapNative from '../../hoc/native';
+import { I18nOption } from '@/types';
+import wrapNative from '@mobile-native/hoc/native';
 
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';

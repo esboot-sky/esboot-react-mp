@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { globalBlocker } from '@dz-web/axios-middlewares';
 import { Language, RaiseMode, DEFAULT_RAISE_MODE, supportedLanguage, DEFAULT_LANGUAGE } from '@/constants/config';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
-import { SupportedThemes, ThemeValues } from '@mobile/constants/config';
+import { DEFAULT_THEME, SupportedThemes, ThemeValues } from '@mobile/constants/config';
 import { initPageQuery } from '@/helpers/browser/init-page-query';
 import { CacheStore } from '@dz-web/cache';
 import { isSupportedLanguage, isSupportedTheme, isValidRaiseMode } from '@/utils/capacities';
@@ -10,11 +10,17 @@ import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
 import { isBrowser } from '@/utils/platforms';
 import { MinimalRootState } from '@mobile/model/minimal-store';
 
-const getDefaultTheme = () => {
+const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {
   const { theme } = initPageQuery;
+  // 优先使用url指定的主题初始化
   if (isSupportedTheme(theme)) return theme as ThemeValues;
 
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? SupportedThemes.dark : SupportedThemes.light;
+  // 浏览器模式下，设置了跟随系统设置, 则根据系统设置初始化
+  if (followSystem) {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? SupportedThemes.dark : SupportedThemes.light;
+  }
+
+  return defaultTheme;
 };
 
 /**
@@ -26,13 +32,16 @@ export interface IStandardAppUserConfig {
   theme: ThemeValues;
   language: Language;
   raise: RaiseMode;
+  /**
+   * 跟随系统颜色模式
+   */
+  followSystemPrefersColorSchemeWhenInBrowser: boolean;
   deviceNo: string;
   raw: IRawAppUserConfig;
 }
 
 // Define a type for the slice state
 interface IState {
-  initialized: boolean;
   /**
    * 类型待定，暂无标准
    */
@@ -45,7 +54,6 @@ interface IState {
 
 function createInitializedState(): IState {
   const {
-    theme,
     lang,
     raise,
   } = initPageQuery;
@@ -67,16 +75,24 @@ function createInitializedState(): IState {
       sessionCode: '',
     } as IUserInfo),
     userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_USER_CONFIG), {
-      theme: getDefaultTheme(),
+      theme: DEFAULT_THEME,
       // TODO: 浏览器环境自动生成虚拟设备号
       deviceNo: '',
+      /**
+       * 跟随系统颜色模式，默认为true
+       */
+      followSystemPrefersColorSchemeWhenInBrowser: isBrowser(),
       language: DEFAULT_LANGUAGE,
       raise: DEFAULT_RAISE_MODE,
       raw: {} as IRawAppUserConfig,
     }),
   } as IState;
 
-  // 从url中获取初始配置信息, 主题、语言、涨跌颜色
+  const theme = getDefaultTheme(
+    defaultState.userConfig.followSystemPrefersColorSchemeWhenInBrowser,
+    DEFAULT_THEME,
+  );
+
   if (isSupportedTheme(theme)) {
     defaultState.userConfig.theme = theme as ThemeValues;
   }
@@ -120,7 +136,6 @@ export const slice = createSlice({
     },
     setTheme(state, action: PayloadAction<ThemeValues>) {
       const theme = SupportedThemes[action.payload];
-
       // 判断主题是否有效
       if (theme) {
         state.userConfig.theme = theme;
@@ -135,6 +150,13 @@ export const slice = createSlice({
         console.error('无效涨跌颜色设置: ', action.payload);
       }
     },
+    toggleFollowSystemPrefersColorSchemeWhenInBrowser(state) {
+      const { followSystemPrefersColorSchemeWhenInBrowser } = state.userConfig;
+      state.userConfig.followSystemPrefersColorSchemeWhenInBrowser = !followSystemPrefersColorSchemeWhenInBrowser;
+    },
+    disableFollowSystemPrefersColorSchemeWhenInBrowser(state) {
+      state.userConfig.followSystemPrefersColorSchemeWhenInBrowser = false;
+    },
   },
 });
 
@@ -143,6 +165,8 @@ export const {
   setUserInfo,
   setTheme,
   setRaise,
+  toggleFollowSystemPrefersColorSchemeWhenInBrowser,
+  disableFollowSystemPrefersColorSchemeWhenInBrowser,
 } = slice.actions;
 
 export const selectUserConfig = (state: MinimalRootState) => state.app.userConfig;

@@ -1,13 +1,15 @@
 import { mounteReact } from '@/helpers/react';
 
-import wrapI18n, { I18nOption } from '@mobile/hoc/i18n';
+import wrapI18n from '@mobile/hoc/i18n';
 import { wrapRedux } from '@/hoc/redux';
 import { wrapReactQuery } from '@/hoc/query-client';
 
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';
 import '@/helpers/browser/init-page-query';
-import { subscribeUserAndCache } from '../../../model/subscriber';
+import { I18nOption } from '@/types';
+import { subscribeUserAndCache } from '@mobile/model/subscriber';
+import wrapBrowser from '@mobile-browser/hoc/browser';
 
 interface GeneratePageOptions {
   store: any;
@@ -19,6 +21,8 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
   let wrapApp: React.ReactNode = App;
 
   if (i18n) wrapApp = wrapI18n(wrapApp, i18n);
+
+  wrapApp = wrapBrowser(wrapApp);
 
   wrapApp = wrapReactQuery(wrapApp);
   wrapApp = wrapRedux(wrapApp, store);
