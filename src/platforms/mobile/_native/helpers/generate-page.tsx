@@ -20,8 +20,8 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
 
   bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.webview);
   wrapApp = wrapNative(wrapApp);
-
   wrapApp = wrapReactQuery(wrapApp);
+
   wrapApp = wrapTopErrorBoundary(wrapApp, TopErrorBoundaryFallback);
   wrapApp = wrapI18n(wrapApp, i18n);
   wrapApp = wrapRedux(wrapApp, store);
