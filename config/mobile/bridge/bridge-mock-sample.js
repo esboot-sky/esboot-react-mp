@@ -25,9 +25,9 @@ const userConfig = {
   font_size: 2, // 0 - 4  最小 - 最大 默认值2
   global_font_scale: 2,
   language: 'zh-CN', // zh-TW  zh-CN
-  raise: 'red', // 红涨绿跌 还是绿涨红跌
+  raise: 'green', // 红涨绿跌 还是绿涨红跌
   theme: 'dark', // dark light red
-  themeMode: 'dark',
+  // themeMode: 'dark',
 
   // 发现app目前没有提供的
   env: 'dev',
@@ -57,7 +57,8 @@ module.exports = {
       {
         userInfo: () => userInfo,
         getTradeConfig: () => tradeConfig,
-        sessionCodeExpire: (args) => {
+        // code 后端返回的code, message 后端返回的message
+        loginStatus: ({ code, message }) => {
           console.log(`登录超时: \n${JSON.stringify(args)}`);
         },
         getUserConfiguration: () => userConfig,
