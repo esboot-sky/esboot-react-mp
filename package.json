@@ -82,11 +82,11 @@
     ],
     "mobile-native-production": [
       "ChromeAndroid >= 75",
-      "ios_saf >= 10"
+      "ios_saf >= 11"
     ],
     "mobile-browser-production": [
       "ChromeAndroid >= 75",
-      "ios_saf >= 10"
+      "ios_saf >= 11"
     ]
   }
 }

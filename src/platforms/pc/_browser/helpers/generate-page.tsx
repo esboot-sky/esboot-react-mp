@@ -6,7 +6,6 @@ import { wrapReactQuery } from '@/hoc/query-client';
 
 import '@/styles/index.scss';
 import '@pc/styles/index.scss';
-import '@/helpers/browser/init-page-query';
 import { I18nOption } from '@/types';
 import { subscribeUserAndCache } from '@pc/model/subscriber';
 import wrapBrowser from '@pc-browser/hoc/browser';
