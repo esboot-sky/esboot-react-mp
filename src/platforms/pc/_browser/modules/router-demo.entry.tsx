@@ -1,4 +1,4 @@
-import generatePage from '@pc-native/helpers/generate-page';
+import generatePage from '@pc-browser/helpers/generate-page';
 
 import zhCN from '@pc/modules/trade/locales/zh-CN.json';
 import zhTW from '@pc/modules/trade/locales/zh-TW.json';

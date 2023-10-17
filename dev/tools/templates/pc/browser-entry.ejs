@@ -1,0 +1,22 @@
+import generatePage from '@pc-browser/helpers/generate-page';
+
+import zhCN from '@pc/modules/<%= pageName %>/locales/zh-CN.json';
+import zhTW from '@pc/modules/<%= pageName %>/locales/zh-TW.json';
+import enUS from '@pc/modules/<%= pageName %>/locales/en-US.json';
+
+import App from '@pc/modules/<%= pageName %>';
+import { store } from '@pc/modules/<%= pageName %>/model/store';
+import { getPageI18n } from '@/helpers/import-locales';
+
+generatePage(<App />, {
+  store,
+  i18n: getPageI18n({
+    'zh-CN': zhCN,
+    'zh-TW': zhTW,
+    'en-US': enUS,
+  }),
+});
+
+export default {
+  title: 'pc-browser',
+};

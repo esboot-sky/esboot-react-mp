@@ -11,6 +11,7 @@
     "bridge-mock": "esboot mock:bridge",
     "postinstall": "esboot exec husky install && esboot g-alias",
     "test:watch": "pnpm test -- --watch",
+    "create-page": "node ./dev/tools/create-page.js",
     "test": "jest"
   },
   "author": "donghs <donghs@dztec.net>",
@@ -46,16 +47,20 @@
   },
   "devDependencies": {
     "@dz-web/esboot": "^2.7.0",
+    "@inquirer/prompts": "^3.2.0",
     "@types/dz-web": "^1.0.1",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "^18.2.7",
+    "commander": "^11.1.0",
+    "ejs": "^3.1.9",
     "eslint": "^8.50.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "stylelint": "^15.10.3",
-    "ts-jest": "^29.1.1"
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint",
