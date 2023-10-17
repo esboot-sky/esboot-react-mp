@@ -1,6 +1,6 @@
-import { Language, RaiseMode } from '@/constants/config';
+import { Language } from '@/constants/config';
 import { listenReactQueryError } from '@/global-events';
-import { ThemeValues } from '@pc/constants/config';
+import { ThemeValues, RaiseMode } from '@pc/constants/config';
 import { IStandardAppUserConfig } from '@pc/model/app/slice';
 import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
 

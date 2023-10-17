@@ -1,5 +1,5 @@
 import { SupportedThemes } from '@pc/constants/config';
-import { isValidRaiseMode } from '@/utils/capacities';
+import { isValidRaiseMode } from '@pc/utils/capacities';
 
 export const updateRootClass = (() => {
   let prevTheme = '';

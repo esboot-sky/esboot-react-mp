@@ -1,6 +1,6 @@
-import { Language, RaiseMode } from '@/constants/config';
+import { Language } from '@/constants/config';
 import { listenReactQueryError } from '@/global-events';
-import { ThemeValues } from '@mobile/constants/config';
+import { ThemeValues, RaiseMode } from '@mobile/constants/config';
 import { IStandardAppUserConfig } from '@mobile/model/app/slice';
 
 /**

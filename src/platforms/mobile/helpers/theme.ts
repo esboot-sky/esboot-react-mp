@@ -1,5 +1,5 @@
 import { SupportedThemes } from '@mobile/constants/config';
-import { isValidRaiseMode } from '@/utils/capacities';
+import { isValidRaiseMode } from '@mobile/utils/capacities';
 
 export const updateRootClass = (() => {
   let prevTheme = '';

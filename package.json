@@ -79,7 +79,7 @@
   "prettier": "@dz-web/esboot/config/prettier/index.json",
   "browserslist": {
     "development": [
-      "Chrome >= 67"
+      "Chrome >= 100"
     ],
     "pc-native-production": [
       "Chrome >= 67"
