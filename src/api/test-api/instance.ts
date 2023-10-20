@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createDZAxiosInstance } from '@dz-web/axios';
-import { createBasicPatternMiddleware } from '@dz-web/axios-middlewares';
+import { createBasicPatternMiddleware, globalBlocker } from '@dz-web/axios-middlewares';
 import { logout } from '@/utils/logout';
 import { getPlatformIndependentUserConfig } from '@/utils/platfom-indepent/user-config';
 
@@ -12,9 +12,13 @@ export interface IJavaBaseResponse<Data = any> {
 
 const isBusinessError = (data: IJavaBaseResponse) => data.code !== 0;
 
+/**
+ * 需要登录的请求使用这个axios实例
+ */
 export const authedAxiosInst = createDZAxiosInstance(() => axios.create({
   baseURL: 'http://183.57.47.83:31080',
 }), [
+  globalBlocker.middleware,
   createBasicPatternMiddleware({
     addHeaders: () => {
       const { language, token } = getPlatformIndependentUserConfig();
@@ -45,6 +49,9 @@ export const authedAxiosInst = createDZAxiosInstance(() => axios.create({
   }),
 ]);
 
+/**
+ * 不需要登录的请求使用这个axios实例
+ */
 export const axiosInst = createDZAxiosInstance(() => axios.create({
   baseURL: 'http://183.57.47.83:39898',
 }), [
