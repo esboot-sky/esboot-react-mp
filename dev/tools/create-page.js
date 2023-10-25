@@ -143,7 +143,7 @@ async function main() {
 
   if (answers.pageTypes.includes(PAGE_TYPES.browser)) {
     copyFile(
-      path.join(entryPagePath, 'native-entry.ejs'),
+      path.join(entryPagePath, 'browser-entry.ejs'),
       path.join(targetPlatformPath, '_browser', 'modules', `${answers.pageName}.entry.tsx`),
       {
         pageName: answers.pageName,
