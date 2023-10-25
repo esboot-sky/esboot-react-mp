@@ -29,8 +29,11 @@ dependencies:
     specifier: ^1.9.6
     version: 10.10.11.236+4873/@reduxjs/toolkit@1.9.6(react-redux@8.1.2)(react@18.2.0)
   '@tanstack/react-query':
-    specifier: ^4.35.3
-    version: 10.10.11.236+4873/@tanstack/react-query@4.35.3(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^5.0.5
+    version: 10.10.11.236+4873/@tanstack/react-query@5.0.5(react-dom@18.2.0)(react@18.2.0)
+  '@tanstack/react-query-devtools':
+    specifier: ^5.1.0
+    version: 10.10.11.236+4873/@tanstack/react-query-devtools@5.1.0(@tanstack/react-query@5.0.5)(react-dom@18.2.0)(react@18.2.0)
   '@websaber/string-utils':
     specifier: ^0.0.1
     version: 10.10.11.236+4873/@websaber/string-utils@0.0.1
@@ -5834,20 +5837,42 @@ packages:
     version: 0.1.5
     dev: true
 
-  10.10.11.236+4873/@tanstack/query-core@4.35.3:
-    resolution: {integrity: sha512-PS+WEjd9wzKTyNjjQymvcOe1yg8f3wYc6mD+vb6CKyZAKvu4sIJwryfqfBULITKCla7P9C4l5e9RXePHvZOZeQ==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2fquery-core/-/query-core-4.35.3.tgz}
+  10.10.11.236+4873/@tanstack/query-core@5.0.5:
+    resolution: {integrity: sha512-MThCETMkHDHTnFZHp71L+SqTtD5d6XHftFCVR1xRJdWM3qGrlQ2VCXaj0SKVcyJej2e1Opa2c7iknu1llxCDNQ==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2fquery-core/-/query-core-5.0.5.tgz}
     name: '@tanstack/query-core'
-    version: 4.35.3
+    version: 5.0.5
     dev: false
 
-  10.10.11.236+4873/@tanstack/react-query@4.35.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-UgTPioip/rGG3EQilXfA2j4BJkhEQsR+KAbF+KIuvQ7j4MkgnTCJF01SfRpIRNtQTlEfz/+IL7+jP8WA8bFbsw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2freact-query/-/react-query-4.35.3.tgz}
-    id: 10.10.11.236+4873/@tanstack/react-query/4.35.3
-    name: '@tanstack/react-query'
-    version: 4.35.3
+  10.10.11.236+4873/@tanstack/query-devtools@5.1.0:
+    resolution: {integrity: sha512-EZhYS6clf4yyzFwE3b+7P2J46zgiweIwatc80MhfuzScz/Z4m1kPsKvNK0j54v4y1WvG4pN14qfOXjp4ac7f/Q==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2fquery-devtools/-/query-devtools-5.1.0.tgz}
+    name: '@tanstack/query-devtools'
+    version: 5.1.0
+    dev: false
+
+  10.10.11.236+4873/@tanstack/react-query-devtools@5.1.0(@tanstack/react-query@5.0.5)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Ms/GMccsrTBZQ+0v2pyIlaU0NlZXjhutPyhiQCviBqBbvYwsp/N/mT66YFaphzK/bhXzx5+NHbq8GI6V7KMY1Q==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2freact-query-devtools/-/react-query-devtools-5.1.0.tgz}
+    id: 10.10.11.236+4873/@tanstack/react-query-devtools/5.1.0
+    name: '@tanstack/react-query-devtools'
+    version: 5.1.0
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+      '@tanstack/react-query': ^5.0.5
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@tanstack/query-devtools': 10.10.11.236+4873/@tanstack/query-devtools@5.1.0
+      '@tanstack/react-query': 10.10.11.236+4873/@tanstack/react-query@5.0.5(react-dom@18.2.0)(react@18.2.0)
+      react: 10.10.11.236+4873/react@18.2.0
+      react-dom: 10.10.11.236+4873/react-dom@18.2.0(react@18.2.0)
+    dev: false
+
+  10.10.11.236+4873/@tanstack/react-query@5.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ZG0Q4HZ0iuI8mWiZ2/MdVYPHbrmAVhMn7+gLOkxJh6zLIgCL4luSZlohzN5Xt4MjxfxxWioO1nemwpudaTsmQg==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2freact-query/-/react-query-5.0.5.tgz}
+    id: 10.10.11.236+4873/@tanstack/react-query/5.0.5
+    name: '@tanstack/react-query'
+    version: 5.0.5
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
       react-native: '*'
     peerDependenciesMeta:
       react-dom:
@@ -5855,10 +5880,9 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 10.10.11.236+4873/@tanstack/query-core@4.35.3
+      '@tanstack/query-core': 10.10.11.236+4873/@tanstack/query-core@5.0.5
       react: 10.10.11.236+4873/react@18.2.0
       react-dom: 10.10.11.236+4873/react-dom@18.2.0(react@18.2.0)
-      use-sync-external-store: 10.10.11.236+4873/use-sync-external-store@1.2.0(react@18.2.0)
     dev: false
 
   10.10.11.236+4873/@tootallnate/once@1.1.2:
