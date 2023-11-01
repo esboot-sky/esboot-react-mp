@@ -1,3 +1,4 @@
+import '@mobile/helpers/v-console';
 import { bridge, BridgePlatforms } from '@dz-web/bridge';
 import { mounteReact } from '@/helpers/react';
 import { useBridgeMock } from '@/constants/config';

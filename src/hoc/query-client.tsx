@@ -2,6 +2,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import React, { ReactNode } from 'react';
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { globalEventsCenter } from '@/global-events';
+import { enableReactQueryDevTool } from '@/constants/config';
 
 const EVENTS = {
   ERROR: 'error',
@@ -64,7 +65,7 @@ export function withReactQuery(App): any {
     return (
       <QueryClientProvider client={queryClient}>
         <App {...rest} />
-        <ReactQueryDevtools initialIsOpen={false} />
+        { enableReactQueryDevTool && <ReactQueryDevtools initialIsOpen={false} /> }
       </QueryClientProvider>
     );
   };

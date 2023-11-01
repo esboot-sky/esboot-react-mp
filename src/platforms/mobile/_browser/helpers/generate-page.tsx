@@ -1,3 +1,4 @@
+import '@mobile/helpers/v-console';
 import { mounteReact } from '@/helpers/react';
 
 import wrapI18n from '@mobile/hoc/i18n';
