@@ -6,7 +6,7 @@ import { updateRootClass } from '@mobile/helpers/theme';
 import { MinimalStoreType } from './minimal-store';
 
 export function subscribeUserAndCache(store: MinimalStoreType) {
-  const previousApp = store.getState().app;
+  let previousApp = store.getState().app;
 
   updateRootClass(previousApp.userConfig.theme, previousApp.userConfig.raise, previousApp.userConfig.language);
 
@@ -34,5 +34,6 @@ export function subscribeUserAndCache(store: MinimalStoreType) {
         CacheStore.setItem(CACHE_KEY_USER_INFO, currentApp.userInfo);
       }
     }
+    previousApp = currentApp;
   });
 }

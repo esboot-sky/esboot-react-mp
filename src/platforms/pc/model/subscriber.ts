@@ -7,7 +7,7 @@ import { MinimalStoreType } from './minimal-store';
 
 // 与app端重复程度很大，看看是否有优化空间
 export function subscribeUserAndCache(store: MinimalStoreType) {
-  const previousApp = store.getState().app;
+  let previousApp = store.getState().app;
 
   updateRootClass(
     previousApp.userConfig.theme,
@@ -47,5 +47,6 @@ export function subscribeUserAndCache(store: MinimalStoreType) {
         CacheStore.setItem(CACHE_KEY_PC_USER_INFO, currentApp.userInfo);
       }
     }
+    previousApp = currentApp;
   });
 }
