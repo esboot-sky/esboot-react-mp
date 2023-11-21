@@ -2,12 +2,13 @@ import {
   describe,
   test,
   expect,
-} from '@jest/globals';
-import '@mobile/helpers/theme';
+} from 'vitest';
+import '@pc/constants/config';
 import { getRaiseModeColor } from './colors';
 
 describe('测试', () => {
   test('获取涨跌颜色函数存在', () => {
-    expect(typeof getRaiseModeColor === 'function');
+    console.log('ok');
+    expect(typeof getRaiseModeColor === 'function').toBeTruthy();
   });
 });

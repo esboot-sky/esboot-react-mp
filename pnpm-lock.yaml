@@ -32,8 +32,8 @@ dependencies:
     specifier: ^5.0.5
     version: 10.10.11.236+4873/@tanstack/react-query@5.0.5(react-dom@18.2.0)(react@18.2.0)
   '@tanstack/react-query-devtools':
-    specifier: ^5.1.0
-    version: 10.10.11.236+4873/@tanstack/react-query-devtools@5.1.0(@tanstack/react-query@5.0.5)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^5.4.3
+    version: 10.10.11.236+4873/@tanstack/react-query-devtools@5.4.3(@tanstack/react-query@5.0.5)(react-dom@18.2.0)(react@18.2.0)
   '@websaber/string-utils':
     specifier: ^0.0.1
     version: 10.10.11.236+4873/@websaber/string-utils@0.0.1
@@ -85,6 +85,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.16.0
     version: 10.10.11.236+4873/react-router-dom@6.16.0(react-dom@18.2.0)(react@18.2.0)
+  vconsole:
+    specifier: ^3.15.1
+    version: 10.10.11.236+4873/vconsole@3.15.1
 
 devDependencies:
   '@dz-web/esboot':
@@ -5843,23 +5846,23 @@ packages:
     version: 5.0.5
     dev: false
 
-  10.10.11.236+4873/@tanstack/query-devtools@5.1.0:
-    resolution: {integrity: sha512-EZhYS6clf4yyzFwE3b+7P2J46zgiweIwatc80MhfuzScz/Z4m1kPsKvNK0j54v4y1WvG4pN14qfOXjp4ac7f/Q==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2fquery-devtools/-/query-devtools-5.1.0.tgz}
+  10.10.11.236+4873/@tanstack/query-devtools@5.4.2:
+    resolution: {integrity: sha512-EXdaMXi8CxZuMp97J5mq6wy1RduOfoWFv5vtA1U+hyqb8Wst6M8kkkjDSdFvGZIRpYY4K8mKLlEFHNUZDG5dtw==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2fquery-devtools/-/query-devtools-5.4.2.tgz}
     name: '@tanstack/query-devtools'
-    version: 5.1.0
+    version: 5.4.2
     dev: false
 
-  10.10.11.236+4873/@tanstack/react-query-devtools@5.1.0(@tanstack/react-query@5.0.5)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Ms/GMccsrTBZQ+0v2pyIlaU0NlZXjhutPyhiQCviBqBbvYwsp/N/mT66YFaphzK/bhXzx5+NHbq8GI6V7KMY1Q==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2freact-query-devtools/-/react-query-devtools-5.1.0.tgz}
-    id: 10.10.11.236+4873/@tanstack/react-query-devtools/5.1.0
+  10.10.11.236+4873/@tanstack/react-query-devtools@5.4.3(@tanstack/react-query@5.0.5)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-J9EB50vpK5yvQ5W+AOp9jIQa+1mld+Wwc2GF3VLr2SEDhOyiTiHOjrFGKKL1Cal5Wg8UuS3vexf8trElrtg05A==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/@tanstack%2freact-query-devtools/-/react-query-devtools-5.4.3.tgz}
+    id: 10.10.11.236+4873/@tanstack/react-query-devtools/5.4.3
     name: '@tanstack/react-query-devtools'
-    version: 5.1.0
+    version: 5.4.3
     peerDependencies:
-      '@tanstack/react-query': ^5.0.5
+      '@tanstack/react-query': ^5.4.3
       react: ^18.0.0
       react-dom: ^18.0.0
     dependencies:
-      '@tanstack/query-devtools': 10.10.11.236+4873/@tanstack/query-devtools@5.1.0
+      '@tanstack/query-devtools': 10.10.11.236+4873/@tanstack/query-devtools@5.4.2
       '@tanstack/react-query': 10.10.11.236+4873/@tanstack/react-query@5.0.5(react-dom@18.2.0)(react@18.2.0)
       react: 10.10.11.236+4873/react@18.2.0
       react-dom: 10.10.11.236+4873/react-dom@18.2.0(react@18.2.0)
@@ -10467,6 +10470,13 @@ packages:
     version: 2.2.0
     engines: {node: '>=6'}
     dev: true
+
+  10.10.11.236+4873/copy-text-to-clipboard@3.2.0:
+    resolution: {integrity: sha512-RnJFp1XR/LOBDckxTib5Qjr/PMfkatD0MUCQgdpqS8MdKiNUzBjAQBEN6oUy+jW7LI93BBG3DtMB2KOOKpGs2Q==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/copy-text-to-clipboard/-/copy-text-to-clipboard-3.2.0.tgz}
+    name: copy-text-to-clipboard
+    version: 3.2.0
+    engines: {node: '>=12'}
+    dev: false
 
   10.10.11.236+4873/copy-to-clipboard@3.3.3:
     resolution: {integrity: sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz}
@@ -19410,6 +19420,12 @@ packages:
       thunky: 10.10.11.236+4873/thunky@1.1.0
     dev: true
 
+  10.10.11.236+4873/mutation-observer@1.0.3:
+    resolution: {integrity: sha1-QukiKxAbyoLlup1aes9KFMDyY9A=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/mutation-observer/-/mutation-observer-1.0.3.tgz}
+    name: mutation-observer
+    version: 1.0.3
+    dev: false
+
   10.10.11.236+4873/mute-stream@0.0.7:
     resolution: {integrity: sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/mute-stream/-/mute-stream-0.0.7.tgz}
     name: mute-stream
@@ -27954,6 +27970,17 @@ packages:
     version: 1.1.2
     engines: {node: '>= 0.8'}
     dev: true
+
+  10.10.11.236+4873/vconsole@3.15.1:
+    resolution: {integrity: sha512-KH8XLdrq9T5YHJO/ixrjivHfmF2PC2CdVoK6RWZB4yftMykYIaXY1mxZYAic70vADM54kpMQF+dYmvl5NRNy1g==, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/vconsole/-/vconsole-3.15.1.tgz}
+    name: vconsole
+    version: 3.15.1
+    dependencies:
+      '@babel/runtime': 10.10.11.236+4873/@babel/runtime@7.22.15
+      copy-text-to-clipboard: 10.10.11.236+4873/copy-text-to-clipboard@3.2.0
+      core-js: 10.10.11.236+4873/core-js@3.32.2
+      mutation-observer: 10.10.11.236+4873/mutation-observer@1.0.3
+    dev: false
 
   10.10.11.236+4873/vfile-location@3.2.0:
     resolution: {integrity: sha1-2OQfvL1AYGNmnr9sM9Vq6HIdDzw=, registry: http://npm.web.dz/, tarball: http://10.10.11.236:4873/vfile-location/-/vfile-location-3.2.0.tgz}

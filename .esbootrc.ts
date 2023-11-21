@@ -1,6 +1,8 @@
 import { defineConfig, CodeSplittingType } from '@dz-web/esboot';
+import vitestPlugin from '@dz-web/esboot-plugin-vitest';
 
 export default defineConfig((runtimeCfg) => ({
+  plugins: [vitestPlugin()],
   TSChecker: false,
   // port: 8081,
   analyze: false,

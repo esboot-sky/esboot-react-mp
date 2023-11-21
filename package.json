@@ -12,7 +12,8 @@
     "postinstall": "esboot exec husky install && esboot g-alias",
     "test:watch": "pnpm test -- --watch",
     "create-page": "node ./dev/tools/create-page.js",
-    "test": "jest"
+    "g-alias": "esboot g-alias",
+    "test": "esboot vitest"
   },
   "author": "donghs <donghs@dztec.net>",
   "license": "ISC",
@@ -48,7 +49,8 @@
     "vconsole": "^3.15.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^2.7.0",
+    "@dz-web/esboot": "^2.8.4",
+    "@dz-web/esboot-plugin-vitest": "^0.2.4",
     "@inquirer/prompts": "^3.2.0",
     "@types/dz-web": "^1.0.1",
     "@types/lodash-es": "^4.17.9",
