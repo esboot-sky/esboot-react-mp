@@ -19,13 +19,18 @@ function handleRequestError(
   error?: Error,
   meta?: IMeta,
 ) {
+  // 根据meta对象自定义提示消息
   if (typeof meta === 'object') {
     const { errorMessage, suppressErrorNotification } = meta;
+    // 特殊处理在meta中声明了不需要全局错误提示
     if (!suppressErrorNotification) {
       const message = errorMessage || error?.message || '系统异常';
 
       globalEventsCenter.emit(GlobalEvents.REACT_QUERY_REQUEST_ERROR, message, error, meta);
     }
+  } else {
+    const message = error?.message || '系统异常';
+    globalEventsCenter.emit(GlobalEvents.REACT_QUERY_REQUEST_ERROR, message, error, meta);
   }
 }
 
