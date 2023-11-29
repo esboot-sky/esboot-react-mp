@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import app from '@pc/model/app/slice';
-import { subscribeUserAndCache } from '@pc/model/subscriber';
 import hello from './hello/slice';
 
 export const store = configureStore({
@@ -11,8 +10,6 @@ export const store = configureStore({
     hello,
   },
 });
-
-subscribeUserAndCache(store);
 
 /**
  * api 请求不知道store来自哪个页面，所以挂载到window上，运行哪个页面就用哪个页面的store
