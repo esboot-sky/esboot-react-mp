@@ -22,4 +22,4 @@ export const initPageQuery: {
    */
   weight?: string;
   [key: string]: string | number | undefined;
-} = parseKeyValues(window.location.href);
+} = parseKeyValues.stringOnly(window.location.href);
