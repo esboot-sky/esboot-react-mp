@@ -16,10 +16,10 @@ export const initPageQuery: {
   /**
    * pc字体大小参数
    */
-  additionalSize?: number;
+  additionalSize?: string;
   /**
    * pc字体粗细参数
    */
   weight?: string;
-  [key: string]: string | number | undefined;
-} = parseKeyValues.stringOnly(window.location.href);
+  [key: string]: string | undefined;
+} = parseKeyValues.stringOnly(window.location.href) as Record<string, string>;

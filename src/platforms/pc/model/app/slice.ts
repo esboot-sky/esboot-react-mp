@@ -109,8 +109,9 @@ function createInitializedState(): IState {
     defaultState.userConfig.language = lang as Language;
   }
 
-  if (additionalSize) {
-    defaultState.userConfig.appFontSize = getRealPCNativeFontSizee(additionalSize);
+  const intAdditionalSize = parseInt(additionalSize || '', 10);
+  if (intAdditionalSize) {
+    defaultState.userConfig.appFontSize = getRealPCNativeFontSizee(intAdditionalSize);
   }
 
   if (fontWeight === 'bold' || fontWeight === 'normal') {
