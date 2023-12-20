@@ -74,3 +74,5 @@ export const validRaiseMode = {
 export type RaiseMode = keyof typeof validRaiseMode;
 
 export const DEFAULT_RAISE_MODE = validRaiseMode.green;
+
+export const TOKEN_KEY = 'sessionCode';

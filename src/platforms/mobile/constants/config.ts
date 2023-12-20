@@ -55,3 +55,5 @@ export const DEFAULT_RAISE_MODE = validRaiseMode.green;
 export type ThemeValues = typeof SupportedThemes[keyof typeof SupportedThemes];
 
 export const DEFAULT_THEME = SupportedThemes.light;
+
+export const TOKEN_KEY = 'sessionCode';

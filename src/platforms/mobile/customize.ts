@@ -1,6 +1,6 @@
 import { Language } from '@/constants/config';
 import { listenReactQueryError } from '@/global-events';
-import { ThemeValues, RaiseMode } from '@mobile/constants/config';
+import { ThemeValues, RaiseMode, TOKEN_KEY } from '@mobile/constants/config';
 import { IStandardAppUserConfig } from '@mobile/model/app/slice';
 
 /**
@@ -63,7 +63,7 @@ export interface IUserInfo {
  * 根据项目提供的用户信息，返回access token
  */
 export function accessToken(userInfo: IUserInfo) {
-  return userInfo.sessionCode;
+  return userInfo[TOKEN_KEY];
 }
 
 // 监听react query错误
