@@ -8,6 +8,7 @@ import {
 } from '@mobile/model/app/slice';
 import { ThemeValues } from '@mobile/constants/config';
 import { isBrowser } from '@/utils/platforms';
+import { useEffect } from 'react';
 
 export function useUserConfig() {
   const userConfig = useMinimalAppSelector(selectUserConfig);
@@ -30,6 +31,9 @@ export function useUserConfig() {
 export function useDisableFollowSystemPrefersColorSchemeWhenInBrowser() {
   const dispatch = useMinimalAppDispatch();
 
-  if (!isBrowser()) return;
-  dispatch(disableFollowSystemPrefersColorSchemeWhenInBrowser());
+  useEffect(() => {
+    if (!isBrowser()) return;
+
+    dispatch(disableFollowSystemPrefersColorSchemeWhenInBrowser());
+  }, []);
 }
