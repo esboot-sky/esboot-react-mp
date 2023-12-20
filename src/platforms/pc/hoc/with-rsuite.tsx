@@ -3,7 +3,7 @@ import { CustomProvider } from 'rsuite';
 import zhCN from 'rsuite/locales/zh_CN';
 // import { useLanguage } from '@pc/hooks/use-language';
 import { useUserConfig } from '@pc/hooks/use-user-config';
-import { ReactNode } from 'react';
+import { ReactNode, useLayoutEffect } from 'react';
 import { SupportedThemes } from '@pc/constants/config';
 
 export function withRSuite(App): any {
@@ -12,6 +12,12 @@ export function withRSuite(App): any {
     const { userConfig: { theme } } = useUserConfig();
 
     const rsuiteTheme = theme === SupportedThemes.light ? 'light' : 'dark';
+
+    useLayoutEffect(() => {
+      if (theme === SupportedThemes.dark && !document.body.classList.contains('rs-theme-dark')) {
+        document.body.classList.add(`rs-theme-${rsuiteTheme}`);
+      }
+    }, []);
 
     return (
       // 暂时只需要中文
