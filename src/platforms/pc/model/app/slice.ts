@@ -83,7 +83,7 @@ function createInitializedState(): IState {
     userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_PC_USER_CONFIG), {
       theme: DEFAULT_THEME,
       deviceNo: '',
-      followSystemPrefersColorSchemeWhenInBrowser: isBrowser(),
+      followSystemPrefersColorSchemeWhenInBrowser: isBrowser() && !(window as any).__disable_follow_system_theme,
       language: DEFAULT_LANGUAGE,
       raise: DEFAULT_RAISE_MODE,
       appFontSize: 14,

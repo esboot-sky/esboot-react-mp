@@ -80,9 +80,9 @@ function createInitializedState(): IState {
       // TODO: 浏览器环境自动生成虚拟设备号
       deviceNo: '',
       /**
-       * 跟随系统颜色模式，默认为true
+       * 跟随系统颜色模式，浏览器下默认为true, 在entry文件引入@/utils/disable-follow-system-theme.ts可以禁用
        */
-      followSystemPrefersColorSchemeWhenInBrowser: isBrowser(),
+      followSystemPrefersColorSchemeWhenInBrowser: isBrowser() && !(window as any).__disable_follow_system_theme,
       language: DEFAULT_LANGUAGE,
       raise: DEFAULT_RAISE_MODE,
       raw: {} as IRawAppUserConfig,
