@@ -7,6 +7,9 @@ import { getUserInfo, getUserConfig, sendLoginStatus } from '@pc-native/helpers/
 import { useUserConfig } from '@pc/hooks/use-user-config';
 import { listenLoginExpired } from '@/global-events';
 import { useUserInfo } from '@pc/hooks/use-user-info';
+import { useQueryClient } from '@tanstack/react-query';
+import isDeepEqual from 'react-fast-compare';
+import { MinimalStoreType } from '@pc/model/minimal-store';
 
 export function withNative(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {
@@ -17,6 +20,8 @@ export function withNative(Component: FC<any>) {
     const {
       setUserInfo,
     } = useUserInfo();
+
+    const queryClient = useQueryClient();
 
     useEffect(() => {
       getUserConfig()
@@ -29,7 +34,19 @@ export function withNative(Component: FC<any>) {
         .then(setUserInfo)
         .catch((err) => console.log('err:', err));
 
-      const disposeUserInfoListener = onUpdateUserInfo(setUserInfo);
+      const disposeUserInfoListener = onUpdateUserInfo((res) => {
+        console.log('收到用户信息更新: ', res);
+
+        const store = (window as any).__mobile_store__ as MinimalStoreType;
+        const { userInfo } = store.getState().app;
+        // 用户信息变化，重置react query缓存
+        if (!isDeepEqual(userInfo, res)) {
+          console.log('用户信息有变化: ', res);
+          setUserInfo(res);
+          console.log('重置react query缓存');
+          queryClient.clear();
+        }
+      });
 
       return () => {
         disposeUserConfigListener();
