@@ -79,6 +79,13 @@
           theme = 'white';
         }
         document.documentElement.classList.add('dz-theme-' + theme);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('rs-theme-dark');
+
+          setTimeout(function () {
+            document.documentElement.classList.remove('rs-theme-dark');
+          }, 5000);
+        }
       })();
     </script>
   </head>
