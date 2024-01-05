@@ -1,5 +1,5 @@
-export const a = 5;
+import type { SayHi } from '@/types/multi-platforms';
 
-export const sayHi = () => {
-  console.log('hello');
+export const sayHi: SayHi = (name) => {
+  console.log(`hello ${name} from pc native`);
 };
