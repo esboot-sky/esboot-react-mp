@@ -22,7 +22,6 @@
     "@dz-web/bridge": "^2.2.10",
     "@dz-web/cache": "^2.0.0",
     "@dz-web/o-orange": "^3.7.14",
-    "@dz-web/request": "^0.1.12",
     "@jest/globals": "^29.7.0",
     "@loadable/component": "^5.15.3",
     "@reduxjs/toolkit": "^1.9.6",

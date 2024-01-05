@@ -35,7 +35,6 @@ export default defineConfig((runtimeCfg) => ({
       frameworkBundles: [
         // 不要添加router进来，我们绝大多数页面都是嵌入到webview中用的小页面，不需要router，所以router不需要打进公共代码库里。会影响大部分页面的加载速度
         '@dz-web/bridge',
-        '@dz-web/request',
         'dayjs',
         '@tanstack/react-query',
         'redux',
