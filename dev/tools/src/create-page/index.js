@@ -94,7 +94,7 @@ async function copyFolder(source, destination, variables) {
   }
 }
 
-async function main() {
+async function createPage() {
   const answers = await promptUser();
 
   console.log('参数: ', answers);
@@ -103,7 +103,7 @@ async function main() {
 
   let srcPagePath = path.join(scriptDir, 'templates');
   let entryPagePath = srcPagePath;
-  let targetPlatformPath = path.resolve(scriptDir, '../../src/platforms');
+  let targetPlatformPath = path.resolve(process.cwd(), './src/platforms');
 
   if (answers.platform === PLATFORM_TYPES.mobile) {
     srcPagePath = path.join(srcPagePath, PLATFORM_TYPES.mobile);
@@ -152,7 +152,4 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+module.exports = { createPage };

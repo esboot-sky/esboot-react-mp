@@ -10,9 +10,9 @@
     "esboot": "esboot",
     "bridge-mock": "esboot mock:bridge",
     "postinstall": "esboot exec husky install && esboot g-alias",
-    "test:watch": "pnpm test -- --watch",
-    "create-page": "node ./dev/tools/create-page.js",
-    "test": "esboot vitest"
+    "create-page": "esboot-react-mp-tools create-page",
+    "test": "esboot vitest",
+    "test:watch": "pnpm test -- --watch"
   },
   "author": "donghs <donghs@dztec.net>",
   "license": "ISC",
@@ -49,14 +49,12 @@
   "devDependencies": {
     "@dz-web/esboot": "^2.9.0",
     "@dz-web/esboot-plugin-vitest": "^0.2.7",
-    "@inquirer/prompts": "^3.2.0",
+    "@dz-web/esboot-react-mp-tools": "file:./dev/tools",
     "@types/dz-web": "^1.0.1",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "^18.2.7",
-    "commander": "^11.1.0",
-    "ejs": "^3.1.9",
     "eslint": "^8.50.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
