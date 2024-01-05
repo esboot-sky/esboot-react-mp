@@ -3,7 +3,9 @@ import {
   test,
   expect,
 } from 'vitest';
+
 import '@pc/constants/config';
+
 import { getRaiseModeColor } from './colors';
 
 describe('测试', () => {

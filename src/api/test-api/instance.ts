@@ -1,6 +1,7 @@
-import axios from 'axios';
 import { createDZAxiosInstance } from '@dz-web/axios';
 import { createBasicPatternMiddleware, globalBlocker } from '@dz-web/axios-middlewares';
+import axios from 'axios';
+
 import { logout } from '@/utils/logout';
 import { getPlatformIndependentUserConfig } from '@/utils/platfom-indepent/user-config';
 

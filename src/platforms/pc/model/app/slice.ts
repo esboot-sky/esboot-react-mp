@@ -1,16 +1,17 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { globalBlocker } from '@dz-web/axios-middlewares';
-import { Language, DEFAULT_LANGUAGE, supportedLanguage } from '@/constants/config';
-import { IRawAppUserConfig, IUserInfo, accessToken } from '@pc/customize';
-import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_MODE } from '@pc/constants/config';
-import { initPageQuery } from '@/helpers/init-page-query';
 import { CacheStore } from '@dz-web/cache';
-import { isSupportedLanguage } from '@/utils/capacities';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
+import { Language, DEFAULT_LANGUAGE, supportedLanguage } from '@/constants/config';
+import { initPageQuery } from '@/helpers/init-page-query';
+import { isSupportedLanguage } from '@/utils/capacities';
 import { isBrowser } from '@/utils/platforms';
+import { isSupportedTheme, isValidRaiseMode } from '@mobile/utils/capacities';
+import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_MODE } from '@pc/constants/config';
+import { IRawAppUserConfig, IUserInfo, accessToken } from '@pc/customize';
 import { MinimalRootState } from '@pc/model/minimal-store';
 import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
-import { isSupportedTheme, isValidRaiseMode } from '@mobile/utils/capacities';
 
 const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {
   const { theme } = initPageQuery;

@@ -3,7 +3,9 @@ import {
   test,
   expect,
 } from 'vitest';
+
 import '@mobile/helpers/theme';
+
 import { getRaiseModeColor } from './colors';
 
 describe('测试', () => {

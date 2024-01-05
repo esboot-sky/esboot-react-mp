@@ -1,4 +1,5 @@
 import { bridge } from '@dz-web/bridge';
+
 import { IUserInfo, oldStyle2Standard } from '@mobile/customize';
 
 /**

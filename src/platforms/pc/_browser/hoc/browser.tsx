@@ -2,8 +2,9 @@
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
 import { FC, ComponentPropsWithoutRef, ReactNode, useEffect } from 'react';
-import { useUserConfig } from '@pc/hooks/use-user-config';
+
 import { SupportedThemes } from '@pc/constants/config';
+import { useUserConfig } from '@pc/hooks/use-user-config';
 
 export function withBrowser(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {

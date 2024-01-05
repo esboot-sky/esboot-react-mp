@@ -1,4 +1,7 @@
-import { useMinimalAppDispatch, useMinimalAppSelector } from '@mobile/model/minimal-store';
+import { useEffect } from 'react';
+
+import { isBrowser } from '@/utils/platforms';
+import { ThemeValues } from '@mobile/constants/config';
 import {
   IStandardAppUserConfig,
   disableFollowSystemPrefersColorSchemeWhenInBrowser,
@@ -6,9 +9,7 @@ import {
   setTheme,
   setUserConfig,
 } from '@mobile/model/app/slice';
-import { ThemeValues } from '@mobile/constants/config';
-import { isBrowser } from '@/utils/platforms';
-import { useEffect } from 'react';
+import { useMinimalAppDispatch, useMinimalAppSelector } from '@mobile/model/minimal-store';
 
 export function useUserConfig() {
   const userConfig = useMinimalAppSelector(selectUserConfig);

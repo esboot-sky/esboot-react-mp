@@ -1,15 +1,16 @@
 /**
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
-import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
-import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
-import { getUserInfo, getUserConfig, sendLoginStatus } from '@mobile-native/helpers/msg';
-import { useUserConfig } from '@mobile/hooks/use-user-config';
-import { listenLoginExpired } from '@/global-events';
-import { useUserInfo } from '@mobile/hooks/use-user-info';
 import { useQueryClient } from '@tanstack/react-query';
+import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
 import isDeepEqual from 'react-fast-compare';
+
+import { listenLoginExpired } from '@/global-events';
+import { useUserConfig } from '@mobile/hooks/use-user-config';
+import { useUserInfo } from '@mobile/hooks/use-user-info';
 import { MinimalStoreType } from '@mobile/model/minimal-store';
+import { getUserInfo, getUserConfig, sendLoginStatus } from '@mobile-native/helpers/msg';
+import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
 
 export function withNative(Component: FC<any>) {
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {

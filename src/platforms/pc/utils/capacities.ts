@@ -1,4 +1,5 @@
 import { find } from 'lodash-es';
+
 import { SupportedThemes, validRaiseMode } from '@pc/constants/config';
 
 export function isSupportedTheme(theme?: string): boolean {

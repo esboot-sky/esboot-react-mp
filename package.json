@@ -5,14 +5,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "esboot": "esboot",
     "dev": "esboot dev",
     "build": "esboot build",
-    "esboot": "esboot",
-    "bridge-mock": "esboot mock:bridge",
-    "postinstall": "esboot exec husky install && esboot g-alias",
-    "create-page": "esboot-react-mp-tools create-page",
     "test": "esboot vitest",
-    "test:watch": "pnpm test -- --watch"
+    "bridge-mock": "esboot mock:bridge",
+    "postinstall": "esboot postinstall",
+    "create-page": "esboot-react-mp-tools create-page"
   },
   "author": "donghs <donghs@dztec.net>",
   "license": "ISC",
@@ -46,7 +45,7 @@
     "vconsole": "^3.15.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^2.9.0",
+    "@dz-web/esboot": "^2.11.2",
     "@dz-web/esboot-plugin-vitest": "^0.2.7",
     "@dz-web/esboot-react-mp-tools": "file:./dev/tools",
     "@types/dz-web": "^1.0.1",

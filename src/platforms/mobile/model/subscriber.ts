@@ -1,8 +1,10 @@
-import isDeepEqual from 'react-fast-compare';
 import { CacheStore } from '@dz-web/cache';
-import { isBrowser } from '@/utils/platforms';
+import isDeepEqual from 'react-fast-compare';
+
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
+import { isBrowser } from '@/utils/platforms';
 import { updateRootClass } from '@mobile/helpers/theme';
+
 import { MinimalStoreType } from './minimal-store';
 
 export function subscribeUserAndCache(store: MinimalStoreType) {

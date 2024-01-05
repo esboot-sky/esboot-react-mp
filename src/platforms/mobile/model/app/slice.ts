@@ -1,13 +1,14 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { globalBlocker } from '@dz-web/axios-middlewares';
-import { Language, supportedLanguage, DEFAULT_LANGUAGE } from '@/constants/config';
-import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
-import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_MODE } from '@mobile/constants/config';
-import { initPageQuery } from '@/helpers/init-page-query';
 import { CacheStore } from '@dz-web/cache';
-import { isSupportedLanguage } from '@/utils/capacities';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
+import { Language, supportedLanguage, DEFAULT_LANGUAGE } from '@/constants/config';
+import { initPageQuery } from '@/helpers/init-page-query';
+import { isSupportedLanguage } from '@/utils/capacities';
 import { isBrowser } from '@/utils/platforms';
+import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_MODE } from '@mobile/constants/config';
+import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
 import { MinimalRootState } from '@mobile/model/minimal-store';
 import { isSupportedTheme, isValidRaiseMode } from '@mobile/utils/capacities';
 

@@ -1,4 +1,5 @@
 import { FormattedMessage } from 'react-intl';
+
 import './index.scss';
 
 export function TopErrorBoundaryFallback({ error, resetErrorBoundary }) {

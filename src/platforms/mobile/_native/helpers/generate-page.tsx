@@ -1,19 +1,18 @@
-import '@mobile/helpers/v-console';
 import { bridge, BridgePlatforms } from '@dz-web/bridge';
-import { mounteReact } from '@/helpers/react';
+
 import { useBridgeMock } from '@/constants/config';
-
-import wrapI18n from '@mobile/hoc/i18n';
-import { wrapRedux } from '@/hoc/redux';
-import { subscribeUserAndCache } from '@mobile/model/subscriber';
+import { mounteReact } from '@/helpers/react';
 import { wrapReactQuery } from '@/hoc/query-client';
-import wrapNative from '@mobile-native/hoc/native';
+import { wrapRedux } from '@/hoc/redux';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
-import { GeneratePageOptions } from '@/types';
-
 import '@/styles/index.scss';
-import '@mobile/styles/index.scss';
+import { GeneratePageOptions } from '@/types';
 import { TopErrorBoundaryFallback } from '@mobile/components/top-error-boundary-fallback';
+import '@mobile/helpers/v-console';
+import wrapI18n from '@mobile/hoc/i18n';
+import { subscribeUserAndCache } from '@mobile/model/subscriber';
+import '@mobile/styles/index.scss';
+import wrapNative from '@mobile-native/hoc/native';
 
 export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
   const { i18n, store } = options;

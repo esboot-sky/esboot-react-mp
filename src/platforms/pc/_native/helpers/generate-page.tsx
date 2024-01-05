@@ -1,18 +1,17 @@
 import { bridge, BridgePlatforms } from '@dz-web/bridge';
-import { mounteReact } from '@/helpers/react';
+
 import { useBridgeMock } from '@/constants/config';
-
-import wrapI18n from '@pc/hoc/i18n';
-import { wrapRedux } from '@/hoc/redux';
-import { subscribeUserAndCache } from '@pc/model/subscriber';
+import { mounteReact } from '@/helpers/react';
 import { wrapReactQuery } from '@/hoc/query-client';
-import wrapNative from '@pc-native/hoc/native';
-
-import '@/styles/index.scss';
-import '@pc/styles/index.scss';
+import { wrapRedux } from '@/hoc/redux';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
-import { TopErrorBoundaryFallback } from '@pc/components/top-error-boundary-fallback';
+import '@/styles/index.scss';
 import { GeneratePageOptions } from '@/types';
+import { TopErrorBoundaryFallback } from '@pc/components/top-error-boundary-fallback';
+import wrapI18n from '@pc/hoc/i18n';
+import { subscribeUserAndCache } from '@pc/model/subscriber';
+import '@pc/styles/index.scss';
+import wrapNative from '@pc-native/hoc/native';
 
 export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
   const { i18n, store } = options;

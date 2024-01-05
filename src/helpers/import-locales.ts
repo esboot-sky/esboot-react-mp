@@ -1,26 +1,26 @@
+import { Language, supportedLanguage } from '@/constants/config';
+import globalENLocales from '@/locales/en-US.json';
 import globalCNLocales from '@/locales/zh-CN.json';
 import globalTWLocales from '@/locales/zh-TW.json';
-import globalENLocales from '@/locales/en-US.json';
+import { I18nOption } from '@/types';
+import mobileENLocales from '@mobile/locales/en-US.json';
 import mobileCNLocales from '@mobile/locales/zh-CN.json';
 import mobileTWLocales from '@mobile/locales/zh-TW.json';
-import mobileENLocales from '@mobile/locales/en-US.json';
-import pcCNLocales from '@pc/locales/zh-CN.json';
-import pcTWLocales from '@pc/locales/zh-TW.json';
-import pcENLocales from '@pc/locales/en-US.json';
-import mobileNativeCNLocales from '@mobile-native/locales/zh-CN.json';
-import mobileNativeTWLocales from '@mobile-native/locales/zh-TW.json';
-import mobileNativeENLocales from '@mobile-native/locales/en-US.json';
+import mobileBrowserENLocales from '@mobile-browser/locales/en-US.json';
 import mobileBrowserCNLocales from '@mobile-browser/locales/zh-CN.json';
 import mobileBrowserTWLocales from '@mobile-browser/locales/zh-TW.json';
-import mobileBrowserENLocales from '@mobile-browser/locales/en-US.json';
+import mobileNativeENLocales from '@mobile-native/locales/en-US.json';
+import mobileNativeCNLocales from '@mobile-native/locales/zh-CN.json';
+import mobileNativeTWLocales from '@mobile-native/locales/zh-TW.json';
+import pcENLocales from '@pc/locales/en-US.json';
+import pcCNLocales from '@pc/locales/zh-CN.json';
+import pcTWLocales from '@pc/locales/zh-TW.json';
+import pcBrowserENLocales from '@pc-browser/locales/en-US.json';
 import pcBrowserCNLocales from '@pc-browser/locales/zh-CN.json';
 import pcBrowserTWLocales from '@pc-browser/locales/zh-TW.json';
-import pcBrowserENLocales from '@pc-browser/locales/en-US.json';
+import pcNativeENLocales from '@pc-native/locales/en-US.json';
 import pcNativeCNLocales from '@pc-native/locales/zh-CN.json';
 import pcNativeTWLocales from '@pc-native/locales/zh-TW.json';
-import pcNativeENLocales from '@pc-native/locales/en-US.json';
-import { I18nOption } from '@/types';
-import { Language, supportedLanguage } from '@/constants/config';
 
 export function importLocales(pageLocales: Record<string, string>, lang: Language) {
   // eslint-disable-next-line prefer-destructuring

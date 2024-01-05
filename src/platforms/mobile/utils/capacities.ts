@@ -1,4 +1,5 @@
 import { find } from 'lodash-es';
+
 import { SupportedThemes, validRaiseMode } from '@mobile/constants/config';
 
 export function isSupportedTheme(theme?: string): boolean {

@@ -1,17 +1,15 @@
-import '@mobile/helpers/v-console';
 import { mounteReact } from '@/helpers/react';
-
-import wrapI18n from '@mobile/hoc/i18n';
-import { wrapRedux } from '@/hoc/redux';
 import { wrapReactQuery } from '@/hoc/query-client';
-
-import '@/styles/index.scss';
-import '@mobile/styles/index.scss';
-import { subscribeUserAndCache } from '@mobile/model/subscriber';
-import wrapBrowser from '@mobile-browser/hoc/browser';
+import { wrapRedux } from '@/hoc/redux';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
+import '@/styles/index.scss';
 import { GeneratePageOptions } from '@/types';
 import { TopErrorBoundaryFallback } from '@mobile/components/top-error-boundary-fallback';
+import '@mobile/helpers/v-console';
+import wrapI18n from '@mobile/hoc/i18n';
+import { subscribeUserAndCache } from '@mobile/model/subscriber';
+import '@mobile/styles/index.scss';
+import wrapBrowser from '@mobile-browser/hoc/browser';
 
 export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
   const { i18n, store } = options;

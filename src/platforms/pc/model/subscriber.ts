@@ -1,8 +1,10 @@
-import isDeepEqual from 'react-fast-compare';
 import { CacheStore } from '@dz-web/cache';
-import { isBrowser } from '@/utils/platforms';
+import isDeepEqual from 'react-fast-compare';
+
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
+import { isBrowser } from '@/utils/platforms';
 import { updateRootClass } from '@pc/helpers/theme';
+
 import { MinimalStoreType } from './minimal-store';
 
 // 与app端重复程度很大，看看是否有优化空间
