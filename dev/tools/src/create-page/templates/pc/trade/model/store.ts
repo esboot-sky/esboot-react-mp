@@ -1,8 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
-import type { TypedUseSelectorHook } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
 import app from '@pc/model/app/slice';
+import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
+
 import hello from './hello/slice';
+
+import type { TypedUseSelectorHook } from 'react-redux';
 
 export const store = configureStore({
   reducer: {

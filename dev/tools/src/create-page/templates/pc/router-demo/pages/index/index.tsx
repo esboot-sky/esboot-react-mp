@@ -1,5 +1,7 @@
-import { genericMemo } from '@/utils/react-utils';
 import { Link } from 'react-router-dom';
+
+import { genericMemo } from '@/utils/react-utils';
+
 import './index.scss';
 
 const Index = genericMemo(function Index() {

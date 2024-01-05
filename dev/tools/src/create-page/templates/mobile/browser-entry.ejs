@@ -1,12 +1,10 @@
-import generatePage from '@mobile-browser/helpers/generate-page';
-
+import { getPageI18n } from '@/helpers/import-locales';
+import App from '@mobile/modules/<%= pageName %>';
+import enUS from '@mobile/modules/<%= pageName %>/locales/en-US.json';
 import zhCN from '@mobile/modules/<%= pageName %>/locales/zh-CN.json';
 import zhTW from '@mobile/modules/<%= pageName %>/locales/zh-TW.json';
-import enUS from '@mobile/modules/<%= pageName %>/locales/en-US.json';
-
-import App from '@mobile/modules/<%= pageName %>';
 import { store } from '@mobile/modules/<%= pageName %>/model/store';
-import { getPageI18n } from '@/helpers/import-locales';
+import generatePage from '@mobile-browser/helpers/generate-page';
 
 generatePage(<App />, {
   store,

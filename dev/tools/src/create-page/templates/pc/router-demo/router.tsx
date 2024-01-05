@@ -1,9 +1,10 @@
-import { createHashRouter } from 'react-router-dom';
 import loadable from '@loadable/component';
+import { createHashRouter } from 'react-router-dom';
+
 import { listenLoginExpired } from '@/global-events';
 
-import Index from './pages/index';
 import Detail from './pages/detail/detail';
+import Index from './pages/index';
 
 const NotFound = loadable(() => import('./pages/not-found/not-found'));
 

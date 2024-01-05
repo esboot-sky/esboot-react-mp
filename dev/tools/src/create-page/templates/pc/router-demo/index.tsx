@@ -1,5 +1,6 @@
-import { RouterProvider } from 'react-router-dom';
 import { CacheStore } from '@dz-web/cache';
+import { RouterProvider } from 'react-router-dom';
+
 import './index.scss';
 import router from './router';
 

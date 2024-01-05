@@ -1,12 +1,10 @@
-import generatePage from '@pc-native/helpers/generate-page';
-
+import { getPageI18n } from '@/helpers/import-locales';
+import App from '@pc/modules/<%= pageName %>';
+import enUS from '@pc/modules/<%= pageName %>/locales/en-US.json';
 import zhCN from '@pc/modules/<%= pageName %>/locales/zh-CN.json';
 import zhTW from '@pc/modules/<%= pageName %>/locales/zh-TW.json';
-import enUS from '@pc/modules/<%= pageName %>/locales/en-US.json';
-
-import App from '@pc/modules/<%= pageName %>';
 import { store } from '@pc/modules/<%= pageName %>/model/store';
-import { getPageI18n } from '@/helpers/import-locales';
+import generatePage from '@pc-native/helpers/generate-page';
 
 generatePage(<App />, {
   store,
