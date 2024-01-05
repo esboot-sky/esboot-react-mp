@@ -12,7 +12,6 @@
     "postinstall": "esboot exec husky install && esboot g-alias",
     "test:watch": "pnpm test -- --watch",
     "create-page": "node ./dev/tools/create-page.js",
-    "g-alias": "esboot g-alias",
     "test": "esboot vitest"
   },
   "author": "donghs <donghs@dztec.net>",
