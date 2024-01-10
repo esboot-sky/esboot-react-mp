@@ -18,7 +18,9 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
   let wrapApp: React.ReactNode = App;
 
   bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.pc);
-  wrapApp = wrapNative(wrapApp);
+  wrapApp = wrapNative(wrapApp, {
+    disabledLoginExpired: options.disabledLoginExpired,
+  });
   wrapApp = wrapReactQuery(wrapApp);
 
   wrapApp = wrapTopErrorBoundary(wrapApp, TopErrorBoundaryFallback);
