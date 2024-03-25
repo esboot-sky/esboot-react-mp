@@ -1,8 +1,9 @@
 import { defineConfig, CodeSplittingType } from '@dz-web/esboot';
 import vitestPlugin from '@dz-web/esboot-plugin-vitest';
+import tailwindcssPlugin from '@dz-web/esboot-plugin-tailwindcss';
 
 export default defineConfig((runtimeCfg) => ({
-  plugins: [vitestPlugin()],
+  plugins: [vitestPlugin(), tailwindcssPlugin()],
   TSChecker: false,
   // port: 8081,
   analyze: false,
@@ -62,5 +63,5 @@ export default defineConfig((runtimeCfg) => ({
 }));
 
 export const afterHooks = (cfg) => {
-  console.log(cfg.entry, '<-- cfg');
+  console.log(cfg.isBrowser, '<-- cfg');
 }
