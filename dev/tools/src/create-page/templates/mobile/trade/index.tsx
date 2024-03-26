@@ -1,4 +1,3 @@
-import { sayHi } from '@/helpers/multi-platforms';
 import { CacheStore } from '@dz-web/cache';
 import { useQueryClient } from '@tanstack/react-query';
 import { Button } from 'antd-mobile';
@@ -16,8 +15,6 @@ const AppHome: React.FC = () => {
   CacheStore.setItem('userInfoTest', { name: 'test' });
 
   console.log('query client: ', queryClient);
-
-  sayHi();
 
   return (
     <div>

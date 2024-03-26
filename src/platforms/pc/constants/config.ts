@@ -22,14 +22,14 @@ export const FONT_ADD_SIZE = 0;
 export const FONT_WEIGHT = 'normal';
 
 export const PC_FONT_SIZE_MAPPER = {
-  '-11': -3,
-  '-12': -2,
-  '-13': -1,
-  '-14': 0,
-  '-15': 1,
-  '-16': 2,
-  '-19': 3,
-  '-21': 4,
+  '-11': -5,
+  '-12': -4,
+  '-13': -3,
+  '-14': -2,
+  '-15': -1,
+  '-16': 0,
+  '-19': 1,
+  '-21': 2,
 };
 
 export const RaiseModeColorScheme = {

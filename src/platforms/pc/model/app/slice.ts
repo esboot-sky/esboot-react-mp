@@ -87,7 +87,7 @@ function createInitializedState(): IState {
       followSystemPrefersColorSchemeWhenInBrowser: isBrowser() && !(window as any).__disable_follow_system_theme,
       language: DEFAULT_LANGUAGE,
       raise: DEFAULT_RAISE_MODE,
-      appFontSize: 14,
+      appFontSize: 16,
       appFontWeight: 'normal',
       raw: {} as IRawAppUserConfig,
     }),
