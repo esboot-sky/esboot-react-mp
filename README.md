@@ -1,6 +1,6 @@
 # url参数说明
 
-lang、theme、raise用于指定页面初始参数
+language、theme、raise用于指定页面初始参数
 
 language: 语言、zh-CN、zh-TW、en-US
 theme: 主题、一般支持dark、light

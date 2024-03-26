@@ -6,6 +6,10 @@ export const initPageQuery: {
    */
   lang?: string;
   /**
+   * 语言
+   */
+  language?: string;
+  /**
    * 主题色
    */
   theme?: string;

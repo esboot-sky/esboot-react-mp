@@ -57,6 +57,7 @@ interface IState {
 function createInitializedState(): IState {
   const {
     lang,
+    language,
     raise,
   } = initPageQuery;
 
@@ -105,6 +106,8 @@ function createInitializedState(): IState {
 
   if (isSupportedLanguage(lang)) {
     defaultState.userConfig.language = lang as Language;
+  } else if (isSupportedLanguage(language)) {
+    defaultState.userConfig.language = language as Language;
   }
 
   return defaultState;
