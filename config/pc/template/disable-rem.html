@@ -70,7 +70,7 @@
     </script>
     <script>
       (function () {
-        var theme = anyQs(window.location.href).theme;
+        var theme = anyQs(window.location.href).theme || 'light';
         if (theme === 'black') {
           theme = 'dark';
         } else if (theme === 'white') {
