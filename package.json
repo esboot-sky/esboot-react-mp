@@ -49,7 +49,7 @@
   "devDependencies": {
     "@dz-web/esboot": "^2.11.8",
     "@dz-web/esboot-plugin-tailwindcss": "0.1.0",
-    "@dz-web/esboot-plugin-vitest": "^1.1.5",
+    "@dz-web/esboot-plugin-vitest": "^1.1.7",
     "@dz-web/esboot-react-mp-tools": "file:./dev/tools",
     "@types/dz-web": "^1.0.1",
     "@types/lodash-es": "^4.17.9",
