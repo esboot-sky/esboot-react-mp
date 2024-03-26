@@ -14,8 +14,8 @@ export default defineConfig((runtimeCfg) => ({
   pxtorem: {
     enable: true,
     // root rem设置为200，编译生成的值，心算的时候x rem X 100即可得到在375px浏览器下的px值
-    // 如375px编译为1.875rem，心算时1.875rem X 100 = 187.5px, 即在375浏览器窗口下，半屏宽度
-    rootValue: runtimeCfg.isMobile ? 200 : 16,
+    // 设计稿为750, 浏览器以375为基准，16px相当于设计32
+    rootValue: runtimeCfg.isMobile ? 32 : 16,
   },
   extraBabelIncludes: [
     /filter-obj/i,
