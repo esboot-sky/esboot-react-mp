@@ -17,17 +17,11 @@ const AppHome: React.FC = () => {
 
   return (
     <div>
-      <p styleName={classNames({ test: true })}>
-        <FormattedMessage id="global.mobile.page.quantity" />
-        :
-        {' '}
-        {count}
+      <p styleName={classNames({ test: true })} className="text-bold mt-10 text-white">
+        <FormattedMessage id="global.mobile.page.quantity" />: {count}
       </p>
 
-      <button
-        onClick={() => dispatch(increase(1))}
-        type="button"
-      >
+      <button onClick={() => dispatch(increase(1))} type="button">
         <FormattedMessage id="global.mobile.page.increase" />
       </button>
     </div>

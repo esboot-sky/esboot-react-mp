@@ -47,8 +47,8 @@
     "vconsole": "^3.15.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^2.11.8",
-    "@dz-web/esboot-plugin-tailwindcss": "0.1.0",
+    "@dz-web/esboot": "^2.13.0",
+    "@dz-web/esboot-plugin-tailwindcss": "0.2.0",
     "@dz-web/esboot-plugin-vitest": "^1.1.7",
     "@dz-web/esboot-react-mp-tools": "file:./dev/tools",
     "@types/dz-web": "^1.0.1",
@@ -78,7 +78,7 @@
       "./node_modules/@dz-web/esboot/config/commitlint/index.js"
     ]
   },
-  "prettier": "@dz-web/esboot/config/prettier/index.json",
+  "prettier": "./node_modules/.cache/esboot/prettier/index.json",
   "browserslist": {
     "development": [
       "Chrome >= 100"
