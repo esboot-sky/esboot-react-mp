@@ -1,6 +1,6 @@
 import { ReactNode, useLayoutEffect } from 'react';
 import { CustomProvider } from 'rsuite';
-import 'rsuite/dist/rsuite.css';
+import 'rsuite/dist/rsuite-no-reset.min.css';
 import zhCN from 'rsuite/locales/zh_CN';
 
 // import { useLanguage } from '@pc/hooks/use-language';
@@ -10,7 +10,9 @@ import { useUserConfig } from '@pc/hooks/use-user-config';
 export function withRSuite(App): any {
   return function RSuiteApp({ ...rest }) {
     // const language = useLanguage();
-    const { userConfig: { theme } } = useUserConfig();
+    const {
+      userConfig: { theme },
+    } = useUserConfig();
 
     const rsuiteTheme = theme === SupportedThemes.light ? 'light' : 'dark';
 
