@@ -63,5 +63,5 @@ export default defineConfig((runtimeCfg) => ({
 }));
 
 export const afterHooks = (cfg) => {
-  console.log(cfg.isBrowser, '<-- cfg');
+  console.log(cfg.entry, '<-- cfg');
 }
