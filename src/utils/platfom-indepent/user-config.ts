@@ -7,7 +7,9 @@ import type { MinimalStoreType as PCMinimalStoreType } from '@pc/model/minimal-s
 export function getPlatformIndependentUserConfig() {
   if (process.env.isMobile) {
     const store = (window as any).__mobile_store__ as MinimalStoreType;
-    const { app: { userConfig, userInfo } } = store.getState();
+    const {
+      app: { userConfig, userInfo },
+    } = store.getState();
     const { language } = userConfig;
     const token = userInfo[TOKEN_KEY];
 
@@ -18,7 +20,9 @@ export function getPlatformIndependentUserConfig() {
   }
 
   const store = (window as any).__mobile_store__ as PCMinimalStoreType;
-  const { app: { userConfig, userInfo } } = store.getState();
+  const {
+    app: { userConfig, userInfo },
+  } = store.getState();
   const { language } = userConfig;
   const token = userInfo[PC_TOKEN_KEY];
 

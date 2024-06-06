@@ -19,12 +19,7 @@ export interface IRawAppUserConfig {
  * 转换原始app用户配置为标准app用户配置
  */
 export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
-  const {
-    theme,
-    language,
-    raise,
-    deviceNo,
-  } = rawAppUserConfig;
+  const { theme, language, raise, deviceNo } = rawAppUserConfig;
 
   const standardUserConfig: IStandardAppUserConfig = {
     deviceNo,

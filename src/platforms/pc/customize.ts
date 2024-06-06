@@ -10,9 +10,9 @@ import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
 export interface IRawAppUserConfig {
   font: {
     additionalSize: number;
-    list: number[],
-    weight: 'normal' | 'bold'
-  },
+    list: number[];
+    weight: 'normal' | 'bold';
+  };
   theme: ThemeValues;
   language: Language;
   raise: RaiseMode;
@@ -22,12 +22,7 @@ export interface IRawAppUserConfig {
  * 转换原始app用户配置为标准app用户配置
  */
 export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
-  const {
-    theme,
-    language,
-    raise,
-    font,
-  } = rawAppUserConfig;
+  const { theme, language, raise, font } = rawAppUserConfig;
 
   const standardUserConfig: IStandardAppUserConfig = {
     theme,

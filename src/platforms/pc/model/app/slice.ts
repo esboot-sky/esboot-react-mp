@@ -58,12 +58,7 @@ interface IState {
 }
 
 function createInitializedState(): IState {
-  const {
-    lang,
-    raise,
-    additionalSize,
-    fontWeight,
-  } = initPageQuery;
+  const { lang, raise, additionalSize, fontWeight } = initPageQuery;
 
   function getValueButIgnoreInNative<T>(run: () => T | undefined | null, defaultValue: T) {
     if (isBrowser()) {
@@ -93,10 +88,7 @@ function createInitializedState(): IState {
     }),
   } as IState;
 
-  const theme = getDefaultTheme(
-    defaultState.userConfig.followSystemPrefersColorSchemeWhenInBrowser,
-    DEFAULT_THEME,
-  );
+  const theme = getDefaultTheme(defaultState.userConfig.followSystemPrefersColorSchemeWhenInBrowser, DEFAULT_THEME);
 
   if (isSupportedTheme(theme)) {
     defaultState.userConfig.theme = theme as ThemeValues;

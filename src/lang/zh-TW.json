@@ -1,0 +1,13 @@
+{
+  "global": {
+    "project": "測試項目名稱"
+  },
+  "test1": {
+    "nest1": {
+      "key1": "zh-cn-key1"
+    },
+    "nest2": {
+      "key2": "zh-cn-key2"
+    }
+  }
+}

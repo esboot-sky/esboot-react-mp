@@ -26,6 +26,6 @@ export const supportedLanguage = {
   EN_US: 'en-US',
 } as const;
 
-export type Language = typeof supportedLanguage[keyof typeof supportedLanguage];
+export type Language = (typeof supportedLanguage)[keyof typeof supportedLanguage];
 
 export const DEFAULT_LANGUAGE = supportedLanguage.ZH_CN;

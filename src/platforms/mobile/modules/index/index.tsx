@@ -19,13 +19,12 @@ const AppHome: React.FC = () => {
   return (
     <div>
       <p styleName={classNames({ test: true })}>
-        <FormattedMessage id="global.mobile.page.quantity" />
-        :
-        {' '}
-        {count}
+        <FormattedMessage id="global.project" />: {count}
       </p>
 
-      <Button onClick={() => dispatch(increase(1))}><FormattedMessage id="global.mobile.page.increase" /></Button>
+      <Button onClick={() => dispatch(increase(1))}>
+        <FormattedMessage id="test1.nest2.key2" />
+      </Button>
     </div>
   );
 };

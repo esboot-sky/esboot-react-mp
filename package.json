@@ -47,7 +47,7 @@
     "vconsole": "^3.15.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^2.13.0",
+    "@dz-web/esboot": "^2.14.1",
     "@dz-web/esboot-plugin-tailwindcss": "0.2.0",
     "@dz-web/esboot-plugin-vitest": "^1.1.7",
     "@dz-web/esboot-react-mp-tools": "file:./dev/tools",

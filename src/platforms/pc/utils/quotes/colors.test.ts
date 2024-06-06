@@ -1,8 +1,4 @@
-import {
-  describe,
-  test,
-  expect,
-} from 'vitest';
+import { describe, test, expect } from 'vitest';
 
 import '@pc/constants/config';
 

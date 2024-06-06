@@ -10,7 +10,7 @@ export const SupportedThemes = {
   yellow: 'yellow',
 } as const;
 
-export type ThemeValues = typeof SupportedThemes[keyof typeof SupportedThemes];
+export type ThemeValues = (typeof SupportedThemes)[keyof typeof SupportedThemes];
 
 export const DEFAULT_THEME = SupportedThemes.light;
 

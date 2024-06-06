@@ -16,10 +16,7 @@ export interface IMeta {
   suppressErrorNotification?: boolean;
 }
 
-function handleRequestError(
-  error?: Error,
-  meta?: IMeta,
-) {
+function handleRequestError(error?: Error, meta?: IMeta) {
   // 根据meta对象自定义提示消息
   if (typeof meta === 'object') {
     const { errorMessage, suppressErrorNotification } = meta;
@@ -67,7 +64,7 @@ export function withReactQuery(App): any {
     return (
       <QueryClientProvider client={queryClient}>
         <App {...rest} />
-        { enableReactQueryDevTool && <ReactQueryDevtools initialIsOpen={false} /> }
+        {enableReactQueryDevTool && <ReactQueryDevtools initialIsOpen={false} />}
       </QueryClientProvider>
     );
   };
