@@ -150,6 +150,38 @@ async function createPage() {
       },
     );
   }
+
+  // lang
+  const langFolder = path.resolve(process.cwd(), './src/lang');
+  const result = [];
+
+  function traverse(currentDir) {
+    const files = fs.readdirSync(currentDir);
+
+    files.forEach(file => {
+      const filePath = path.join(currentDir, file);
+      const stats = fs.statSync(filePath);
+
+      if (stats.isDirectory()) {
+        traverse(filePath);
+      } else if (stats.isFile() && path.extname(file) === '.json') {
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        try {
+          const jsonContent = JSON.parse(fileContent);
+          jsonContent[answers.pageName] = {};
+          console.log(jsonContent)
+
+          fs.writeFileSync(filePath, JSON.stringify(jsonContent, null, 2))
+          // result.push(jsonContent);
+        } catch (error) {
+          console.error(`Error parsing JSON file: ${filePath}`, error);
+        }
+      }
+    });
+  }
+
+  traverse(langFolder);
+  return result;
 }
 
 module.exports = { createPage };

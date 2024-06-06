@@ -1,10 +1,5 @@
 {
   "global": {
     "project": "test project name"
-  },
-  "test1": {
-    "nest1": {
-      "key1": "en-us-key1"
-    }
   }
 }

@@ -18,7 +18,7 @@ const AppHome: React.FC = () => {
   return (
     <div>
       <p styleName={classNames({ test: true })}>
-        <FormattedMessage id="global.mobile.page.quantity" />
+        <FormattedMessage id="global.project" />
         :
         {' '}
         {count}
@@ -28,7 +28,7 @@ const AppHome: React.FC = () => {
         onClick={() => dispatch(increase(1))}
         type="button"
       >
-        <FormattedMessage id="global.mobile.page.increase" />
+        <FormattedMessage id="global.project" />
       </button>
     </div>
   );

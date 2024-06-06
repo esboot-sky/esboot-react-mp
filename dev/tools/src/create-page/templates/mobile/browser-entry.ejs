@@ -1,20 +1,12 @@
-import { getPageI18n } from '@/helpers/import-locales';
 import App from '@mobile/modules/<%= pageName %>';
-import enUS from '@mobile/modules/<%= pageName %>/locales/en-US.json';
-import zhCN from '@mobile/modules/<%= pageName %>/locales/zh-CN.json';
-import zhTW from '@mobile/modules/<%= pageName %>/locales/zh-TW.json';
 import { store } from '@mobile/modules/<%= pageName %>/model/store';
 import generatePage from '@mobile-browser/helpers/generate-page';
 
 generatePage(<App />, {
   store,
-  i18n: getPageI18n({
-    'zh-CN': zhCN,
-    'zh-TW': zhTW,
-    'en-US': enUS,
-  }),
 });
 
 export default {
   title: 'Mobile-browser',
+  langJsonPicker: ['<%= pageName %>'],
 };
