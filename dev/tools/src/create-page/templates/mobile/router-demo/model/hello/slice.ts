@@ -30,9 +30,7 @@ export const slice = createSlice({
   },
 });
 
-export const {
-  increase,
-} = slice.actions;
+export const { increase } = slice.actions;
 
 export const selectCount = (state: RootState) => state.hello.count;
 

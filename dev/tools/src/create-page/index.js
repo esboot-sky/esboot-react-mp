@@ -158,7 +158,7 @@ async function createPage() {
   function traverse(currentDir) {
     const files = fs.readdirSync(currentDir);
 
-    files.forEach(file => {
+    files.forEach((file) => {
       const filePath = path.join(currentDir, file);
       const stats = fs.statSync(filePath);
 
@@ -169,9 +169,8 @@ async function createPage() {
         try {
           const jsonContent = JSON.parse(fileContent);
           jsonContent[answers.pageName] = {};
-          console.log(jsonContent)
 
-          fs.writeFileSync(filePath, JSON.stringify(jsonContent, null, 2))
+          fs.writeFileSync(filePath, JSON.stringify(jsonContent, null, 2));
           // result.push(jsonContent);
         } catch (error) {
           console.error(`Error parsing JSON file: ${filePath}`, error);

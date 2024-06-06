@@ -15,9 +15,7 @@ const Index = genericMemo(function Index() {
       >
         go to detail
       </Link>
-      <div styleName="w375">
-        375 width in 750 design
-      </div>
+      <div styleName="w375">375 width in 750 design</div>
     </div>
   );
 });
