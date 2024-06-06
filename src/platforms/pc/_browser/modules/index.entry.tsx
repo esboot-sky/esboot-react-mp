@@ -7,7 +7,7 @@ generatePage(<App />, {
 });
 
 export default {
-  langPick: ['global', 'test1.nest2'],
+  langJsonPicker: ['global', 'test1.nest2'],
   title: 'pc-browser',
   template: 'disable-rem',
 };
