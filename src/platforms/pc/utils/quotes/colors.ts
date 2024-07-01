@@ -1,4 +1,4 @@
-import { RaiseModeColorScheme, RaiseMode, SupportedThemes } from '@pc/constants/config';
+import { RaiseModeColorScheme, RaiseMode } from '@pc/constants/config';
 
 /**
  * 传入redux中的保存的涨跌颜色模式，返回对应的up down颜色, 如果与页面需求不一致，可以不使用这个，
@@ -12,5 +12,5 @@ export function getRaiseModeColor(raiseMode: RaiseMode) {
   }
 
   // 如不存在，返回默认
-  return SupportedThemes.light;
+  return RaiseModeColorScheme.red;
 }

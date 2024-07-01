@@ -13,7 +13,6 @@ export default defineConfig((runtimeCfg) => ({
   mfsu: false,
   pxtorem: {
     enable: true,
-    // root rem设置为200，编译生成的值，心算的时候x rem X 100即可得到在375px浏览器下的px值
     // 设计稿为默认750, 浏览器以375为基准，16px是为了方便使用tailwindcss, 32px对应750px设计稿中的16px
     rootValue: runtimeCfg.isMobile ? 32 : 16,
   },
