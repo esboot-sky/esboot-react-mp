@@ -17,6 +17,7 @@ export default defineConfig((runtimeCfg) => ({
     rootValue: runtimeCfg.isMobile ? 32 : 16,
   },
   extraBabelIncludes: [
+    /tailwind-merge/i,
     /filter-obj/i,
     /immer/i,
     /zustand/i,
