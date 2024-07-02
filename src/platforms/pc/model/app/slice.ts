@@ -7,10 +7,10 @@ import { Language, DEFAULT_LANGUAGE, supportedLanguage } from '@/constants/confi
 import { initPageQuery } from '@/helpers/init-page-query';
 import { isSupportedLanguage } from '@/utils/capacities';
 import { isBrowser } from '@/utils/platforms';
-import { isSupportedTheme, isValidRaiseMode } from '@mobile/utils/capacities';
 import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_MODE } from '@pc/constants/config';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '@pc/customize';
 import { MinimalRootState } from '@pc/model/minimal-store';
+import { isSupportedTheme, isValidRaiseMode } from '@pc/utils/capacities';
 import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
 
 const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {

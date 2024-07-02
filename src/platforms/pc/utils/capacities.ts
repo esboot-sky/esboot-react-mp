@@ -3,7 +3,7 @@ import { find } from 'lodash-es';
 import { SupportedThemes, validRaiseMode } from '@pc/constants/config';
 
 export function isSupportedTheme(theme?: string): boolean {
-  return !!theme && !!find(SupportedThemes, (item) => item === theme);
+  return !!theme && theme in SupportedThemes;
 }
 
 export function isValidRaiseMode(raise?: string) {
