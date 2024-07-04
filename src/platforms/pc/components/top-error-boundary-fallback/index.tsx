@@ -9,15 +9,15 @@ export function TopErrorBoundaryFallback({ error, resetErrorBoundary }) {
     <div styleName="error-boundary">
       <div styleName="error-message">
         <h2>
-          <FormattedMessage id="global.pc.boundaryErrorTitle" />
+          <FormattedMessage id="global.boundaryErrorTitle" />
         </h2>
         <p>
-          <FormattedMessage id="global.pc.apologize" />
+          <FormattedMessage id="global.apologize" />
         </p>
         <p styleName="code-message">{error?.message}</p>
       </div>
       <button type="button" styleName="retry-button" onClick={resetErrorBoundary}>
-        <FormattedMessage id="global.pc.retry" />
+        <FormattedMessage id="global.retry" />
       </button>
     </div>
   );
