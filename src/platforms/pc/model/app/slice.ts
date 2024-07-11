@@ -160,20 +160,11 @@ export const slice = createSlice({
       const { followSystemPrefersColorSchemeWhenInBrowser } = state.userConfig;
       state.userConfig.followSystemPrefersColorSchemeWhenInBrowser = !followSystemPrefersColorSchemeWhenInBrowser;
     },
-    disableFollowSystemPrefersColorSchemeWhenInBrowser(state) {
-      state.userConfig.followSystemPrefersColorSchemeWhenInBrowser = false;
-    },
   },
 });
 
-export const {
-  setUserConfig,
-  setUserInfo,
-  setTheme,
-  setRaise,
-  toggleFollowSystemPrefersColorSchemeWhenInBrowser,
-  disableFollowSystemPrefersColorSchemeWhenInBrowser,
-} = slice.actions;
+export const { setUserConfig, setUserInfo, setTheme, setRaise, toggleFollowSystemPrefersColorSchemeWhenInBrowser } =
+  slice.actions;
 
 export const selectUserConfig = (state: MinimalRootState) => state.app.userConfig;
 export const selectUserInfo = (state: MinimalRootState) => state.app.userInfo;

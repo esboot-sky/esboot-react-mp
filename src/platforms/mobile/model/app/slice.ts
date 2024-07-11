@@ -148,24 +148,18 @@ export const slice = createSlice({
         console.error('无效涨跌颜色设置: ', action.payload);
       }
     },
+    /**
+     * 用于在设置界面中切换是否跟随系统颜色模式, 白天、黑夜模式
+     */
     toggleFollowSystemPrefersColorSchemeWhenInBrowser(state) {
       const { followSystemPrefersColorSchemeWhenInBrowser } = state.userConfig;
       state.userConfig.followSystemPrefersColorSchemeWhenInBrowser = !followSystemPrefersColorSchemeWhenInBrowser;
     },
-    disableFollowSystemPrefersColorSchemeWhenInBrowser(state) {
-      state.userConfig.followSystemPrefersColorSchemeWhenInBrowser = false;
-    },
   },
 });
 
-export const {
-  setUserConfig,
-  setUserInfo,
-  setTheme,
-  setRaise,
-  toggleFollowSystemPrefersColorSchemeWhenInBrowser,
-  disableFollowSystemPrefersColorSchemeWhenInBrowser,
-} = slice.actions;
+export const { setUserConfig, setUserInfo, setTheme, setRaise, toggleFollowSystemPrefersColorSchemeWhenInBrowser } =
+  slice.actions;
 
 export const selectUserConfig = (state: MinimalRootState) => state.app.userConfig;
 export const selectUserInfo = (state: MinimalRootState) => state.app.userInfo;
