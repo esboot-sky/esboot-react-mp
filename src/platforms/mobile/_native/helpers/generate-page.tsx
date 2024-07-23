@@ -2,7 +2,6 @@ import { bridge, BridgePlatforms } from '@dz-web/bridge';
 
 import { useBridgeMock } from '@/constants/config';
 import { mounteReact } from '@/helpers/react';
-import wrapI18n from '@/hoc/i18n';
 import { wrapReactQuery } from '@/hoc/query-client';
 import { wrapRedux } from '@/hoc/redux';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
@@ -10,6 +9,7 @@ import '@/styles/index.scss';
 import { GeneratePageOptions } from '@/types';
 import { TopErrorBoundaryFallback } from '@mobile/components/top-error-boundary-fallback';
 import '@mobile/helpers/v-console';
+import wrapI18n from '@mobile/hoc/i18n';
 import { subscribeUserAndCache } from '@mobile/model/subscriber';
 import '@mobile/styles/index.scss';
 import wrapNative from '@mobile-native/hoc/native';
