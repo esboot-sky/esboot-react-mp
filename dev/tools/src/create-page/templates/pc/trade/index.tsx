@@ -1,6 +1,6 @@
 import { CacheStore } from '@dz-web/cache';
 import { useQueryClient } from '@tanstack/react-query';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import './index.scss';
@@ -17,17 +17,11 @@ const AppHome: React.FC = () => {
 
   return (
     <div>
-      <p styleName={classNames({ test: true })}>
-        <FormattedMessage id="global.project" />
-        :
-        {' '}
-        {count}
+      <p styleName={clsx({ test: true })}>
+        <FormattedMessage id="global.project" />: {count}
       </p>
 
-      <button
-        onClick={() => dispatch(increase(1))}
-        type="button"
-      >
+      <button onClick={() => dispatch(increase(1))} type="button">
         <FormattedMessage id="global.project" />
       </button>
     </div>
