@@ -6,8 +6,7 @@ export const updateRootClass = (() => {
   let prevRaise = '';
   const themePrefix = 'dz-theme-';
 
-  return (theme: string, raise: string, lang = '') => {
-    console.log(lang);
+  return (theme: string, raise: string) => {
     const { classList } = document.documentElement;
 
     if (isValidRaiseMode(raise) && raise !== prevRaise) {

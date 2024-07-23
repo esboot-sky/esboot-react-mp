@@ -1,3 +1,5 @@
+import { isBrowser } from '@/utils/platforms';
+
 /**
  * 是否使用bridge mock, false强制使用原生交互，用于测试真机环境
  */
@@ -28,4 +30,6 @@ export const supportedLanguage = {
 
 export type Language = (typeof supportedLanguage)[keyof typeof supportedLanguage];
 
-export const DEFAULT_LANGUAGE = supportedLanguage.ZH_CN;
+const useHKLang = isBrowser() && /zh-hk|zh-tw/i.test(navigator.language);
+
+export const DEFAULT_LANGUAGE = useHKLang ? supportedLanguage.ZH_TW : supportedLanguage.ZH_CN;
