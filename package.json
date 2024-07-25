@@ -67,7 +67,18 @@
   "eslintConfig": {
     "extends": [
       "./node_modules/.cache/esboot/eslint"
-    ]
+    ],
+    "rules": {
+      "@dz-web/esboot/no-cross-platform-lib-imports": [
+        "error",
+        [
+          "rsuite"
+        ],
+        [
+          "antd-mobile"
+        ]
+      ]
+    }
   },
   "stylelint": {
     "extends": [
