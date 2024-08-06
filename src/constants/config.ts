@@ -1,3 +1,4 @@
+import staticConfig from '@/helpers/static-config';
 import { isBrowser } from '@/utils/platforms';
 
 /**
@@ -8,7 +9,7 @@ let defaultUseBridgeMock = true;
  * 移动端是否开启debug
  * 测试包可自己选择开启
  */
-export const enableDebug = false;
+export const enableDebug = !!staticConfig.getConfig('debug');
 /**
  * 默认开启react-query-devtools, 打包后不会开启，如发现logo挡住了界面可以在这里临时关闭
  */
