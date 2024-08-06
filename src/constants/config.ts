@@ -5,11 +5,10 @@ import { isBrowser } from '@/utils/platforms';
  */
 let defaultUseBridgeMock = true;
 /**
- * 移动端是否开启vconsole
- * 默认不开启vconsole, 会影响正常浏览器控制台跟踪日志输出源码位置
+ * 移动端是否开启debug
  * 测试包可自己选择开启
  */
-export const enableVConsole = false;
+export const enableDebug = false;
 /**
  * 默认开启react-query-devtools, 打包后不会开启，如发现logo挡住了界面可以在这里临时关闭
  */

@@ -8,7 +8,7 @@ import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
 import { GeneratePageOptions } from '@/types';
 import { TopErrorBoundaryFallback } from '@mobile/components/top-error-boundary-fallback';
-import '@mobile/helpers/v-console';
+import '@mobile/helpers/debug';
 import wrapI18n from '@mobile/hoc/i18n';
 import { subscribeUserAndCache } from '@mobile/model/subscriber';
 import '@mobile/styles/index.scss';
