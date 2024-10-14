@@ -11,7 +11,9 @@
     "build:ci": "yarn run test && esboot build",
     "test": "esboot vitest",
     "bridge-mock": "esboot mock:bridge",
-    "postinstall": "esboot postinstall",
+    "prepare": "esboot prepare",
+    "docs:dev": "esboot docs dev",
+    "docs:build": "esboot docs build",
     "create-page": "esboot-react-mp-tools create-page"
   },
   "author": "donghs <donghs@dztec.net>",
@@ -21,6 +23,7 @@
     "@dz-web/axios-middlewares": "^1.0.3",
     "@dz-web/bridge": "^2.2.10",
     "@dz-web/cache": "^2.0.0",
+    "@dz-web/esboot-browser": "^3.0.1",
     "@dz-web/o-orange": "^4.3.0",
     "@loadable/component": "^5.15.3",
     "@reduxjs/toolkit": "^1.9.6",
@@ -48,9 +51,10 @@
     "rsuite": "^5.65.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^2.15.0",
-    "@dz-web/esboot-plugin-tailwindcss": "0.2.0",
-    "@dz-web/esboot-plugin-vitest": "^1.1.7",
+    "@dz-web/esboot": "^3.0.1",
+    "@dz-web/esboot-bundler-webpack": "^3.0.1",
+    "@dz-web/esboot-plugin-docs": "^3.0.1",
+    "@dz-web/esboot-plugin-vitest": "^3.0.1",
     "@dz-web/esboot-react-mp-tools": "file:./dev/tools",
     "@types/dz-web": "^1.0.2",
     "@types/lodash-es": "^4.17.12",
@@ -82,15 +86,15 @@
   },
   "stylelint": {
     "extends": [
-      "@dz-web/esboot/config/stylelint"
+      "./node_modules/.cache/esboot/stylelint"
     ]
   },
   "commitlint": {
     "extends": [
-      "./node_modules/@dz-web/esboot/config/commitlint/index.js"
+      "./node_modules/.cache/esboot/commitlint"
     ]
   },
-  "prettier": "./node_modules/.cache/esboot/prettier/index.json",
+  "prettier": "./node_modules/.cache/esboot/prettier",
   "browserslist": {
     "development": [
       "Chrome >= 100"
