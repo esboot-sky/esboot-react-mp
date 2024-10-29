@@ -23,7 +23,7 @@
     "@dz-web/axios-middlewares": "^1.0.3",
     "@dz-web/bridge": "^2.2.10",
     "@dz-web/cache": "^2.0.0",
-    "@dz-web/esboot-browser": "^3.0.1",
+    "@dz-web/esboot-browser": "^3.0.6",
     "@dz-web/o-orange": "^4.3.0",
     "@loadable/component": "^5.15.3",
     "@reduxjs/toolkit": "^1.9.6",
@@ -51,10 +51,10 @@
     "rsuite": "^5.65.1"
   },
   "devDependencies": {
-    "@dz-web/esboot": "^3.0.1",
-    "@dz-web/esboot-bundler-webpack": "^3.0.1",
-    "@dz-web/esboot-plugin-docs": "^3.0.1",
-    "@dz-web/esboot-plugin-vitest": "^3.0.1",
+    "@dz-web/esboot": "^3.0.6",
+    "@dz-web/esboot-bundler-webpack": "^3.0.6",
+    "@dz-web/esboot-plugin-docs": "^3.0.6",
+    "@dz-web/esboot-plugin-vitest": "^3.0.6",
     "@dz-web/esboot-react-mp-tools": "file:./dev/tools",
     "@types/dz-web": "^1.0.2",
     "@types/lodash-es": "^4.17.12",

@@ -5,7 +5,6 @@ import docsPlugin from '@dz-web/esboot-plugin-docs';
 
 export default defineConfig<BundlerOptions>((cfg) => ({
   bundler: Bundler,
-  useLangJsonPicker: true,
   bundlerOptions: {
     mfsu: true,
     pxtorem: {
