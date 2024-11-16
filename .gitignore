@@ -29,3 +29,7 @@ bridge-mock.js
 
 # Test
 coverage
+
+# Editor
+.idea
+.vscode
