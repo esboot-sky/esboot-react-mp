@@ -1,6 +1,6 @@
 import { CacheStore } from '@dz-web/cache';
 import { useQueryClient } from '@tanstack/react-query';
-import clsx from 'clsx';
+import { clsx } from '@dz-web/esboot-browser';
 import { FormattedMessage } from 'react-intl';
 
 import './index.scss';
