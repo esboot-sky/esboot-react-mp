@@ -1,12 +1,16 @@
 import { defineConfig, PluginHooks, definePlugin } from '@dz-web/esboot';
-import { BundlerWebpack as Bundler, type BundlerWebpackOptions as BundlerOptions, CodeSplittingType } from '@dz-web/esboot-bundler-webpack';
-import vitestPlugin from '@dz-web/esboot-plugin-vitest';
+import {
+  BundlerWebpack as Bundler,
+  type BundlerWebpackOptions as BundlerOptions,
+  CodeSplittingType,
+} from '@dz-web/esboot-bundler-webpack';
 import docsPlugin from '@dz-web/esboot-plugin-docs';
+import vitestPlugin from '@dz-web/esboot-plugin-vitest';
 
 export default defineConfig<BundlerOptions>((cfg) => ({
   bundler: Bundler,
   bundlerOptions: {
-    mfsu: true,
+    mfsu: false,
     extraBabelIncludes: [
       /tailwind-merge/i,
       /filter-obj/i,
@@ -44,7 +48,7 @@ export default defineConfig<BundlerOptions>((cfg) => ({
           '@loadable/component',
           'classnames',
           'perfect-scrollbar',
-        ]
+        ],
       },
     },
   },
@@ -62,8 +66,8 @@ export default defineConfig<BundlerOptions>((cfg) => ({
     docsPlugin(),
     definePlugin({
       key: 'log',
-      [PluginHooks.afterCompile]: (cfg) => {
-        console.log(cfg.entry);
+      [PluginHooks.afterCompile]: (_cfg) => {
+        console.log(_cfg.entry);
       },
     }),
   ],

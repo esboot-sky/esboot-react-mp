@@ -21,7 +21,6 @@ export const slice = createSlice({
    * 模块名称
    */
   name: 'hello',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState: createInitializedState(),
   reducers: {
     increase: (state, action: PayloadAction<number>) => {

@@ -11,6 +11,7 @@ import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_M
 import { IRawAppUserConfig, IUserInfo, accessToken } from '@pc/customize';
 import { MinimalRootState } from '@pc/model/minimal-store';
 import { isSupportedTheme, isValidRaiseMode } from '@pc/utils/capacities';
+// eslint-disable-next-line @dz-web/esboot/no-cross-platform-imports
 import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
 
 const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {
@@ -119,7 +120,6 @@ function createInitializedState(): IState {
 
 export const slice = createSlice({
   name: 'app',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState: createInitializedState(),
   reducers: {
     setUserConfig: (state, action: PayloadAction<IStandardAppUserConfig>) => {

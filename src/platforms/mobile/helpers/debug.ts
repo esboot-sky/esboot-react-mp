@@ -1,6 +1,6 @@
-import { enableDebug } from '@/constants/config';
+import { enableDebug, isDev } from '@/constants/config';
 
-if (enableDebug && process.env.NODE_ENV === 'development') {
+if (enableDebug && isDev) {
   import('eruda').then((eruda) => {
     eruda.default.init();
   });
