@@ -10,7 +10,7 @@ import { MinimalStoreType } from './minimal-store';
 export function subscribeUserAndCache(store: MinimalStoreType) {
   let previousApp = store.getState().app;
 
-  updateRootClass(previousApp.userConfig.theme, previousApp.userConfig.raise, previousApp.userConfig.language);
+  updateRootClass(previousApp.userConfig.theme, previousApp.userConfig.raise);
 
   // 浏览器环境初始化时，会从url参数获取初始参数，需要更新到storage
   if (isBrowser()) {
@@ -24,7 +24,7 @@ export function subscribeUserAndCache(store: MinimalStoreType) {
     // 引用相同，不需要任何判断
     if (currentApp === previousApp) return;
 
-    updateRootClass(currentApp.userConfig.theme, currentApp.userConfig.raise, currentApp.userConfig.language);
+    updateRootClass(currentApp.userConfig.theme, currentApp.userConfig.raise);
 
     // 原生环境里运行，让原生端管理用户数据，不需要缓存
     if (isBrowser()) {

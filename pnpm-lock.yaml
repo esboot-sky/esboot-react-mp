@@ -26355,7 +26355,7 @@ snapshots:
     dependencies:
       client-only: 0.0.1
       react: 19.0.0
-      use-sync-external-store: 1.2.2(react@19.0.0)
+      use-sync-external-store: 1.4.0(react@19.0.0)
 
   symbol-tree@3.2.4: {}
 

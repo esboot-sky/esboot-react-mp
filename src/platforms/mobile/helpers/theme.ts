@@ -17,7 +17,7 @@ export const updateRootClass = (() => {
       prevRaise = raise;
     }
 
-    const nextTheme = SupportedThemes[theme];
+    const nextTheme = SupportedThemes[theme as keyof typeof SupportedThemes];
     if (nextTheme && nextTheme !== prevTheme) {
       if (prevTheme) {
         classList.remove(`${themePrefix}${prevTheme}`);

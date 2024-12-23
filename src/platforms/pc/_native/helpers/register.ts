@@ -1,6 +1,8 @@
 import { bridge } from '@dz-web/bridge';
 
-import { IUserInfo, oldStyle2Standard } from '@pc/customize';
+import { oldStyle2Standard } from './customize';
+
+import type { UserInfo } from '@pc/types';
 
 /**
  * 换肤等配置信息变化
@@ -14,6 +16,6 @@ export function onUpdateUserConfig(handle: (data: any) => void) {
  * 用户账户信息变化
  *
  */
-export function onUpdateUserInfo(handle: (data: IUserInfo) => void) {
+export function onUpdateUserInfo(handle: (data: UserInfo) => void) {
   return bridge.register<typeof handle>('updateUserInfo', handle);
 }

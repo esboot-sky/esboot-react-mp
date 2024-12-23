@@ -2,7 +2,9 @@ import { Language } from '@/constants/config';
 import { listenReactQueryError } from '@/global-events';
 import { ThemeValues, RaiseMode, TOKEN_KEY } from '@pc/constants/config';
 import { IStandardAppUserConfig } from '@pc/model/app/slice';
-import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
+import { getRealPCNativeFontSize } from '@pc-native/utils/pc-native-config';
+
+import type { UserInfo } from '@pc/types';
 
 /**
  * app传过来的原始设置信息, 代码中不使用此类型，使用dz web app标准类型IStandardAppUserConfig
@@ -31,7 +33,7 @@ export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
     followSystemPrefersColorSchemeWhenInBrowser: false,
     raw: rawAppUserConfig,
     raise,
-    appFontSize: getRealPCNativeFontSizee(font.additionalSize),
+    appFontSize: getRealPCNativeFontSize(font.additionalSize),
     appFontWeight: font.weight,
     deviceNo: '',
   };
@@ -41,27 +43,9 @@ export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
 }
 
 /**
- * 不同的app user info不可能统一格式
- * 在这里根据app提供的内容，改成自己的格式即可
- */
-export interface IUserInfo {
-  sessionCode: string;
-  areaCode: string;
-  avatar: string;
-  bcanStatus: 'Y';
-  cusNo: number;
-  isLoginTrade: boolean;
-  mobile: string;
-  nickname: string;
-  stoken: string;
-  tradeNo: string;
-  userId: number;
-}
-
-/**
  * 根据项目提供的用户信息，返回access token
  */
-export function accessToken(userInfo: IUserInfo) {
+export function accessToken(userInfo: UserInfo) {
   return userInfo[TOKEN_KEY];
 }
 

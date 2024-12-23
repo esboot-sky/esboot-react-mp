@@ -8,11 +8,14 @@ import { initPageQuery } from '@/helpers/init-page-query';
 import { isSupportedLanguage } from '@/utils/capacities';
 import { isBrowser } from '@/utils/platforms';
 import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_MODE } from '@pc/constants/config';
-import { IRawAppUserConfig, IUserInfo, accessToken } from '@pc/customize';
 import { MinimalRootState } from '@pc/model/minimal-store';
 import { isSupportedTheme, isValidRaiseMode } from '@pc/utils/capacities';
 // eslint-disable-next-line @dz-web/esboot/no-cross-platform-imports
-import { getRealPCNativeFontSizee } from '@pc-native/utils/pc-native-config';
+import { IRawAppUserConfig, accessToken } from '@pc-native/helpers/customize';
+// eslint-disable-next-line @dz-web/esboot/no-cross-platform-imports
+import { getRealPCNativeFontSize } from '@pc-native/utils/pc-native-config';
+
+import type { UserInfo } from '@pc/types';
 
 const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {
   const { theme } = initPageQuery;
@@ -51,7 +54,7 @@ interface IState {
   /**
    * 类型待定，暂无标准
    */
-  userInfo: IUserInfo;
+  userInfo: UserInfo;
   /**
    * 标准dz web app用户设置, 不需要关心来源
    */
@@ -76,7 +79,7 @@ function createInitializedState(): IState {
   const defaultState = {
     userInfo: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_PC_USER_INFO), {
       sessionCode: '',
-    } as IUserInfo),
+    } as UserInfo),
     userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_PC_USER_CONFIG), {
       theme: DEFAULT_THEME,
       deviceNo: '',
@@ -108,7 +111,7 @@ function createInitializedState(): IState {
 
   const intAdditionalSize = parseInt(additionalSize || '', 10);
   if (intAdditionalSize) {
-    defaultState.userConfig.appFontSize = getRealPCNativeFontSizee(intAdditionalSize);
+    defaultState.userConfig.appFontSize = getRealPCNativeFontSize(intAdditionalSize);
   }
 
   if (fontWeight === 'bold' || fontWeight === 'normal') {
@@ -125,7 +128,7 @@ export const slice = createSlice({
     setUserConfig: (state, action: PayloadAction<IStandardAppUserConfig>) => {
       state.userConfig = action.payload;
     },
-    setUserInfo: (state, action: PayloadAction<IUserInfo>) => {
+    setUserInfo: (state, action: PayloadAction<UserInfo>) => {
       state.userInfo = action.payload;
 
       const token = accessToken(action.payload);

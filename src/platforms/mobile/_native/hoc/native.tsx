@@ -65,7 +65,7 @@ export function withNative(Component: FC<any>, options: IWithNativeOptions = {})
     useEffect(() => {
       if (mergeOptions.disabledLoginExpired) return () => {};
 
-      const onLoginExpired = (serverResponse) => {
+      const onLoginExpired = (serverResponse: { code: number; message: string }) => {
         console.warn('原生app登录过期, 调用退出登录交互');
         sendLoginStatus({
           code: serverResponse?.code || 76,

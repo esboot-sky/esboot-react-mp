@@ -12,7 +12,7 @@ export default function wrapI18n(App: any, i18n = true): React.ReactNode {
     const language = useLanguage();
 
     return (
-      <IntlProvider messages={messageDict[language]} locale={language}>
+      <IntlProvider messages={messageDict[language as keyof typeof messageDict]} locale={language}>
         {App}
       </IntlProvider>
     );

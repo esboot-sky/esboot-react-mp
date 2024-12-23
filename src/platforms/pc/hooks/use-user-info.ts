@@ -1,6 +1,7 @@
-import { IUserInfo } from '@pc/customize';
 import { selectUserInfo, setUserInfo } from '@pc/model/app/slice';
 import { useMinimalAppDispatch, useMinimalAppSelector } from '@pc/model/minimal-store';
+
+import type { UserInfo } from '@pc/types';
 
 export function useUserInfo() {
   const userInfo = useMinimalAppSelector(selectUserInfo);
@@ -8,7 +9,7 @@ export function useUserInfo() {
 
   return {
     userInfo,
-    setUserInfo(newValue: IUserInfo) {
+    setUserInfo(newValue: UserInfo) {
       dispatch(setUserInfo(newValue));
     },
   };
