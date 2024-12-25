@@ -58,8 +58,8 @@ export default defineConfig<BundlerOptions>((cfg) => ({
     rootValue: cfg.isMobile ? 32 : 16,
   },
   define: {
-    'process.env.isMobile': JSON.stringify(cfg.isMobile),
-    'process.env.isBrowser': JSON.stringify(cfg.isBrowser),
+    'process.env.isMobile': cfg.isMobile,
+    'process.env.isBrowser': cfg.isBrowser,
   },
   plugins: [
     vitestPlugin(),
