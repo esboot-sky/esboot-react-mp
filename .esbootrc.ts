@@ -97,7 +97,8 @@ const getBundlerWebpackOptions = (cfg): UserOptions<BundlerWebpackOptions> => {
 };
 
 export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>((cfg) => {
-  const bundlerOptions = process.env.ESBOOT_BUNDLER === 'vite' ? getBundlerViteOptions(cfg) : getBundlerWebpackOptions(cfg);
+  const bundlerOptions =
+    process.env.ESBOOT_BUNDLER === 'vite' ? getBundlerViteOptions(cfg) : getBundlerWebpackOptions(cfg);
 
   const config: UserOptions<BundlerWebpackOptions | BundlerViteOptions> = {
     ...bundlerOptions,
@@ -107,8 +108,8 @@ export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>((cfg) =>
       rootValue: cfg.isMobile ? 32 : 16,
     },
     define: {
-      'process.env.isMobile': cfg.isMobile as any,
-      'process.env.isBrowser': cfg.isBrowser as any,
+      'process.env.isMobile': JSON.stringify(cfg.isMobile),
+      'process.env.isBrowser': JSON.stringify(cfg.isBrowser),
     },
     plugins: [
       vitestPlugin(),
