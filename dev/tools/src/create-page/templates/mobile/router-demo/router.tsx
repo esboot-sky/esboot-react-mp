@@ -1,12 +1,11 @@
-import loadable from '@loadable/component';
-import { createHashRouter } from 'react-router-dom';
+import { lazy } from 'react';
+import { createHashRouter } from 'react-router';
 
 import { listenLoginExpired } from '@/global-events';
 
-import Detail from './pages/detail/detail';
-import Index from './pages/index';
-
-const NotFound = loadable(() => import('./pages/not-found/not-found'));
+const Index = lazy(() => import('./pages/index'));
+const Detail = lazy(() => import('./pages/detail/detail'));
+const NotFound = lazy(() => import('./pages/not-found/not-found'));
 
 const router = createHashRouter([
   {

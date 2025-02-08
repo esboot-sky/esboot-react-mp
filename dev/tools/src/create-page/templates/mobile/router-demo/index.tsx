@@ -1,12 +1,13 @@
-import { CacheStore } from '@dz-web/cache';
-import { RouterProvider } from 'react-router-dom';
+import { Suspense } from 'react';
+import { RouterProvider } from 'react-router';
 
 import './index.scss';
 import router from './router';
 
-CacheStore.setItem('test', 'hello world');
-
 export default function RouterApp() {
-  // return <div>{window.onkeydown.ok}</div>
-  return <RouterProvider router={router} fallbackElement={<div>*</div>} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 }
