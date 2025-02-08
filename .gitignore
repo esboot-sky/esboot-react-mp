@@ -33,3 +33,5 @@ coverage
 # Editor
 .idea
 .vscode
+
+only-for-test*

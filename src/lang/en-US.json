@@ -5,6 +5,5 @@
     "apologize": "Sorry, the application encountered some problems.",
     "retry": "Retry"
   },
-  "tttt": {},
-  "test": {}
+  "only-for-test": {}
 }

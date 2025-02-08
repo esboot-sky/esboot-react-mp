@@ -111,7 +111,7 @@ function createInitializedState(): IState {
 
   const intAdditionalSize = parseInt(additionalSize || '', 10);
   if (intAdditionalSize) {
-    defaultState.userConfig.appFontSize = getRealPCNativeFontSize(intAdditionalSize);
+    defaultState.userConfig.appFontSize = getRealPCNativeFontSize(intAdditionalSize.toString());
   }
 
   if (fontWeight === 'bold' || fontWeight === 'normal') {

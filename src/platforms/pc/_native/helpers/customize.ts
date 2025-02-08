@@ -33,7 +33,7 @@ export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
     followSystemPrefersColorSchemeWhenInBrowser: false,
     raw: rawAppUserConfig,
     raise,
-    appFontSize: getRealPCNativeFontSize(font.additionalSize),
+    appFontSize: getRealPCNativeFontSize(font.additionalSize.toString()),
     appFontWeight: font.weight,
     deviceNo: '',
   };
