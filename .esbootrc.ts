@@ -10,7 +10,33 @@ import type { BundlerViteOptions } from '@dz-web/esboot-bundler-vite';
 import vitestPlugin from '@dz-web/esboot-plugin-vitest';
 import docsPlugin from '@dz-web/esboot-plugin-docs';
 
-const getBundlerViteOptions = (cfg): UserOptions<BundlerViteOptions> => {
+export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>((cfg) => ({
+  ...(process.env.ESBOOT_BUNDLER === 'vite' ? getBundlerViteOptions() : getBundlerWebpackOptions(cfg)),
+  px2rem: {
+      enable: true,
+      // 设计稿为默认750, 浏览器以375为基准，16px是为了方便使用tailwindcss, 32px对应750px设计稿中的16px
+      rootValue: cfg.isMobile ? 32 : 16,
+    },
+    define: {
+      'process.env.isMobile': JSON.stringify(cfg.isMobile),
+      'process.env.isBrowser': JSON.stringify(cfg.isBrowser),
+    },
+    plugins: [
+      vitestPlugin(),
+      docsPlugin(),
+      definePlugin({
+        key: 'log',
+        [PluginHooks.afterCompile]: (cfg) => {
+          const { isDev } = cfg;
+          if (!isDev) return;
+
+          console.log(cfg.entry);
+        },
+      }),
+  ],
+}));
+
+function getBundlerViteOptions(): UserOptions<BundlerViteOptions> {
   return {
     bundler: BundlerVite,
     bundlerOptions: {
@@ -37,9 +63,9 @@ const getBundlerViteOptions = (cfg): UserOptions<BundlerViteOptions> => {
       },
     },
   };
-};
+}
 
-const getBundlerWebpackOptions = (cfg): UserOptions<BundlerWebpackOptions> => {
+function getBundlerWebpackOptions(cfg): UserOptions<BundlerWebpackOptions> {
   const extraBabelPlugins: BabelPlugin[] = [];
   if (!cfg.isMobile) {
     extraBabelPlugins.push(getImportPluginsOfRsuite([]));
@@ -94,56 +120,4 @@ const getBundlerWebpackOptions = (cfg): UserOptions<BundlerWebpackOptions> => {
       },
     },
   };
-};
-
-export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>((cfg) => {
-  const bundlerOptions =
-    process.env.ESBOOT_BUNDLER === 'vite' ? getBundlerViteOptions(cfg) : getBundlerWebpackOptions(cfg);
-
-  const config: UserOptions<BundlerWebpackOptions | BundlerViteOptions> = {
-    ...bundlerOptions,
-    px2rem: {
-      enable: true,
-      // 设计稿为默认750, 浏览器以375为基准，16px是为了方便使用tailwindcss, 32px对应750px设计稿中的16px
-      rootValue: cfg.isMobile ? 32 : 16,
-    },
-    define: {
-      'process.env.isMobile': JSON.stringify(cfg.isMobile),
-      'process.env.isBrowser': JSON.stringify(cfg.isBrowser),
-    },
-    plugins: [
-      vitestPlugin(),
-      docsPlugin(),
-      definePlugin({
-        key: 'log',
-        [PluginHooks.afterCompile]: (cfg) => {
-          const { isDev } = cfg;
-          if (!isDev) return;
-
-          console.log(cfg.entry);
-        },
-      }),
-    ],
-    server: {
-      port: 9000,
-      proxy: [
-        {
-          context: ['/api6'],
-          target: 'http://gdd-gw-sit.dztec.net:1010', // test
-          // target: 'http://120.25.166.1:8220', // uat
-          // target: 'http://120.25.166.1:8220', // prod
-          pathRewrite: { '^/api6': '' },
-          changeOrigin: true,
-        },
-        {
-          context: ['/beicai'],
-          target: 'https://csrc-api.beicaizs.com', // test
-          pathRewrite: { '^/beicai': '' },
-          changeOrigin: true,
-        },
-      ],
-    },
-  };
-
-  return config;
-});
+}
