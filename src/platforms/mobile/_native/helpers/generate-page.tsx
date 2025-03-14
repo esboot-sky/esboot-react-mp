@@ -8,15 +8,17 @@ import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
 import { GeneratePageOptions } from '@/types';
 import { TopErrorBoundaryFallback } from '@mobile/components/top-error-boundary-fallback';
-import '@mobile/helpers/debug';
+import { initDebug } from '@mobile/helpers/debug';
 import wrapI18n from '@mobile/hoc/i18n';
 import { subscribeUserAndCache } from '@mobile/model/subscriber';
 import '@mobile/styles/index.scss';
 import wrapNative from '@mobile-native/hoc/native';
 
-export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
+export default async function generatePage(App: React.ReactNode, options: GeneratePageOptions): Promise<void> {
   const { i18n, store, disableStrictMode, disabledLoginExpired } = options;
   let wrapApp: React.ReactNode = App;
+
+  await initDebug();
 
   bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.webview);
   wrapApp = wrapNative(wrapApp, {

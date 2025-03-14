@@ -1,7 +1,8 @@
 import { enableDebug, isDev } from '@/constants/config';
 
-if (enableDebug && isDev) {
-  import('eruda').then((eruda) => {
+export const initDebug = async () => {
+  if (enableDebug && isDev) {
+    const eruda = await import('eruda');
     eruda.default.init();
-  });
-}
+  }
+};
