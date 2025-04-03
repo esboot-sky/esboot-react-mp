@@ -13,7 +13,7 @@ import { subscribeUserAndCache } from '@pc/model/subscriber';
 import '@pc/styles/index.scss';
 import wrapNative from '@pc-native/hoc/native';
 
-export default async function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
+export default async function generatePage(App: React.ReactNode, options: GeneratePageOptions): Promise<void> {
   const { i18n, store, disableStrictMode, disabledLoginExpired } = options;
   let wrapApp: React.ReactNode = App;
 
