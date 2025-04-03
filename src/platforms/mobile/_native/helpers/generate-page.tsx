@@ -1,4 +1,4 @@
-import { bridge, BridgePlatforms } from '@dz-web/bridge';
+import { bridge } from '@dz-web/bridge';
 
 import { useBridgeMock } from '@/constants/config';
 import { mounteReact } from '@/helpers/react';
@@ -20,7 +20,13 @@ export default async function generatePage(App: React.ReactNode, options: Genera
 
   await initDebug();
 
-  bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.webview);
+  if (useBridgeMock) {
+    const mockbridge = await import('@dz-web/bridge/platforms/mock');
+    bridge.init(mockbridge.createBridge());
+  } else {
+    const webviewbridge = await import('@dz-web/bridge/platforms/webview');
+    bridge.init(webviewbridge.createBridge());
+  }
   wrapApp = wrapNative(wrapApp, {
     disabledLoginExpired,
   });

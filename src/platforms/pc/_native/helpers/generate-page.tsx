@@ -1,4 +1,4 @@
-import { bridge, BridgePlatforms } from '@dz-web/bridge';
+import { bridge } from '@dz-web/bridge';
 
 import { useBridgeMock } from '@/constants/config';
 import { mounteReact } from '@/helpers/react';
@@ -13,11 +13,18 @@ import { subscribeUserAndCache } from '@pc/model/subscriber';
 import '@pc/styles/index.scss';
 import wrapNative from '@pc-native/hoc/native';
 
-export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
+export default async function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
   const { i18n, store, disableStrictMode, disabledLoginExpired } = options;
   let wrapApp: React.ReactNode = App;
 
-  bridge.initPlatforms(useBridgeMock ? BridgePlatforms.mock : BridgePlatforms.pc);
+  if (useBridgeMock) {
+    const mockbridge = await import('@dz-web/bridge/platforms/mock');
+    bridge.init(mockbridge.createBridge());
+  } else {
+    const pcbridge = await import('@dz-web/bridge/platforms/pc');
+    bridge.init(pcbridge.createBridge());
+  }
+
   wrapApp = wrapNative(wrapApp, {
     disabledLoginExpired,
   });
