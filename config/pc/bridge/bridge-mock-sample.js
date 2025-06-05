@@ -1,3 +1,21 @@
+const userInfo = {
+  "authentication": "c2f7dfda383ef064ab48c696d2071496",
+  "clientChannel": "2100",
+  "clientFlag": "dzClient",
+  "device": "6C3C8C2B8CBF",
+  "faceImg": "http://183.57.47.83:38083/default_avatar/11.png",
+  "hotline": "",
+  "isLogin": true,
+  "level": 41,
+  "loginName": "13751198445",
+  "mobile": "13751198445",
+  "nickName": "大师版plus1（北一）",
+  "orgCode": "0007",
+  "registerChannel": "1000",
+  "sessionCode": "1878764089136644096",
+  "userId": 13773
+};
+
 module.exports = {
   port: process.env.BRIDGE_MOCK_PORT || 3000,
   response: {
@@ -11,32 +29,19 @@ module.exports = {
     },
     msg: new Proxy(
       {
-        userInfo: () => ({
-          "areaCode": "+852",
-          "avatar": "",
-          "bcanStatus": "Y",
-          "cusNo": 61231218,
-          "isLoginTrade": true,
-          "mobile": "95738751",
-          "nickname": "小信61231218",
-          "sessionCode": "a15dfaef-13dd-4108-bccd-4b8cdcc2d6fe",
-          "stoken": "",
-          "tradeNo": "60526858",
-          "userId": 45434
-        }),
-        sessionCodeExpire: (args) => {
-          console.log(`登录超时: \n${JSON.stringify(args)}`);
-        },
-        getUserConfiguration: () => ({
+        SkinFaceConfig: () => ({
+          "skin": "black",
+          "language": "zh-Hans",
+          "raise": "red", // red, green
           "font": {
             "additionalSize": -14,
+            "weight": "normal",
             "list": [-11, -12, -13, -14, -15, -16, -19, -21],
-            "weight": "normal"
           },
-          "language": "zh-CN",
-          "raise": "red",
-          "theme": "dark"
+          theme: 'dark', // dark light
+          raiseDepth: 'depth',
         }),
+        GetUser: () => userInfo,
       },
       {
         get(target, name) {
