@@ -103,7 +103,7 @@ function createInitializedState(): IState {
   }
 
   // 每次都强制检测浏览器语言, 使用配置好的默认语言
-  if (isBrowser() && (window as any).__force_detect_language_on_startup) {
+  if (isBrowser() && !isSupportedLanguage(lang) && (window as any).__force_detect_language_on_startup) {
     defaultState.userConfig.language = DEFAULT_LANGUAGE;
   } else if (isSupportedLanguage(lang)) {
     defaultState.userConfig.language = lang as Language;
