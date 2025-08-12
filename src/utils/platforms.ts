@@ -1,5 +1,5 @@
 export function isMobile() {
-  return process.env.isMobile;
+  return process.env.isMobile === 'true' || (process.env.isMobile as any) === true;
 }
 
 export function isPC() {
@@ -7,7 +7,7 @@ export function isPC() {
 }
 
 export function isBrowser() {
-  return !!process.env.isBrowser;
+  return process.env.isBrowser === 'true' || (process.env.isBrowser as any) === true;
 }
 
 export function isNative() {
