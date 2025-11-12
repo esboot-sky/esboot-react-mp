@@ -1,10 +1,11 @@
-import { Language } from '@/constants/config';
-import { listenReactQueryError } from '@/global-events';
-import { ThemeValues, RaiseMode, TOKEN_KEY } from '@pc/constants/config';
-import { IStandardAppUserConfig } from '@pc/model/app/slice';
-import { getRealPCNativeFontSize } from '@pc-native/utils/pc-native-config';
-
+import type { RaiseMode, ThemeValues } from '@pc/constants/config';
+import type { IStandardAppUserConfig } from '@pc/model/app/slice';
 import type { UserInfo } from '@pc/types';
+import type { Language } from '@/constants/config';
+import { getRealPCNativeFontSize } from '@pc-native/utils/pc-native-config';
+import { TOKEN_KEY } from '@pc/constants/config';
+
+import { listenReactQueryError } from '@/global-events';
 
 /**
  * app传过来的原始设置信息, 代码中不使用此类型，使用dz web app标准类型IStandardAppUserConfig

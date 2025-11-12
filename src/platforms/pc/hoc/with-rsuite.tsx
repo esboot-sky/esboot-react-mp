@@ -1,11 +1,12 @@
-import { ReactNode, useLayoutEffect } from 'react';
-import { CustomProvider } from 'rsuite';
-import 'rsuite/dist/rsuite-no-reset.min.css';
-import zhCN from 'rsuite/locales/zh_CN';
-
+import type { ReactNode } from 'react';
 // import { useLanguage } from '@pc/hooks/use-language';
 import { SupportedThemes } from '@pc/constants/config';
 import { useUserConfig } from '@pc/hooks/use-user-config';
+import { useLayoutEffect } from 'react';
+import { CustomProvider } from 'rsuite';
+
+import zhCN from 'rsuite/locales/zh_CN';
+import 'rsuite/dist/rsuite-no-reset.min.css';
 
 export function withRSuite(App): any {
   return function RSuiteApp({ ...rest }) {

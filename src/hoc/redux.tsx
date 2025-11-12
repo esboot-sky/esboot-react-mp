@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 
 export function withReduxProvider(WrappedComponent: any, store: any) {

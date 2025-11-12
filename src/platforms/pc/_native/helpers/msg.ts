@@ -1,6 +1,6 @@
-import { bridge } from '@dz-web/bridge';
+import type { UserInfo } from '@pc/types';
 
-import { UserInfo } from '@pc/types';
+import { bridge } from '@dz-web/bridge';
 
 import { oldStyle2Standard } from './customize';
 

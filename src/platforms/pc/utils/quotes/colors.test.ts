@@ -1,11 +1,11 @@
-import { describe, test, expect } from 'vitest';
-
-import '@pc/constants/config';
+import { describe, expect, it } from 'vitest';
 
 import { getRaiseModeColor } from './colors';
 
+import '@pc/constants/config';
+
 describe('测试', () => {
-  test('获取涨跌颜色函数存在', () => {
+  it('获取涨跌颜色函数存在', () => {
     console.log('ok');
     expect(typeof getRaiseModeColor === 'function').toBeTruthy();
   });

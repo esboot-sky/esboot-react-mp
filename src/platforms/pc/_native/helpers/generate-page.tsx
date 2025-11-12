@@ -1,17 +1,17 @@
-import { bridge } from '@dz-web/bridge';
+import type { GeneratePageOptions } from '@/types';
 
+import { bridge } from '@dz-web/bridge';
+import wrapNative from '@pc-native/hoc/native';
+import { TopErrorBoundaryFallback } from '@pc/components/top-error-boundary-fallback';
+import wrapI18n from '@pc/hoc/i18n';
+import { subscribeUserAndCache } from '@pc/model/subscriber';
 import { useBridgeMock } from '@/constants/config';
 import { mounteReact } from '@/helpers/react';
 import { wrapReactQuery } from '@/hoc/query-client';
 import { wrapRedux } from '@/hoc/redux';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
-import { GeneratePageOptions } from '@/types';
-import { TopErrorBoundaryFallback } from '@pc/components/top-error-boundary-fallback';
-import wrapI18n from '@pc/hoc/i18n';
-import { subscribeUserAndCache } from '@pc/model/subscriber';
 import '@pc/styles/index.scss';
-import wrapNative from '@pc-native/hoc/native';
 
 export default async function generatePage(App: React.ReactNode, options: GeneratePageOptions): Promise<void> {
   const { i18n, store, disableStrictMode, disabledLoginExpired } = options;
@@ -20,7 +20,8 @@ export default async function generatePage(App: React.ReactNode, options: Genera
   if (useBridgeMock) {
     const mockbridge = await import('@dz-web/bridge/platforms/mock');
     bridge.init(mockbridge.createBridge());
-  } else {
+  }
+  else {
     const pcbridge = await import('@dz-web/bridge/platforms/pc');
     bridge.init(pcbridge.createBridge());
   }

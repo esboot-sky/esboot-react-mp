@@ -1,10 +1,10 @@
-import { flattenLangObject } from '@dz-web/esboot-browser';
+import type { i18nMessageDict } from '@/types';
 
-import { supportedLanguage, isDev } from '@/constants/config';
+import { flattenLangObject } from '@dz-web/esboot-browser';
+import { isDev, supportedLanguage } from '@/constants/config';
 import enUS from '@/lang/en-US.json';
 import zhCN from '@/lang/zh-CN.json';
 import zhTW from '@/lang/zh-TW.json';
-import { i18nMessageDict } from '@/types';
 
 export function getPageI18n(): i18nMessageDict {
   const locales = {

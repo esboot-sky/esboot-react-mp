@@ -1,11 +1,12 @@
-import { IntlProvider } from 'react-intl';
+import type { i18nMessageDict } from '@/types';
 
-import { getPageI18n } from '@/helpers/import-locales';
-import { i18nMessageDict } from '@/types';
 import { useLanguage } from '@mobile/hooks/use-language';
+import { IntlProvider } from 'react-intl';
+import { getPageI18n } from '@/helpers/import-locales';
 
 export default function wrapI18n(App: any, i18n = true): React.ReactNode {
-  if (!i18n) return App;
+  if (!i18n)
+    return App;
   const messageDict: i18nMessageDict = getPageI18n();
 
   function I18nApp() {
