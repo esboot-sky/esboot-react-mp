@@ -13,7 +13,7 @@ import docsPlugin from '@dz-web/esboot-plugin-docs';
 import vitestPlugin from '@dz-web/esboot-plugin-vitest';
 
 export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>(cfg => ({
-  ...(process.env.ESBOOT_BUNDLER === 'vite' ? getBundlerViteOptions() : getBundlerWebpackOptions(cfg)),
+  ...(process.env.ESBOOT_BUNDLER === 'webpack' ? getBundlerWebpackOptions(cfg) : getBundlerViteOptions()),
   px2rem: {
     enable: true,
     // 设计稿为默认750, 浏览器以375为基准，16px是为了方便使用tailwindcss, 32px对应750px设计稿中的16px

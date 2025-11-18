@@ -21,11 +21,11 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       '@dz-web/esboot-browser':
-        specifier: ^4.0.0-alpha.11
-        version: 4.0.0-alpha.11
+        specifier: ^4.0.0-rc.2
+        version: 4.0.0-rc.2
       '@dz-web/esboot-browser-react':
-        specifier: 4.0.0-alpha.11
-        version: 4.0.0-alpha.11(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(rollup@3.29.5)
+        specifier: 4.0.0-rc.2
+        version: 4.0.0-rc.2(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(rollup@3.29.5)
       '@dz-web/o-orange':
         specifier: ^4.6.4
         version: 4.6.4
@@ -94,20 +94,20 @@ importers:
         version: 5.0.8(@types/react@19.2.3)(immer@10.2.0)(react@19.2.0)(use-sync-external-store@1.6.0(react@19.2.0))
     devDependencies:
       '@dz-web/esboot':
-        specifier: ^4.0.0-alpha.11
-        version: 4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
+        specifier: ^4.0.0-rc.2
+        version: 4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
       '@dz-web/esboot-bundler-vite':
-        specifier: ^4.0.0-alpha.11
-        version: 4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@svgr/core@8.1.0(typescript@5.9.3))(@types/node@24.10.0)(jiti@2.6.1)(less@4.1.3)(lightningcss@1.30.2)(rollup@3.29.5)(sass@1.94.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+        specifier: ^4.0.0-rc.2
+        version: 4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@svgr/core@8.1.0(typescript@5.9.3))(@types/node@24.10.0)(jiti@2.6.1)(less@4.1.3)(lightningcss@1.30.2)(rollup@3.29.5)(sass@1.94.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       '@dz-web/esboot-bundler-webpack':
-        specifier: ^4.0.0-alpha.11
-        version: 4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@types/webpack@5.28.5)(lightningcss@1.30.2)(postcss@8.5.6)(type-fest@0.21.3)(typescript@5.9.3)
+        specifier: ^4.0.0-rc.2
+        version: 4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@types/webpack@5.28.5)(lightningcss@1.30.2)(postcss@8.5.6)(type-fest@0.21.3)(typescript@5.9.3)
       '@dz-web/esboot-plugin-docs':
-        specifier: ^4.0.0-alpha.11
-        version: 4.0.0-alpha.11(wh4526xa4sml2jrtv2zlkfkmt4)
+        specifier: ^4.0.0-rc.2
+        version: 4.0.0-rc.2(a5ox6ehzdy37s2s7cswwd4a5re)
       '@dz-web/esboot-plugin-vitest':
-        specifier: ^4.0.0-alpha.11
-        version: 4.0.0-alpha.11(ictw3x2ltcviz6bdmbqmozaq7y)
+        specifier: ^4.0.0-rc.2
+        version: 4.0.0-rc.2(rrb4ewwukvrz2kvnn2qv6qqbzu)
       '@dz-web/esboot-react-mp-tools':
         specifier: file:./dev/tools
         version: file:dev/tools
@@ -1476,45 +1476,45 @@ packages:
   '@dz-web/cache@2.0.0':
     resolution: {integrity: sha512-l6pn9pAXRC/7nmPmoNMn4KG/e2KIJLkbgOAUzgXdF6gJ2ZYViICEo0p0UyshlnwQTcEsv1+fYv8LYGWveACw3w==}
 
-  '@dz-web/esboot-browser-react@4.0.0-alpha.11':
-    resolution: {integrity: sha512-fzt6Ds4wku7p94UE92KyljHteINOoROxe5w/auzVbTdDK/EYcWz670TNtwvYSUJyGrfh8ULFQAhfPZtkJMAxvA==}
+  '@dz-web/esboot-browser-react@4.0.0-rc.2':
+    resolution: {integrity: sha512-2oMubPE32ZmYyubw5SJmG4BoiupiimzuSjBQJzf/Z4s1LQN87FzvrnCPnGkxTXwVTzWDe9ZEhkThw7ynV2EWOA==}
     peerDependencies:
       react: '>=18.3.0'
       react-dom: '>=18.3.0'
 
-  '@dz-web/esboot-browser@4.0.0-alpha.11':
-    resolution: {integrity: sha512-9pku+Isrml0gW1TXoeKezoPOVMaV39IiQ0CuILIbvTVsuHThGnfgI22+RpsWiuhKQ0gz3cSicIw3BLFqhUCE9w==}
+  '@dz-web/esboot-browser@4.0.0-rc.2':
+    resolution: {integrity: sha512-efGMDYCBo4q6tygZtwI2kM9x1nR2UT0G3B3QgSSLRjiHKIjGAjlfjGX3ix5vLa/MVJM9Z5GrfHp+U4gOoObNPA==}
 
-  '@dz-web/esboot-bundler-common@4.0.0-alpha.11':
-    resolution: {integrity: sha512-u1jWgtVv1TDw2EJVo7gDjnUbQ5lSQTiwANcbE0tBzsp8lYXrsw7pa7+8zWV3dh06jhRXPBmCmyoeIZjgfefapw==}
+  '@dz-web/esboot-bundler-common@4.0.0-rc.2':
+    resolution: {integrity: sha512-CReqRS+7JFakHnQV0PZinXcENlhJ5X5Ls1VmWq7GtpdbxE/UCBgYEF6Eu2+1lg13D9ipy8zbIDxSE8Q6JHW6zg==}
     peerDependencies:
       '@dz-web/esboot': workspace:*
 
-  '@dz-web/esboot-bundler-vite@4.0.0-alpha.11':
-    resolution: {integrity: sha512-KH5rDVu4bn8SuxX6I9HD+SJdpejBfl3Qyqia7GfgMYoBkeCHqzd/wqLLQ0r8uuHW4/zlCwxNZYOrDw4sUJeGxg==}
+  '@dz-web/esboot-bundler-vite@4.0.0-rc.2':
+    resolution: {integrity: sha512-1E27bT9yRDy8XAl24ZAaKN8Spp1wdUM5mCtYb0Cvnn1Sf5I8FIOjBziJfeIqXsacdvHl43k1urlPdUs3ddA7vg==}
     peerDependencies:
       '@dz-web/esboot': workspace:*
 
-  '@dz-web/esboot-bundler-webpack@4.0.0-alpha.11':
-    resolution: {integrity: sha512-HuGtAnCfCdreIQzxrZFaLUPAHJK/+KdkWR+c4fRiZNpQ2gQdNCHKI5062b8F0GWYaHzZbwM+Bv4uNx0a7ss55A==}
+  '@dz-web/esboot-bundler-webpack@4.0.0-rc.2':
+    resolution: {integrity: sha512-EVW2WT1wm/w8VoCXN4sgTzqQYfykmxmX58VM3d7eK791/i5JuLikwtb/nlQcyoEVNZeWntGc6kf03wJbRUJiHw==}
     peerDependencies:
       '@dz-web/esboot': workspace:*
 
-  '@dz-web/esboot-common@4.0.0-alpha.11':
-    resolution: {integrity: sha512-2a8SfAriFM/7NM8hHSuSf359y4ql2BqaIoSl1vMW5i92ErwQCHhiMctDuII5gqGsPXJ0f7Zj7x3eRLq/l5OO7Q==}
+  '@dz-web/esboot-common@4.0.0-rc.2':
+    resolution: {integrity: sha512-7vhtr5C+W5+jrm21TeEWNB1WyOeKS5PVLkT7D+L5HF/VvY35rrFgY+ps3pRBx/DeR83s4FrMX4ZOE7I77CGwlw==}
 
-  '@dz-web/esboot-lint@4.0.0-alpha.11':
-    resolution: {integrity: sha512-h+nb2lWDuVcv2u/qaiKXOvXqMse+d1xbJb5NezpT2OclO+TFV4CxKshgWDozNYXsf0GoJhwxbg15btcMA1BONw==}
+  '@dz-web/esboot-lint@4.0.0-rc.2':
+    resolution: {integrity: sha512-iwI27Kvfc/9ibEQ1lhMmh/VtsN3Inu8x6/bd1EZ3GwUZPL8HpPqJscsH8PUveSaNjzxKmU4o+QLWvvvWvnKj6g==}
     peerDependencies:
       stylelint: 16.25.0
 
-  '@dz-web/esboot-plugin-docs@4.0.0-alpha.11':
-    resolution: {integrity: sha512-SGSnc2YdP4o37gtobnT3l8cPM8jRjY3+WseNmhHUFuMAOqbqTlgj8VFFoPN3NEXsWgbW8+L+LxGGzCUShKuAxA==}
+  '@dz-web/esboot-plugin-docs@4.0.0-rc.2':
+    resolution: {integrity: sha512-EkJOynOhlXQvtufHif7emfExGKdyYUUK9AIjNOjj4RY8z6ZxtqpA2GL2xf/s6XlQItjykhx0B8jvgwGETDuB1A==}
     peerDependencies:
       '@dz-web/esboot': '*'
 
-  '@dz-web/esboot-plugin-vitest@4.0.0-alpha.11':
-    resolution: {integrity: sha512-qKOUIuYyb2vuDYL1GdEQx8WYhZGDXQS88YTEBdjMca8q9P/bj7Ko6NQqaY9WoUXNmz7jk/43PFcDpBDN5BRRFQ==}
+  '@dz-web/esboot-plugin-vitest@4.0.0-rc.2':
+    resolution: {integrity: sha512-Aj0v6f3SgYYM019DaBQKhuUZaPJHadJDCU3hS3JQubQGVhIoxdw2sYvTvbgKA8lNOc1cPhlglFgUe7x+9Cb7cg==}
     peerDependencies:
       '@dz-web/esboot': '*'
       '@dz-web/esboot-bundler-vite': '*'
@@ -1523,21 +1523,21 @@ packages:
     resolution: {directory: dev/tools, type: directory}
     hasBin: true
 
-  '@dz-web/esboot-stylelint-config@4.0.0-alpha.11':
-    resolution: {integrity: sha512-zL1kVhamKrWnx2ZCc91MzLHXqvj9EHKEL3E4jRrSlqOIXWD6OoeTTCMD9me6G9e9QrInWTzp0UOdf51wu0xKWA==}
+  '@dz-web/esboot-stylelint-config@4.0.0-rc.2':
+    resolution: {integrity: sha512-kKi456lnX7+cj8XQW6d+TGgf37rMkXnChKpAZbLvLzxmiT13XsNx3rBvIdKpSuV3wydjIwiLUrS1EInnAwYQMA==}
 
-  '@dz-web/esboot@4.0.0-alpha.11':
-    resolution: {integrity: sha512-5T8Ekmora/gxDwgYKEl/T2P/DiJzCWnZvjLRbzU0+Q7RCfHVkQZTHk0+5vDVMxYsY8OZ15QnnC7gj7lX7P7HmA==}
+  '@dz-web/esboot@4.0.0-rc.2':
+    resolution: {integrity: sha512-Udl8bvurx6cacYfUjOR2pYbhitidmbVwnGNbGfzVBsO5XSXRTfazoBJrbD32KvVqYCeB0JVfEdonBrVmSNpf0A==}
     hasBin: true
 
-  '@dz-web/eslint-plugin-esboot@4.0.0-alpha.11':
-    resolution: {integrity: sha512-VtPzgvndXkFB3X5v1DlaUPjW3ksEowP6zh6mUdQ39ynBoIdiINZQo1JUl4z7QkMZJ3+qG0WCpZggc6yuMym4ng==}
+  '@dz-web/eslint-plugin-esboot@4.0.0-rc.2':
+    resolution: {integrity: sha512-rlprd3HKtzv8Bs9eGVIgYCt1RNl4mny9gwkLJBUk5pEUaDi8KGa05S6KxbpbSES6Q2C/GQa8AuoARzRUbdCuiQ==}
 
   '@dz-web/o-orange@4.6.4':
     resolution: {integrity: sha512-LMn+a0ajXBwErW3jHEpX55BcF08nOpd6WQhvhGNJO/8tLLcNrZu33Gw4U7hpzw6pUwlX99rKYHEWI2Pxiqkexg==}
 
-  '@dz-web/postcss-plugin-esboot@4.0.0-alpha.11':
-    resolution: {integrity: sha512-TgrO9xfuWAUUetT99tJwijF3N6GNTaX4WYDOSOKKnDw7bMfElhQrs6Q/NiCV+h4nfL/t9WPJH20Jlz8GxBCP3w==}
+  '@dz-web/postcss-plugin-esboot@4.0.0-rc.2':
+    resolution: {integrity: sha512-GRQ7Ei2p7VvzzAxfLgGowsaHbcWuq8J9ifud9yt64AzXYloyyWeZoSbx8ZcF5mbhAiGWem3XqQaFm/Utro8Iuw==}
 
   '@emoji-mart/data@1.2.1':
     resolution: {integrity: sha512-no2pQMWiBy6gpBEiqGeU77/bFejDqUTRY7KX+0+iur13op3bqUsXdnwoZs6Xb1zbv0gAj5VvS1PWoUUckSr5Dw==}
@@ -14929,7 +14929,7 @@ snapshots:
     dependencies:
       crypto-js: 4.2.0
 
-  '@dz-web/esboot-browser-react@4.0.0-alpha.11(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(rollup@3.29.5)':
+  '@dz-web/esboot-browser-react@4.0.0-rc.2(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(rollup@3.29.5)':
     dependencies:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -14944,19 +14944,19 @@ snapshots:
       - rollup
       - supports-color
 
-  '@dz-web/esboot-browser@4.0.0-alpha.11':
+  '@dz-web/esboot-browser@4.0.0-rc.2':
     dependencies:
       class-variance-authority: 0.7.1
       clsx: 2.1.1
       lodash-es: 4.17.21
       tailwind-merge: 3.4.0
 
-  '@dz-web/esboot-bundler-common@4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))':
+  '@dz-web/esboot-bundler-common@4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))':
     dependencies:
       '@alitajs/postcss-plugin-px2rem': 0.0.1
-      '@dz-web/esboot': 4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
-      '@dz-web/esboot-common': 4.0.0-alpha.11
-      '@dz-web/postcss-plugin-esboot': 4.0.0-alpha.11
+      '@dz-web/esboot': 4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
+      '@dz-web/esboot-common': 4.0.0-rc.2
+      '@dz-web/postcss-plugin-esboot': 4.0.0-rc.2
       '@tailwindcss/postcss': 4.1.17
       '@umijs/ast': 4.5.3
       babel-plugin-react-compiler: 1.0.0
@@ -14965,11 +14965,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@dz-web/esboot-bundler-vite@4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@svgr/core@8.1.0(typescript@5.9.3))(@types/node@24.10.0)(jiti@2.6.1)(less@4.1.3)(lightningcss@1.30.2)(rollup@3.29.5)(sass@1.94.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)':
+  '@dz-web/esboot-bundler-vite@4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@svgr/core@8.1.0(typescript@5.9.3))(@types/node@24.10.0)(jiti@2.6.1)(less@4.1.3)(lightningcss@1.30.2)(rollup@3.29.5)(sass@1.94.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)':
     dependencies:
-      '@dz-web/esboot': 4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
-      '@dz-web/esboot-bundler-common': 4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))
-      '@dz-web/esboot-common': 4.0.0-alpha.11
+      '@dz-web/esboot': 4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
+      '@dz-web/esboot-bundler-common': 4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))
+      '@dz-web/esboot-common': 4.0.0-rc.2
       '@rollup/pluginutils': 5.3.0(rollup@3.29.5)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.9.3))
       '@svgr/plugin-svgo': 8.1.0(@svgr/core@8.1.0(typescript@5.9.3))(typescript@5.9.3)
@@ -14999,15 +14999,15 @@ snapshots:
       - typescript
       - yaml
 
-  '@dz-web/esboot-bundler-webpack@4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@types/webpack@5.28.5)(lightningcss@1.30.2)(postcss@8.5.6)(type-fest@0.21.3)(typescript@5.9.3)':
+  '@dz-web/esboot-bundler-webpack@4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@types/webpack@5.28.5)(lightningcss@1.30.2)(postcss@8.5.6)(type-fest@0.21.3)(typescript@5.9.3)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/preset-env': 7.28.5(@babel/core@7.28.5)
       '@babel/preset-react': 7.28.5(@babel/core@7.28.5)
       '@dz-web/babel-plugin-react-css-modules': 6.13.7(css-loader@7.1.2(webpack@5.102.1))(postcss@8.5.6)(webpack@5.102.1)
-      '@dz-web/esboot': 4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
-      '@dz-web/esboot-bundler-common': 4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))
-      '@dz-web/esboot-common': 4.0.0-alpha.11
+      '@dz-web/esboot': 4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
+      '@dz-web/esboot-bundler-common': 4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))
+      '@dz-web/esboot-common': 4.0.0-rc.2
       '@jleonardvp/babel-plugin-module-resolver': 4.1.1
       '@pmmmwh/react-refresh-webpack-plugin': 0.6.1(@types/webpack@5.28.5)(react-refresh@0.18.0)(type-fest@0.21.3)(webpack-dev-server@5.2.2(webpack@5.102.1))(webpack@5.102.1)
       '@svgr/webpack': 8.1.0(typescript@5.9.3)
@@ -15058,7 +15058,7 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-  '@dz-web/esboot-common@4.0.0-alpha.11':
+  '@dz-web/esboot-common@4.0.0-rc.2':
     dependencies:
       address: 2.0.3
       cross-spawn: 7.0.6
@@ -15073,14 +15073,14 @@ snapshots:
       lodash: 4.17.21
       tailwindcss: 4.1.17
 
-  '@dz-web/esboot-lint@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)':
+  '@dz-web/esboot-lint@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)':
     dependencies:
       '@antfu/eslint-config': 6.2.0(@eslint-react/eslint-plugin@2.3.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.24)(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1(jiti@2.6.1)))(eslint-plugin-react-refresh@0.4.24(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.8)
       '@commitlint/cli': 20.1.0(@types/node@24.10.0)(typescript@5.9.3)
       '@commitlint/config-conventional': 20.0.0
-      '@dz-web/esboot-common': 4.0.0-alpha.11
-      '@dz-web/esboot-stylelint-config': 4.0.0-alpha.11(postcss@8.5.6)(stylelint@16.25.0(typescript@5.9.3))
-      '@dz-web/eslint-plugin-esboot': 4.0.0-alpha.11
+      '@dz-web/esboot-common': 4.0.0-rc.2
+      '@dz-web/esboot-stylelint-config': 4.0.0-rc.2(postcss@8.5.6)(stylelint@16.25.0(typescript@5.9.3))
+      '@dz-web/eslint-plugin-esboot': 4.0.0-rc.2
       '@eslint-react/eslint-plugin': 2.3.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@eslint/eslintrc': 3.3.1
       eslint: 9.39.1(jiti@2.6.1)
@@ -15136,9 +15136,9 @@ snapshots:
       - typescript
       - vitest
 
-  '@dz-web/esboot-plugin-docs@4.0.0-alpha.11(wh4526xa4sml2jrtv2zlkfkmt4)':
+  '@dz-web/esboot-plugin-docs@4.0.0-rc.2(a5ox6ehzdy37s2s7cswwd4a5re)':
     dependencies:
-      '@dz-web/esboot': 4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
+      '@dz-web/esboot': 4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
       dumi-theme-lobehub: 2.0.9(@babel/core@7.28.5)(@types/mdast@4.0.4)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(antd@5.28.1(date-fns@2.30.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(dumi@2.4.21(@babel/core@7.28.5)(@swc/helpers@0.5.15)(@types/node@24.10.0)(@types/react@19.2.3)(@types/webpack@5.28.5)(@utoo/pack@0.0.1-alpha.69(@types/webpack@5.28.5)(webpack@5.102.1))(eslint@9.39.1(jiti@2.6.1))(lightningcss@1.30.2)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@3.29.5)(stylelint@16.25.0(typescript@5.9.3))(terser@5.44.1)(type-fest@0.21.3)(typescript@5.9.3)(webpack-dev-server@5.2.2(webpack@5.102.1))(webpack@5.102.1))(framer-motion@12.23.24(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(immer@10.2.0)(micromark-util-types@2.0.2)(micromark@4.0.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(use-sync-external-store@1.6.0(react@19.2.0))
     transitivePeerDependencies:
       - '@babel/core'
@@ -15156,10 +15156,10 @@ snapshots:
       - supports-color
       - use-sync-external-store
 
-  '@dz-web/esboot-plugin-vitest@4.0.0-alpha.11(ictw3x2ltcviz6bdmbqmozaq7y)':
+  '@dz-web/esboot-plugin-vitest@4.0.0-rc.2(rrb4ewwukvrz2kvnn2qv6qqbzu)':
     dependencies:
-      '@dz-web/esboot': 4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
-      '@dz-web/esboot-bundler-vite': 4.0.0-alpha.11(@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@svgr/core@8.1.0(typescript@5.9.3))(@types/node@24.10.0)(jiti@2.6.1)(less@4.1.3)(lightningcss@1.30.2)(rollup@3.29.5)(sass@1.94.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      '@dz-web/esboot': 4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
+      '@dz-web/esboot-bundler-vite': 4.0.0-rc.2(@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8))(@svgr/core@8.1.0(typescript@5.9.3))(@types/node@24.10.0)(jiti@2.6.1)(less@4.1.3)(lightningcss@1.30.2)(rollup@3.29.5)(sass@1.94.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       '@testing-library/jest-dom': 6.9.1
       '@testing-library/react': 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.1)
@@ -15202,7 +15202,7 @@ snapshots:
       commander: 11.1.0
       ejs: 3.1.10
 
-  '@dz-web/esboot-stylelint-config@4.0.0-alpha.11(postcss@8.5.6)(stylelint@16.25.0(typescript@5.9.3))':
+  '@dz-web/esboot-stylelint-config@4.0.0-rc.2(postcss@8.5.6)(stylelint@16.25.0(typescript@5.9.3))':
     dependencies:
       '@stylistic/stylelint-plugin': 4.0.0(stylelint@16.25.0(typescript@5.9.3))
       postcss-scss: 4.0.9(postcss@8.5.6)
@@ -15212,11 +15212,11 @@ snapshots:
       - postcss
       - stylelint
 
-  '@dz-web/esboot@4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)':
+  '@dz-web/esboot@4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)':
     dependencies:
       '@dz-web/bridge-mock': 1.3.0
-      '@dz-web/esboot-common': 4.0.0-alpha.11
-      '@dz-web/esboot-lint': 4.0.0-alpha.11(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
+      '@dz-web/esboot-common': 4.0.0-rc.2
+      '@dz-web/esboot-lint': 4.0.0-rc.2(@types/node@24.10.0)(@vue/compiler-sfc@3.5.24)(jiti@2.6.1)(postcss@8.5.6)(prettier-plugin-organize-imports@3.2.4(prettier@3.6.2)(typescript@5.9.3))(stylelint@16.25.0(typescript@5.9.3))(tailwindcss@4.1.17)(typescript@5.9.3)(vitest@4.0.8)
       commander: 14.0.2
       zod: 4.1.12
     transitivePeerDependencies:
@@ -15261,15 +15261,15 @@ snapshots:
       - utf-8-validate
       - vitest
 
-  '@dz-web/eslint-plugin-esboot@4.0.0-alpha.11':
+  '@dz-web/eslint-plugin-esboot@4.0.0-rc.2':
     dependencies:
-      '@dz-web/esboot-common': 4.0.0-alpha.11
+      '@dz-web/esboot-common': 4.0.0-rc.2
 
   '@dz-web/o-orange@4.6.4':
     dependencies:
       big.js: 6.2.2
 
-  '@dz-web/postcss-plugin-esboot@4.0.0-alpha.11':
+  '@dz-web/postcss-plugin-esboot@4.0.0-rc.2':
     dependencies:
       tailwindcss: 4.1.17
 
