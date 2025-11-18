@@ -5,13 +5,12 @@ import wrapI18n from '@pc/hoc/i18n';
 import { subscribeUserAndCache } from '@pc/model/subscriber';
 import { mounteReact } from '@/helpers/react';
 import { wrapReactQuery } from '@/hoc/query-client';
-import { wrapRedux } from '@/hoc/redux';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
 import '@pc/styles/index.scss';
 
-export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
-  const { i18n, store, disableStrictMode } = options;
+export default function generatePage(App: React.ReactNode, options?: GeneratePageOptions): void {
+  const { i18n = true, disableStrictMode = false } = options || {};
   let wrapApp: React.ReactNode = App;
 
   wrapApp = wrapBrowser(wrapApp);
@@ -19,8 +18,7 @@ export default function generatePage(App: React.ReactNode, options: GeneratePage
 
   wrapApp = wrapTopErrorBoundary(wrapApp, TopErrorBoundaryFallback);
   wrapApp = wrapI18n(wrapApp, i18n);
-  wrapApp = wrapRedux(wrapApp, store);
   mounteReact(wrapApp as React.ReactElement, disableStrictMode);
 
-  subscribeUserAndCache(store);
+  subscribeUserAndCache();
 }

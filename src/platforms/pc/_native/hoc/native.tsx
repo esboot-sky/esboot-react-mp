@@ -1,10 +1,10 @@
-import type { MinimalStoreType } from '@pc/model/minimal-store';
 import type { ComponentPropsWithoutRef, FC, ReactNode } from 'react';
 import { getUserConfig, getUserInfo, sendLoginStatus } from '@pc-native/helpers/msg';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@pc-native/helpers/register';
 
 import { useUserConfig } from '@pc/hooks/use-user-config';
 import { useUserInfo } from '@pc/hooks/use-user-info';
+import { useAppStore } from '@pc/model/app/slice';
 /**
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
@@ -46,9 +46,7 @@ export function withNative(Component: FC<any>, options: IWithNativeOptions = {})
       const disposeUserInfoListener = onUpdateUserInfo((res) => {
         console.log('收到用户信息更新: ', res);
 
-        const store = (window as any).__mobile_store__ as MinimalStoreType;
-        const { userInfo } = store.getState().app;
-        // 用户信息变化，重置react query缓存
+        const { userInfo } = useAppStore.getState();
         if (!isDeepEqual(userInfo, res)) {
           console.log('用户信息有变化: ', res);
           setUserInfo(res);

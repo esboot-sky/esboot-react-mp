@@ -1,15 +1,14 @@
 import type { IUserInfo } from '@mobile/customize';
-import { selectUserInfo, setUserInfo } from '@mobile/model/app/slice';
-import { useMinimalAppDispatch, useMinimalAppSelector } from '@mobile/model/minimal-store';
+import { selectUserInfo, setUserInfo as setUserInfoAction } from '@mobile/model/app/slice';
+import { useMinimalAppSelector } from '@mobile/model/minimal-store';
 
 export function useUserInfo() {
   const userInfo = useMinimalAppSelector(selectUserInfo);
-  const dispatch = useMinimalAppDispatch();
 
   return {
     userInfo,
     setUserInfo(newValue: IUserInfo) {
-      dispatch(setUserInfo(newValue));
+      setUserInfoAction(newValue);
     },
   };
 }

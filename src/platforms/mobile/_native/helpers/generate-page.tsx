@@ -9,13 +9,12 @@ import { subscribeUserAndCache } from '@mobile/model/subscriber';
 import { useBridgeMock } from '@/constants/config';
 import { mounteReact } from '@/helpers/react';
 import { wrapReactQuery } from '@/hoc/query-client';
-import { wrapRedux } from '@/hoc/redux';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';
 
 export default async function generatePage(App: React.ReactNode, options: GeneratePageOptions): Promise<void> {
-  const { i18n, store, disableStrictMode, disabledLoginExpired } = options;
+  const { i18n, disableStrictMode, disabledLoginExpired } = options;
   let wrapApp: React.ReactNode = App;
 
   await initDebug();
@@ -35,10 +34,9 @@ export default async function generatePage(App: React.ReactNode, options: Genera
 
   wrapApp = wrapTopErrorBoundary(wrapApp, TopErrorBoundaryFallback);
   wrapApp = wrapI18n(wrapApp, i18n);
-  wrapApp = wrapRedux(wrapApp, store);
   bridge.ready(() => {
     mounteReact(wrapApp as React.ReactElement, disableStrictMode);
   });
 
-  subscribeUserAndCache(store);
+  subscribeUserAndCache();
 }

@@ -1,37 +1,27 @@
 /**
- * 页面redux module模板
+ * 页面store module模板
  */
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { create } from 'zustand';
 
 import type { RootState } from '../store';
 
-// Define a type for the slice state
-interface IState {
+interface IHelloState {
   count: number;
 }
 
-function createInitializedState(): IState {
-  return {
-    count: 0,
-  };
+interface IHelloStore extends IHelloState {
+  increase: (amount: number) => void;
 }
 
-export const slice = createSlice({
-  /**
-   * 模块名称
-   */
-  name: 'hello',
-  // `createSlice` will infer the state type from the `initialState` argument
-  initialState: createInitializedState(),
-  reducers: {
-    increase: (state, action: PayloadAction<number>) => {
-      state.count += action.payload;
-    },
+const useHelloStore = create<IHelloStore>(set => ({
+  count: 0,
+  increase: (amount: number) => {
+    set(state => ({ count: state.count + amount }));
   },
-});
-
-export const { increase } = slice.actions;
+}));
 
 export const selectCount = (state: RootState) => state.hello.count;
 
-export default slice.reducer;
+export const increase = (amount: number) => useHelloStore.getState().increase(amount);
+
+export default useHelloStore;

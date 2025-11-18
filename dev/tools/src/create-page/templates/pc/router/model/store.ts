@@ -1,28 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { useDispatch, useSelector } from 'react-redux';
+// @ts-expect-error - Template file, path will be resolved when copied to project
+// eslint-disable-next-line @dz-web/esboot/no-cross-platform-imports
+import { useAppStore } from '@pc/model/app/slice';
 
-import app from '@pc/model/app/slice';
+import useHelloStore from './hello/slice';
 
-import hello from './hello/slice';
+export type RootState = ReturnType<typeof useAppStore.getState> & {
+  hello: ReturnType<typeof useHelloStore.getState>;
+};
 
-import type { TypedUseSelectorHook } from 'react-redux';
-
-export const store = configureStore({
-  reducer: {
-    app,
-    hello,
-  },
-});
-
-/**
- * api 请求不知道store来自哪个页面，所以挂载到window上，运行哪个页面就用哪个页面的store
- */
-(window as any).__mobile_store__ = store;
-
-// // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
-
-export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export function useAppSelector<T>(selector: (state: RootState) => T): T {
+  const appState = useAppStore();
+  const helloState = useHelloStore();
+  const combinedState = { ...appState, hello: helloState } as RootState;
+  return selector(combinedState);
+}

@@ -1,6 +1,6 @@
 import { globalBlocker } from '@dz-web/axios-middlewares';
 import { CacheStore } from '@dz-web/cache';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { create } from 'zustand';
 
 import { CACHE_KEY_USER_CONFIG, CACHE_KEY_USER_INFO } from '@/constants/caches';
 import { Language, supportedLanguage, DEFAULT_LANGUAGE } from '@/constants/config';
@@ -9,7 +9,6 @@ import { isSupportedLanguage } from '@/utils/capacities';
 import { isBrowser } from '@/utils/platforms';
 import { DEFAULT_THEME, SupportedThemes, ThemeValues, RaiseMode, DEFAULT_RAISE_MODE } from '@mobile/constants/config';
 import { IRawAppUserConfig, IUserInfo, accessToken } from '@mobile/customize';
-import { MinimalRootState } from '@mobile/model/minimal-store';
 import { isSupportedTheme, isValidRaiseMode } from '@mobile/utils/capacities';
 
 const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {
@@ -27,7 +26,7 @@ const getDefaultTheme = (followSystem: boolean, defaultTheme: string) => {
 
 /**
  * 点证web app移动端标准用户设置
- * 代码里统一从redux中读取此用户配置，代码不应关心用户配置的来源，并且格式应该统一,
+ * 代码里统一从store中读取此用户配置，代码不应关心用户配置的来源，并且格式应该统一,
  * 需要读取原始配置，请读取raw字段
  */
 export interface IStandardAppUserConfig {
@@ -42,16 +41,18 @@ export interface IStandardAppUserConfig {
   raw: IRawAppUserConfig;
 }
 
-// Define a type for the slice state
 interface IState {
-  /**
-   * 类型待定，暂无标准
-   */
   userInfo: IUserInfo;
-  /**
-   * 标准dz web app用户设置, 不需要关心来源
-   */
   userConfig: IStandardAppUserConfig;
+}
+
+interface IAppStore extends IState {
+  setUserConfig: (config: IStandardAppUserConfig) => void;
+  setUserInfo: (info: IUserInfo) => void;
+  setLanguage: (language: any) => void;
+  setTheme: (theme: ThemeValues) => void;
+  setRaise: (raise: RaiseMode) => void;
+  toggleFollowSystemPrefersColorSchemeWhenInBrowser: () => void;
 }
 
 function createInitializedState(): IState {
@@ -109,63 +110,68 @@ function createInitializedState(): IState {
   return defaultState;
 }
 
-export const slice = createSlice({
-  name: 'app',
-  // `createSlice` will infer the state type from the `initialState` argument
-  initialState: createInitializedState(),
-  reducers: {
-    setUserConfig: (state, action: PayloadAction<IStandardAppUserConfig>) => {
-      state.userConfig = action.payload;
-    },
-    setUserInfo: (state, action: PayloadAction<IUserInfo>) => {
-      state.userInfo = action.payload;
+export const useAppStore = create<IAppStore>((set) => {
+  const initialState = createInitializedState();
 
-      const token = accessToken(action.payload);
+  return {
+    ...initialState,
+    setUserConfig: (config: IStandardAppUserConfig) => {
+      set({ userConfig: config });
+    },
+    setUserInfo: (info: IUserInfo) => {
+      set({ userInfo: info });
+      const token = accessToken(info);
       if (token) {
         globalBlocker.done();
       }
     },
-    setLanguage: (state, action: PayloadAction<any>) => {
-      const language = action.payload;
-
+    setLanguage: (language: any) => {
       const langs = Object.keys(supportedLanguage).map((key) => supportedLanguage[key]);
       if (langs.includes(language)) {
-        state.userConfig.language = language;
+        set((state) => ({
+          userConfig: { ...state.userConfig, language },
+        }));
       } else {
-        console.error('无效语言设置: ', action.payload);
+        console.error('无效语言设置: ', language);
       }
     },
-    setTheme(state, action: PayloadAction<ThemeValues>) {
-      const theme = SupportedThemes[action.payload];
-      // 判断主题是否有效
-      if (theme) {
-        state.userConfig.theme = theme;
+    setTheme: (theme: ThemeValues) => {
+      const themeValue = SupportedThemes[theme];
+      if (themeValue) {
+        set((state) => ({
+          userConfig: { ...state.userConfig, theme: themeValue },
+        }));
       } else {
-        console.error('无效主题设置: ', action.payload);
+        console.error('无效主题设置: ', theme);
       }
     },
-    setRaise(state, action: PayloadAction<RaiseMode>) {
-      if (action.payload === 'green' || action.payload === 'red') {
-        state.userConfig.raise = action.payload;
+    setRaise: (raise: RaiseMode) => {
+      if (raise === 'green' || raise === 'red') {
+        set((state) => ({
+          userConfig: { ...state.userConfig, raise },
+        }));
       } else {
-        console.error('无效涨跌颜色设置: ', action.payload);
+        console.error('无效涨跌颜色设置: ', raise);
       }
     },
-    /**
-     * 用于在设置界面中切换是否跟随系统颜色模式, 白天、黑夜模式
-     */
-    toggleFollowSystemPrefersColorSchemeWhenInBrowser(state) {
-      const { followSystemPrefersColorSchemeWhenInBrowser } = state.userConfig;
-      state.userConfig.followSystemPrefersColorSchemeWhenInBrowser = !followSystemPrefersColorSchemeWhenInBrowser;
+    toggleFollowSystemPrefersColorSchemeWhenInBrowser: () => {
+      set((state) => ({
+        userConfig: {
+          ...state.userConfig,
+          followSystemPrefersColorSchemeWhenInBrowser: !state.userConfig.followSystemPrefersColorSchemeWhenInBrowser,
+        },
+      }));
     },
-  },
+  };
 });
 
-export const { setUserConfig, setUserInfo, setTheme, setRaise, toggleFollowSystemPrefersColorSchemeWhenInBrowser } =
-  slice.actions;
+export const selectUserConfig = (state: IAppStore) => state.userConfig;
+export const selectUserInfo = (state: IAppStore) => state.userInfo;
+export const selectLanguage = (state: IAppStore) => state.userConfig.language;
 
-export const selectUserConfig = (state: MinimalRootState) => state.app.userConfig;
-export const selectUserInfo = (state: MinimalRootState) => state.app.userInfo;
-export const selectLanguage: (state: MinimalRootState) => string = (state) => state.app.userConfig.language;
-
-export default slice.reducer;
+export const setUserConfig = (config: IStandardAppUserConfig) => useAppStore.getState().setUserConfig(config);
+export const setUserInfo = (info: IUserInfo) => useAppStore.getState().setUserInfo(info);
+export const setTheme = (theme: ThemeValues) => useAppStore.getState().setTheme(theme);
+export const setRaise = (raise: RaiseMode) => useAppStore.getState().setRaise(raise);
+export const toggleFollowSystemPrefersColorSchemeWhenInBrowser = () =>
+  useAppStore.getState().toggleFollowSystemPrefersColorSchemeWhenInBrowser();

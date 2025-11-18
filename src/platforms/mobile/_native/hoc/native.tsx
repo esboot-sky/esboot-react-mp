@@ -9,7 +9,7 @@ import isDeepEqual from 'react-fast-compare';
 import { cancelListenLoginExpired, listenLoginExpired } from '@/global-events';
 import { useUserConfig } from '@mobile/hooks/use-user-config';
 import { useUserInfo } from '@mobile/hooks/use-user-info';
-import { MinimalStoreType } from '@mobile/model/minimal-store';
+import { useAppStore } from '@mobile/model/app/slice';
 import { getUserInfo, getUserConfig, sendLoginStatus } from '@mobile-native/helpers/msg';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
 
@@ -45,9 +45,7 @@ export function withNative(Component: FC<any>, options: IWithNativeOptions = {})
       const disposeUserInfoListener = onUpdateUserInfo((res) => {
         console.log('收到用户信息更新: ', res);
 
-        const store = (window as any).__mobile_store__ as MinimalStoreType;
-        const { userInfo } = store.getState().app;
-        // 用户信息变化，重置react query缓存
+        const { userInfo } = useAppStore.getState();
         if (!isDeepEqual(userInfo, res)) {
           console.log('用户信息有变化: ', res);
           setUserInfo(res);

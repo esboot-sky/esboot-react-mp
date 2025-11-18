@@ -1,19 +1,18 @@
 import type { ThemeValues } from '@mobile/constants/config';
 import type { IStandardAppUserConfig } from '@mobile/model/app/slice';
-import { selectUserConfig, setTheme, setUserConfig } from '@mobile/model/app/slice';
-import { useMinimalAppDispatch, useMinimalAppSelector } from '@mobile/model/minimal-store';
+import { selectUserConfig, setTheme as setThemeAction, setUserConfig as setUserConfigAction } from '@mobile/model/app/slice';
+import { useMinimalAppSelector } from '@mobile/model/minimal-store';
 
 export function useUserConfig() {
   const userConfig = useMinimalAppSelector(selectUserConfig);
-  const dispatch = useMinimalAppDispatch();
 
   return {
     userConfig,
     setUserConfig(newValue: IStandardAppUserConfig) {
-      dispatch(setUserConfig(newValue));
+      setUserConfigAction(newValue);
     },
     setTheme(theme: ThemeValues) {
-      dispatch(setTheme(theme));
+      setThemeAction(theme);
     },
   };
 }

@@ -6,10 +6,9 @@ import { FormattedMessage } from 'react-intl';
 
 import './index.scss';
 import { increase, selectCount } from './model/hello/slice';
-import { useAppDispatch, useAppSelector } from './model/store';
+import { useAppSelector } from './model/store';
 
 const AppHome: React.FC = () => {
-  const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const queryClient = useQueryClient();
   CacheStore.setItem('userInfoTest', { name: 'test' });
@@ -17,7 +16,7 @@ const AppHome: React.FC = () => {
   console.log('query client: ', queryClient);
 
   const onClick = () => {
-    dispatch(increase(1));
+    increase(1);
   };
 
   return (
