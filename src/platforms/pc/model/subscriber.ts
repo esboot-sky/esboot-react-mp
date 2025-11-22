@@ -1,47 +1,72 @@
 import { CacheStore } from '@dz-web/cache';
-import isDeepEqual from 'react-fast-compare';
+import { updateQuotesUpDownColorRootClass, updateThemeRootClass } from '@pc/helpers/theme';
 
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
 import { isBrowser } from '@/utils/platforms';
-import { updateRootClass } from '@pc/helpers/theme';
-
-import { useAppStore } from './app/slice';
+import { usePCStore } from './pc';
 
 export function subscribeUserAndCache() {
-  let previousState = useAppStore.getState();
+  usePCStore.subscribe(
+    state => state.userConfig.theme,
+    (prevTheme, nextTheme) => {
+      updateThemeRootClass(prevTheme, nextTheme);
+    },
+    {
+      fireImmediately: true,
+    },
+  );
 
-  updateRootClass(
-    previousState.userConfig.theme,
-    previousState.userConfig.raise,
-    previousState.userConfig.language,
-    previousState.userConfig.appFontSize,
-    previousState.userConfig.appFontWeight,
+  usePCStore.subscribe(
+    state => state.userConfig.quotesUpDownColor,
+    (prevQuotesUpDownColor, nextQuotesUpDownColor) => {
+      console.log('prevQuotesUpDownColor: ', prevQuotesUpDownColor);
+      console.log('nextQuotesUpDownColor: ', nextQuotesUpDownColor);
+      updateQuotesUpDownColorRootClass(prevQuotesUpDownColor, nextQuotesUpDownColor);
+    },
+    {
+      fireImmediately: true,
+    },
+  );
+
+  usePCStore.subscribe(
+    state => state.userConfig.appFontSize,
+    (_, nextAppFontSize) => {
+      document.documentElement.style.fontSize = `${nextAppFontSize}px`;
+    },
+    {
+      fireImmediately: true,
+    },
+  );
+
+  usePCStore.subscribe(
+    state => state.userConfig.appFontWeight,
+    (_, nextAppFontWeight) => {
+      document.documentElement.style.fontWeight = nextAppFontWeight;
+    },
+    {
+      fireImmediately: true,
+    },
   );
 
   if (isBrowser()) {
-    CacheStore.setItem(CACHE_KEY_PC_USER_CONFIG, previousState.userConfig);
-  }
-
-  return useAppStore.subscribe((currentState) => {
-    if (currentState === previousState) return;
-
-    updateRootClass(
-      currentState.userConfig.theme,
-      currentState.userConfig.raise,
-      currentState.userConfig.language,
-      currentState.userConfig.appFontSize,
-      currentState.userConfig.appFontWeight,
+    usePCStore.subscribe(
+      state => state.userConfig,
+      (_, nextUserConfig) => {
+        CacheStore.setItem(CACHE_KEY_PC_USER_CONFIG, nextUserConfig);
+      },
+      {
+        fireImmediately: true,
+      },
     );
 
-    if (isBrowser()) {
-      if (!isDeepEqual(currentState.userConfig, previousState.userConfig)) {
-        CacheStore.setItem(CACHE_KEY_PC_USER_CONFIG, currentState.userConfig);
-      }
-
-      if (!isDeepEqual(currentState.userInfo, previousState.userInfo)) {
-        CacheStore.setItem(CACHE_KEY_PC_USER_INFO, currentState.userInfo);
-      }
-    }
-    previousState = currentState;
-  });
+    usePCStore.subscribe(
+      state => state.userInfo,
+      (_, nextUserInfo) => {
+        CacheStore.setItem(CACHE_KEY_PC_USER_INFO, nextUserInfo);
+      },
+      {
+        fireImmediately: true,
+      },
+    );
+  }
 }

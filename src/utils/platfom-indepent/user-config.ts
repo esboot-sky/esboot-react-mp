@@ -3,7 +3,7 @@ import { TOKEN_KEY as MOBILE_TOKEN_KEY } from '@mobile/constants/config';
 import { useAppStore as useMobileAppStore } from '@mobile/model/app/slice';
 
 import { TOKEN_KEY as PC_TOKEN_KEY } from '@pc/constants/config';
-import { useAppStore as usePCAppStore } from '@pc/model/app/slice';
+import { usePCStore } from '@/platforms/pc/model/pc';
 import { isMobile } from '@/utils/platforms';
 
 export function getPlatformIndependentUserConfig() {
@@ -18,7 +18,7 @@ export function getPlatformIndependentUserConfig() {
     };
   }
 
-  const { userConfig, userInfo } = usePCAppStore.getState();
+  const { userConfig, userInfo } = usePCStore.getState();
   const { language } = userConfig;
   const token = userInfo[PC_TOKEN_KEY];
 

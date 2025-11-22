@@ -2,9 +2,7 @@ import type { ComponentPropsWithoutRef, FC, ReactNode } from 'react';
 import { getUserConfig, getUserInfo, sendLoginStatus } from '@pc-native/helpers/msg';
 import { onUpdateUserConfig, onUpdateUserInfo } from '@pc-native/helpers/register';
 
-import { useUserConfig } from '@pc/hooks/use-user-config';
-import { useUserInfo } from '@pc/hooks/use-user-info';
-import { useAppStore } from '@pc/model/app/slice';
+import { setUserConfig, setUserInfo } from '@pc/model/pc';
 /**
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
@@ -26,10 +24,6 @@ export function withNative(Component: FC<any>, options: IWithNativeOptions = {})
   const mergeOptions = deepMerge(defaultOptions, options);
 
   return function NativeApp(props: ComponentPropsWithoutRef<typeof Component>) {
-    const { setUserConfig } = useUserConfig();
-
-    const { setUserInfo } = useUserInfo();
-
     const queryClient = useQueryClient();
 
     useEffect(() => {

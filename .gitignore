@@ -6,11 +6,12 @@ node_modules
 
 # env
 .env.local
-# editor
-.vscode
 
+# ESBoot
 dist
+only-for-test*
 src/helpers/multi-platforms.ts
+bridge-mock.js
 
 # Release
 dist
@@ -24,14 +25,9 @@ dist
 .mfsu
 .cache
 
-# Bridge-mock
-bridge-mock.js
-
 # Test
 coverage
 
 # Editor
 .idea
 .vscode
-
-only-for-test*

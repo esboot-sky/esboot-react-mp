@@ -1,17 +1,18 @@
+import type { ComponentPropsWithoutRef, FC, ReactNode } from 'react';
+import { getUserConfig, getUserInfo, sendLoginStatus } from '@mobile-native/helpers/msg';
+import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
+import { useUserConfig } from '@mobile/hooks/use-user-config';
+
+import { useUserInfo } from '@mobile/hooks/use-user-info';
+import { useAppStore } from '@mobile/model/app/slice';
 /**
  * 此文件为项目标准格式，禁止修改，需要修改请联系负责人进行迭代
  */
 import { useQueryClient } from '@tanstack/react-query';
 import deepMerge from 'deepmerge';
-import { useEffect, FC, ComponentPropsWithoutRef, ReactNode } from 'react';
+import { useEffect } from 'react';
 import isDeepEqual from 'react-fast-compare';
-
 import { cancelListenLoginExpired, listenLoginExpired } from '@/global-events';
-import { useUserConfig } from '@mobile/hooks/use-user-config';
-import { useUserInfo } from '@mobile/hooks/use-user-info';
-import { useAppStore } from '@mobile/model/app/slice';
-import { getUserInfo, getUserConfig, sendLoginStatus } from '@mobile-native/helpers/msg';
-import { onUpdateUserConfig, onUpdateUserInfo } from '@mobile-native/helpers/register';
 
 export interface IWithNativeOptions {
   disabledLoginExpired?: boolean;
@@ -34,13 +35,13 @@ export function withNative(Component: FC<any>, options: IWithNativeOptions = {})
     useEffect(() => {
       getUserConfig()
         .then(setUserConfig)
-        .catch((err) => console.log(`获取用户配置失败: ${err}`));
+        .catch(err => console.log(`获取用户配置失败: ${err}`));
 
       const disposeUserConfigListener = onUpdateUserConfig(setUserConfig);
 
       getUserInfo()
         .then(setUserInfo)
-        .catch((err) => console.log('err:', err));
+        .catch(err => console.log('err:', err));
 
       const disposeUserInfoListener = onUpdateUserInfo((res) => {
         console.log('收到用户信息更新: ', res);
@@ -61,7 +62,8 @@ export function withNative(Component: FC<any>, options: IWithNativeOptions = {})
     }, []);
 
     useEffect(() => {
-      if (mergeOptions.disabledLoginExpired) return () => {};
+      if (mergeOptions.disabledLoginExpired)
+        return () => {};
 
       const onLoginExpired = (serverResponse: { code: number; message: string }) => {
         console.warn('原生app登录过期, 调用退出登录交互');

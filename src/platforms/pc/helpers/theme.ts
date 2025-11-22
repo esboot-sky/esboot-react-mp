@@ -1,36 +1,35 @@
+import type { ThemeValues } from '@pc/constants/config';
 import { SupportedThemes } from '@pc/constants/config';
-import { isValidRaiseMode } from '@pc/utils/capacities';
+import { isSupportedTheme } from '@pc/utils/capacities';
+import { initPageQuery } from '@/helpers/init-page-query';
 
-export const updateRootClass = (() => {
-  let prevTheme = '';
-  let prevRaise = '';
-  const themePrefix = 'dz-theme-';
+export function getDefaultTheme(followSystem: boolean, defaultTheme: ThemeValues) {
+  const { theme } = initPageQuery;
+  // 优先使用url指定的主题初始化
+  if (isSupportedTheme(theme))
+    return theme as ThemeValues;
 
-  return (theme: string, raise: string, lang: string, fontSize: number, fontWeight: string) => {
-    console.log(lang);
-    const { classList } = document.documentElement;
+  // 浏览器模式下，设置了跟随系统设置, 则根据系统设置初始化
+  if (followSystem) {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? SupportedThemes.dark : SupportedThemes.light;
+  }
 
-    if (isValidRaiseMode(raise) && raise !== prevRaise) {
-      if (prevRaise) {
-        classList.remove(`${prevRaise}`);
-      }
-      classList.add(`${raise}`);
-      prevRaise = raise;
-    }
+  return defaultTheme;
+}
 
-    const nextTheme = SupportedThemes[theme as keyof typeof SupportedThemes];
-    if (nextTheme && nextTheme !== prevTheme) {
-      if (prevTheme) {
-        classList.remove(`${themePrefix}${prevTheme}`);
-      }
-      classList.add(`${themePrefix}${theme}`);
+export function updateBaseRootClass(prefix: string, prev: string, next: string) {
+  const { classList } = document.documentElement;
+  if (prev) {
+    classList.remove(`${prefix}${prev}`);
+  }
+  classList.add(`${prefix}${next}`);
+}
 
-      prevTheme = theme;
-    }
+export function updateThemeRootClass(prevTheme: ThemeValues, nextTheme: ThemeValues) {
+  updateBaseRootClass('dz-theme-', prevTheme, nextTheme);
+}
 
-    if (!(window as any).__disableRem) {
-      document.documentElement.style.fontSize = `${fontSize}px`;
-      document.documentElement.style.fontWeight = fontWeight;
-    }
-  };
-})();
+export function updateQuotesUpDownColorRootClass(prevQuotesUpDownColor: string, nextQuotesUpDownColor: string) {
+  updateBaseRootClass('dz-quotes-up-down-color-', prevQuotesUpDownColor, nextQuotesUpDownColor);
+}
+

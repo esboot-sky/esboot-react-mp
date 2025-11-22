@@ -1,16 +1,13 @@
 const userInfo = {
-  "bcanStatus": "Y",
-  "bindTrade": true,
-  "isLogin": true,
-  "mobile": "15455700770",
-  "nickName": "小信61531890",
-  "orgCode": "0001",
-  "sessionCode": "4fdf27cf-7377-4ca8-8a59-49eb5f660a78",
-  "sessionId": "eyJjbGllbnRJZCI6IjYwNTE5NzI4IiwiYWNjb3VudCI6IjYwNTE5NzI4IiwiY25hbWUiOiI2MDUxOTcyOCIsImNsaWVudE5hbWUiOiI2MDUxOTcyOCIsImRldmljZUlkIjoiZmU4MGY4NTItYmNiZi00ZDRjLWI1MDEtZjdjZjNmYTAwOWU4LWNvbV9jc2NpX2FwcF90ZXN0IiwidHJhZGluZ0FjY1NlcSI6IjEiLCJzZXNzaW9uSWQiOiJGOUM0NDI3OTQyNTVCQTJGOTQ2OThFRDJDQTFDMEEzODQxQkFFRTM0RDA3QTIwNEI0NzczQUM5NTlCRjAwNzAzIiwiYWNjb3VudFR5cGUiOiJDIiwidG9rZW4iOiI0ZmRmMjdjZi03Mzc3LTRjYTgtOGE1OS00OWViNWY2NjBhNzgiLCJtb2JpbGUiOiIxODUwMDM1NzI0MiIsImVtYWlsIjoic2FtdWVsc2l1QGNzY2kuaGsiLCJhcmVhQ29kZSI6Iis4NiJ9",
-  "trade2faCode": "4fdf27cf-7377-4ca8-8a59-49eb5f660a78",
-  "tradeToken": "4fdf27cf-7377-4ca8-8a59-49eb5f660a78",
-  "tradingAccSeq": "1",
-  "userId": "111268"
+  bcanStatus: 'Y',
+  bindTrade: true,
+  isLogin: true,
+  mobile: '15455700770',
+  nickName: '小信61531890',
+  orgCode: '0001',
+  sessionCode: '4fdf27cf-7377-4ca8-8a59-49eb5f660a78',
+  tradeToken: '4fdf27cf-7377-4ca8-8a59-49eb5f660a78',
+  userId: '111268',
 };
 
 const tradeConfig = {
@@ -35,7 +32,7 @@ const userConfig = {
 };
 
 const serverConfig = {
-  websocketServer: 'ws://120.31.161.173:48130/socket', //websoket地址
+  websocketServer: 'ws://120.31.161.173:48130/socket', // websoket地址
 };
 
 // 用戶配置切換
@@ -66,7 +63,7 @@ module.exports = {
       },
       {
         get(target, name) {
-          return name in target ? target[name] : (args) => console.log(`收到消息: ${name}, 尚未处理`);
+          return name in target ? target[name] : args => console.log(`收到消息: ${name}, 尚未处理`);
         },
       },
     ),

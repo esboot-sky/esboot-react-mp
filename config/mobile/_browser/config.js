@@ -1,3 +1,3 @@
-var GLOBAL_CONFIG = {
-  debug: true,
+window.GLOBAL_CONFIG = {
+  debug: 1,
 };

@@ -16,7 +16,7 @@ export const initPageQuery: {
   /**
    * 涨跌模式
    */
-  raise?: string;
+  quotesUpDownColor?: string;
   /**
    * pc字体大小参数
    */

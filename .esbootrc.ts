@@ -59,7 +59,6 @@ function getBundlerViteOptions(): UserOptions<BundlerViteOptions> {
             '@dz-web/axios-middlewares',
             'axios',
             'react-intl',
-            '@loadable/component',
             'classnames',
           ],
         },
