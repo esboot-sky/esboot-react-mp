@@ -1,11 +1,11 @@
 import { CacheStore } from '@dz-web/cache';
-import { useQueryClient } from '@tanstack/react-query';
 import { clsx } from '@dz-web/esboot-browser';
+import { useQueryClient } from '@tanstack/react-query';
 import { FormattedMessage } from 'react-intl';
 
-import './index.scss';
 import { increase, selectCount } from './model/hello/slice';
 import { useAppSelector } from './model/store';
+import './index.scss';
 
 const AppHome: React.FC = () => {
   const count = useAppSelector(selectCount);
@@ -17,7 +17,9 @@ const AppHome: React.FC = () => {
   return (
     <div>
       <p styleName={clsx({ test: true })}>
-        <FormattedMessage id="global.project" />: {count}
+        <FormattedMessage id="global.project" />
+        :
+        {count}
       </p>
 
       <button onClick={() => increase(1)} type="button">

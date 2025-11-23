@@ -7,5 +7,7 @@
   },
   "only-for-test": {},
   "only-for-test2": {},
-  "only-for-test3": {}
+  "only-for-test3": {},
+  "test-router": {},
+  "test": {}
 }

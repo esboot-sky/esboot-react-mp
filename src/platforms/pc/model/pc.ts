@@ -8,7 +8,7 @@ import { CacheStore } from '@dz-web/cache';
 // import { getRealPCNativeFontSize } from '@pc-native/utils/pc-native-config';
 import { DEFAULT_QUOTES_UP_DOWN_COLOR, DEFAULT_THEME } from '@pc/constants/config';
 import { accessToken } from '@pc/helpers/customize';
-import { getDefaultTheme } from '@pc/helpers/theme';
+import { getDefaultTheme } from '@/helpers/config';
 import { isSupportedTheme, isValidQuotesUpDownColor } from '@pc/utils/capacities';
 import { create } from 'zustand';
 import { devtools, subscribeWithSelector } from 'zustand/middleware';

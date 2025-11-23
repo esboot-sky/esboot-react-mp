@@ -1,11 +1,15 @@
-import { genericMemo } from '@/utils/react-utils';
+import { memo } from 'react';
+import useHelloStore, { increase, selectCount } from '../../model/hello';
 
-const Detail = genericMemo(function Index() {
+const Detail = () => {
+  const count = useHelloStore(selectCount);
+
   return (
     <div>
-      detail
+      detail {count}
+      <button onClick={() => increase(1)}>increase</button>
     </div>
   );
-});
+};
 
-export default Detail;
+export default memo(Detail);

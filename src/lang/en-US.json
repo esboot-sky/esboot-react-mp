@@ -1,11 +1,13 @@
 {
   "global": {
     "project": "测试项目名称",
-    "boundaryErrorTitle": "Oops, something went wrong!",
+    "boundary_error_title": "Oops, something went wrong!",
     "apologize": "Sorry, the application encountered some problems.",
     "retry": "Retry"
   },
-  "only-for-test": {},
-  "only-for-test2": {},
-  "only-for-test3": {}
+  "only_for_test": {},
+  "only_for_test2": {},
+  "only_for_test3": {},
+  "test-router": {},
+  "test": {}
 }

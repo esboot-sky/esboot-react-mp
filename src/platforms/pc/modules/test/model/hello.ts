@@ -1,27 +1,23 @@
-/**
- * 页面store module模板
- */
 import { create } from 'zustand';
-
-import type { RootState } from '../store';
 
 interface IHelloState {
   count: number;
 }
 
-interface IHelloStore extends IHelloState {
+interface HelloStore extends IHelloState {
   increase: (amount: number) => void;
 }
 
-const useHelloStore = create<IHelloStore>(set => ({
+const useHelloStore = create<HelloStore>(set => ({
   count: 0,
   increase: (amount: number) => {
     set(state => ({ count: state.count + amount }));
   },
 }));
 
-export const selectCount = (state: RootState) => state.hello.count;
+export const selectCount = (state: HelloStore) => state.count;
 
 export const increase = (amount: number) => useHelloStore.getState().increase(amount);
 
 export default useHelloStore;
+

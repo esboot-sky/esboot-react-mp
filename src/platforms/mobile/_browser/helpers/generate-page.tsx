@@ -7,11 +7,10 @@ import { mounteReact } from '@/helpers/react';
 import { wrapReactQuery } from '@/hoc/query-client';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
-import '@mobile/helpers/debug';
 import '@mobile/styles/index.scss';
 
-export default function generatePage(App: React.ReactNode, options: GeneratePageOptions): void {
-  const { i18n, disableStrictMode } = options;
+export default function generatePage(App: React.ReactNode, options?: GeneratePageOptions): void {
+  const { i18n = true, disableStrictMode = false } = options || {};
   let wrapApp: React.ReactNode = App;
 
   wrapApp = wrapBrowser(wrapApp);

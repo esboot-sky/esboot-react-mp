@@ -1,4 +1,4 @@
-import type { IUserInfo } from '@mobile/customize';
+import type { IUserInfo } from '@/platforms/mobile/helpers/customize';
 import { selectUserInfo, setUserInfo as setUserInfoAction } from '@mobile/model/app/slice';
 import { useMinimalAppSelector } from '@mobile/model/minimal-store';
 

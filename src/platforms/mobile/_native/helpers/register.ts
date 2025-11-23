@@ -1,7 +1,7 @@
-import type { IUserInfo } from '@mobile/customize';
+import type { IUserInfo } from '@/platforms/mobile/helpers/customize';
 
 import { bridge } from '@dz-web/bridge';
-import { oldStyle2Standard } from '@mobile/customize';
+import { oldStyle2Standard } from '@/platforms/mobile/helpers/customize';
 
 /**
  * 换肤等配置信息变化

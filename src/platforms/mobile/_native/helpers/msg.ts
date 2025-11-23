@@ -1,7 +1,7 @@
-import type { IUserInfo } from '@mobile/customize';
+import type { IUserInfo } from '@/platforms/mobile/helpers/customize';
 
 import { bridge } from '@dz-web/bridge';
-import { oldStyle2Standard } from '@mobile/customize';
+import { oldStyle2Standard } from '@/platforms/mobile/helpers/customize';
 
 /**
  * 中信等app在用的获取用户信息的方法, 新版app请用bridge自带的同名方法

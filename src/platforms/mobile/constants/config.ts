@@ -13,7 +13,7 @@ export const SupportedThemes = {
 /**
  * 涨跌颜色配置, pc端支持多种涨跌颜色配置, 手机端一般只支持红涨绿跌、绿涨红跌
  */
-export const RaiseModeColorScheme = {
+export const QuotesUpDownColorScheme = {
   // 红涨绿跌
   red: {
     up: '#2d9e00',
@@ -37,7 +37,7 @@ export const RaiseModeColorScheme = {
 /**
  * 涨跌颜色模式, pc端支持多种颜色配置
  */
-export const validRaiseMode = {
+export const validQuotesUpDownColor = {
   /**
    * 红跌绿涨
    */
@@ -48,12 +48,9 @@ export const validRaiseMode = {
   green: 'green',
 } as const;
 
-export type RaiseMode = keyof typeof validRaiseMode;
-
-export const DEFAULT_RAISE_MODE = validRaiseMode.green;
-
+export type QuotesUpDownColor = keyof typeof validQuotesUpDownColor;
 export type ThemeValues = (typeof SupportedThemes)[keyof typeof SupportedThemes];
 
+export const DEFAULT_QUOTES_UP_DOWN_COLOR = validQuotesUpDownColor.green;
 export const DEFAULT_THEME = SupportedThemes.light;
-
 export const TOKEN_KEY = 'sessionCode';

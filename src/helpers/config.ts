@@ -1,7 +1,36 @@
-import type { ThemeValues } from '@pc/constants/config';
-import { SupportedThemes } from '@pc/constants/config';
+import type { ThemeValues } from '@helpers/multi-platforms';
+import { SupportedThemes } from '@helpers/multi-platforms';
 import { isSupportedTheme } from '@pc/utils/capacities';
-import { initPageQuery } from '@/helpers/init-page-query';
+
+import { parseKeyValues } from '@websaber/string-utils';
+
+export const initPageQuery: {
+  /**
+   * 语言
+   */
+  lang?: string;
+  /**
+   * 语言
+   */
+  language?: string;
+  /**
+   * 主题色
+   */
+  theme?: string;
+  /**
+   * 涨跌模式
+   */
+  quotesUpDownColor?: string;
+  /**
+   * pc字体大小参数
+   */
+  additionalSize?: string;
+  /**
+   * pc字体粗细参数
+   */
+  weight?: string;
+  [key: string]: string | undefined;
+} = parseKeyValues.stringOnly(window.location.href) as Record<string, string>;
 
 export function getDefaultTheme(followSystem: boolean, defaultTheme: ThemeValues) {
   const { theme } = initPageQuery;
@@ -32,4 +61,3 @@ export function updateThemeRootClass(prevTheme: ThemeValues, nextTheme: ThemeVal
 export function updateQuotesUpDownColorRootClass(prevQuotesUpDownColor: string, nextQuotesUpDownColor: string) {
   updateBaseRootClass('dz-quotes-up-down-color-', prevQuotesUpDownColor, nextQuotesUpDownColor);
 }
-
