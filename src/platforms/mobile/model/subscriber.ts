@@ -1,12 +1,12 @@
 import { CacheStore } from '@dz-web/cache';
-import { updateQuotesUpDownColorRootClass, updateThemeRootClass } from '@/helpers/config';
-
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
+
+import { updateQuotesUpDownColorRootClass, updateThemeRootClass } from '@/helpers/config';
 import { isBrowser } from '@/utils/platforms';
-import { usePCStore } from './mobile';
+import { useAppStore } from './mobile';
 
 export function subscribeUserAndCache() {
-  usePCStore.subscribe(
+  useAppStore.subscribe(
     state => state.userConfig.theme,
     (prevTheme, nextTheme) => {
       updateThemeRootClass(prevTheme, nextTheme);
@@ -16,7 +16,7 @@ export function subscribeUserAndCache() {
     },
   );
 
-  usePCStore.subscribe(
+  useAppStore.subscribe(
     state => state.userConfig.quotesUpDownColor,
     (prevQuotesUpDownColor, nextQuotesUpDownColor) => {
       console.log('prevQuotesUpDownColor: ', prevQuotesUpDownColor);
@@ -28,7 +28,7 @@ export function subscribeUserAndCache() {
     },
   );
 
-  usePCStore.subscribe(
+  useAppStore.subscribe(
     state => state.userConfig.appFontSize,
     (_, nextAppFontSize) => {
       document.documentElement.style.fontSize = `${nextAppFontSize}px`;
@@ -38,7 +38,7 @@ export function subscribeUserAndCache() {
     },
   );
 
-  usePCStore.subscribe(
+  useAppStore.subscribe(
     state => state.userConfig.appFontWeight,
     (_, nextAppFontWeight) => {
       document.documentElement.style.fontWeight = nextAppFontWeight;
@@ -49,7 +49,7 @@ export function subscribeUserAndCache() {
   );
 
   if (isBrowser()) {
-    usePCStore.subscribe(
+    useAppStore.subscribe(
       state => state.userConfig,
       (_, nextUserConfig) => {
         CacheStore.setItem(CACHE_KEY_PC_USER_CONFIG, nextUserConfig);
@@ -59,7 +59,7 @@ export function subscribeUserAndCache() {
       },
     );
 
-    usePCStore.subscribe(
+    useAppStore.subscribe(
       state => state.userInfo,
       (_, nextUserInfo) => {
         CacheStore.setItem(CACHE_KEY_PC_USER_INFO, nextUserInfo);

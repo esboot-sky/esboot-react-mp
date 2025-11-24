@@ -1,1 +1,3 @@
-export { QuotesUpDownColorScheme, SupportedThemes, validQuotesUpDownColor } from '@mobile/constants/config';
+export { quotesUpDownColorScheme, supportedQuotesUpDownColors, supportedThemes } from '@mobile/constants/config';
+export type { ThemeValues } from '@mobile/constants/config';
+export type { QuotesUpDownColor } from '@mobile/constants/config';

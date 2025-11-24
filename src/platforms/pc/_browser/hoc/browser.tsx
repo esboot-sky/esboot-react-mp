@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, FC, ReactNode } from 'react';
 
-import { SupportedThemes } from '@pc/constants/config';
+import { supportedThemes } from '@pc/constants/config';
 import { setTheme, usePCStore } from '@pc/model/pc';
 import { useEffect } from 'react';
 
@@ -17,7 +17,7 @@ export function withBrowser(Component: FC<any>) {
 
       const onThemeChange = (e: MediaQueryListEvent) => {
         const isDarkThemeEnabled = e.matches;
-        setTheme(isDarkThemeEnabled ? SupportedThemes.dark : SupportedThemes.light);
+        setTheme(isDarkThemeEnabled ? supportedThemes.dark : supportedThemes.light);
       };
 
       darkThemeQuery.addEventListener('change', onThemeChange);

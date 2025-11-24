@@ -1,7 +1,7 @@
 {
   "global": {
     "project": "測試項目名稱",
-    "boundaryErrorTitle": "哎呀，出錯了！",
+    "boundary_error_title": "哎呀，出錯了！",
     "apologize": "抱歉，應用程序遇到了一些問題。",
     "retry": "重試"
   },

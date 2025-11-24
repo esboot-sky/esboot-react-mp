@@ -1,7 +1,7 @@
 import { CacheStore } from '@dz-web/cache';
-import { updateQuotesUpDownColorRootClass, updateThemeRootClass } from '@/helpers/config';
-
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
+
+import { updateQuotesUpDownColorRootClass, updateThemeRootClass } from '@/helpers/config';
 import { isBrowser } from '@/utils/platforms';
 import { usePCStore } from './pc';
 

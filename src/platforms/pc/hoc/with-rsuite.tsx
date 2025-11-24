@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 // import { useLanguage } from '@pc/hooks/use-language';
-import { SupportedThemes } from '@pc/constants/config';
+import { supportedThemes } from '@pc/constants/config';
 import { usePCStore } from '@pc/model/pc';
 import { useLayoutEffect } from 'react';
 import { CustomProvider } from 'rsuite';
@@ -12,10 +12,10 @@ export function withRSuite(App): any {
   return function RSuiteApp({ ...rest }) {
     const theme = usePCStore(state => state.userConfig.theme);
 
-    const rsuiteTheme = theme === SupportedThemes.light ? 'light' : 'dark';
+    const rsuiteTheme = theme === supportedThemes.light ? 'light' : 'dark';
 
     useLayoutEffect(() => {
-      if (theme === SupportedThemes.dark && !document.body.classList.contains('rs-theme-dark')) {
+      if (theme === supportedThemes.dark && !document.body.classList.contains('rs-theme-dark')) {
         document.body.classList.add(`rs-theme-${rsuiteTheme}`);
       }
     }, [theme]);

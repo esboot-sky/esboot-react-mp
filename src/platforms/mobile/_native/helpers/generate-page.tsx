@@ -12,8 +12,8 @@ import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
 import '@mobile/styles/index.scss';
 
-export default async function generatePage(App: React.ReactNode, options: GeneratePageOptions): Promise<void> {
-  const { i18n, disableStrictMode, disabledLoginExpired } = options;
+export default async function generatePage(App: React.ReactNode, options?: GeneratePageOptions): Promise<void> {
+  const { i18n = true, disableStrictMode = false, disabledLoginExpired = false } = options || {};
   let wrapApp: React.ReactNode = App;
 
   if (useBridgeMock) {

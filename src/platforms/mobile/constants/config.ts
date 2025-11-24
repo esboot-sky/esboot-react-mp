@@ -2,7 +2,7 @@
  * 多皮肤
  *
  */
-export const SupportedThemes = {
+export const supportedThemes = {
   light: 'light',
   dark: 'dark',
   // 安卓端中信app会返回black与theme，临时加上
@@ -13,7 +13,7 @@ export const SupportedThemes = {
 /**
  * 涨跌颜色配置, pc端支持多种涨跌颜色配置, 手机端一般只支持红涨绿跌、绿涨红跌
  */
-export const QuotesUpDownColorScheme = {
+export const quotesUpDownColorScheme = {
   // 红涨绿跌
   red: {
     up: '#2d9e00',
@@ -37,7 +37,7 @@ export const QuotesUpDownColorScheme = {
 /**
  * 涨跌颜色模式, pc端支持多种颜色配置
  */
-export const validQuotesUpDownColor = {
+export const supportedQuotesUpDownColors = {
   /**
    * 红跌绿涨
    */
@@ -48,9 +48,9 @@ export const validQuotesUpDownColor = {
   green: 'green',
 } as const;
 
-export type QuotesUpDownColor = keyof typeof validQuotesUpDownColor;
-export type ThemeValues = (typeof SupportedThemes)[keyof typeof SupportedThemes];
+export type QuotesUpDownColor = keyof typeof supportedQuotesUpDownColors;
+export type ThemeValues = (typeof supportedThemes)[keyof typeof supportedThemes];
 
-export const DEFAULT_QUOTES_UP_DOWN_COLOR = validQuotesUpDownColor.green;
-export const DEFAULT_THEME = SupportedThemes.light;
+export const DEFAULT_QUOTES_UP_DOWN_COLOR = supportedQuotesUpDownColors.green;
+export const DEFAULT_THEME = supportedThemes.light;
 export const TOKEN_KEY = 'sessionCode';

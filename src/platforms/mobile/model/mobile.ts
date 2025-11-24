@@ -1,23 +1,19 @@
-import type { QuotesUpDownColor, ThemeValues } from '@pc/constants/config';
-import type { RawPCUserConfig } from '@pc/helpers/customize';
-import type { UserInfo } from '@pc/types';
+import type { QuotesUpDownColor, ThemeValues } from '@mobile/constants/config';
+import type { RawAppUserConfig, UserInfo } from '@mobile/helpers/customize';
 import type { Language } from '@/constants/config';
 import { globalBlocker } from '@dz-web/axios-middlewares';
 
 import { CacheStore } from '@dz-web/cache';
-import { DEFAULT_QUOTES_UP_DOWN_COLOR, DEFAULT_THEME } from '@pc/constants/config';
-import { accessToken } from '@pc/helpers/customize';
-import { getDefaultTheme } from '@/helpers/config';
-import { isSupportedTheme, isValidQuotesUpDownColor } from '@pc/utils/capacities';
+import { DEFAULT_QUOTES_UP_DOWN_COLOR, DEFAULT_THEME } from '@mobile/constants/config';
+import { accessToken } from '@mobile/helpers/customize';
 import { create } from 'zustand';
 import { devtools, subscribeWithSelector } from 'zustand/middleware';
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
 import { DEFAULT_LANGUAGE, isDev } from '@/constants/config';
-import { initPageQuery } from '@/helpers/init-page-query';
+import { getDefaultTheme, initPageQuery, isSupportedQuotesUpDownColor, isSupportedTheme } from '@/helpers/config';
 import { isSupportedLanguage } from '@/utils/capacities';
 
 import { isBrowser } from '@/utils/platforms';
-import type { IRawAppUserConfig } from "../helpers/customize";
 
 /**
  * 点证web app标准用户设置
@@ -33,7 +29,7 @@ export interface IStandardAppUserConfig {
    */
   followSystemPrefersColorSchemeWhenInBrowser: boolean;
   deviceNo: string;
-  raw: RawPCUserConfig;
+  raw: RawAppUserConfig;
 }
 
 interface IState {
@@ -42,7 +38,7 @@ interface IState {
 }
 
 function createInitializedState(): IState {
-  const { lang, quotesUpDownColor, additionalSize, fontWeight } = initPageQuery;
+  const { lang, quotesUpDownColor } = initPageQuery;
 
   function getValueButIgnoreInNative<T>(run: () => T | undefined | null, defaultValue: T) {
     if (isBrowser()) {
@@ -67,7 +63,7 @@ function createInitializedState(): IState {
       followSystemPrefersColorSchemeWhenInBrowser: isBrowser() && !(window as any).__disable_follow_system_theme,
       language: DEFAULT_LANGUAGE,
       quotesUpDownColor: DEFAULT_QUOTES_UP_DOWN_COLOR,
-      raw: {} as IRawAppUserConfig,
+      raw: {} as RawAppUserConfig,
     }),
   } as IState;
 
@@ -77,7 +73,7 @@ function createInitializedState(): IState {
     defaultState.userConfig.theme = theme as ThemeValues;
   }
 
-  if (isValidQuotesUpDownColor(quotesUpDownColor)) {
+  if (isSupportedQuotesUpDownColor(quotesUpDownColor)) {
     defaultState.userConfig.quotesUpDownColor = quotesUpDownColor as QuotesUpDownColor;
   }
 
@@ -89,29 +85,20 @@ function createInitializedState(): IState {
     defaultState.userConfig.language = lang as Language;
   }
 
-  const intAdditionalSize = Number.parseInt(additionalSize || '', 10);
-  if (intAdditionalSize) {
-    // defaultState.userConfig.appFontSize = getRealPCNativeFontSize(intAdditionalSize.toString());
-  }
-
-  if (fontWeight === 'bold' || fontWeight === 'normal') {
-    defaultState.userConfig.appFontWeight = fontWeight;
-  }
-
   return defaultState;
 }
 
-export const usePCStore = create<IState>()(
+export const useAppStore = create<IState>()(
   subscribeWithSelector(
     devtools(() => createInitializedState(), {
-      name: 'pc-store',
+      name: 'mobile-store',
       enabled: isDev,
     }),
   ),
 );
 
 export function setUserConfig(config: IStandardAppUserConfig) {
-  return usePCStore.setState(() => ({
+  return useAppStore.setState(() => ({
     userConfig: config,
   }));
 }
@@ -121,23 +108,23 @@ export function setUserInfo(info: UserInfo) {
   if (token) {
     globalBlocker.done();
   }
-  return usePCStore.setState(() => ({ userInfo: info }));
+  return useAppStore.setState(() => ({ userInfo: info }));
 }
 
 export function setLanguage(language: Language) {
-  return usePCStore.setState(state => ({ userConfig: { ...state.userConfig, language } }));
+  return useAppStore.setState(state => ({ userConfig: { ...state.userConfig, language } }));
 }
 
 export function setTheme(theme: ThemeValues) {
-  return usePCStore.setState(state => ({ userConfig: { ...state.userConfig, theme } }));
+  return useAppStore.setState(state => ({ userConfig: { ...state.userConfig, theme } }));
 }
 
 export function setQuotesUpDownColor(quotesUpDownColor: QuotesUpDownColor) {
-  return usePCStore.setState(state => ({ userConfig: { ...state.userConfig, quotesUpDownColor } }));
+  return useAppStore.setState(state => ({ userConfig: { ...state.userConfig, quotesUpDownColor } }));
 }
 
 export function toggleFollowSystemPrefersColorSchemeWhenInBrowser() {
-  return usePCStore.setState(state => ({
+  return useAppStore.setState(state => ({
     userConfig: {
       ...state.userConfig,
       followSystemPrefersColorSchemeWhenInBrowser: !state.userConfig.followSystemPrefersColorSchemeWhenInBrowser,

@@ -1,5 +1,5 @@
-import type { RaiseMode, ThemeValues } from '@mobile/constants/config';
-import type { IStandardAppUserConfig } from '@mobile/model/app/slice';
+import type { QuotesUpDownColor, ThemeValues } from '@mobile/constants/config';
+import type { IStandardAppUserConfig } from '@mobile/model/mobile';
 import type { Language } from '@/constants/config';
 import { TOKEN_KEY } from '@mobile/constants/config';
 import { listenReactQueryError } from '@/global-events';
@@ -7,19 +7,19 @@ import { listenReactQueryError } from '@/global-events';
 /**
  * app传过来的原始设置信息, 代码中不使用此类型，使用dz web app标准类型IStandardAppUserConfig
  */
-export interface IRawAppUserConfig {
+export interface RawAppUserConfig {
   theme: ThemeValues;
   deviceNo: string;
   language: Language;
   orderToConfirmByDialog: boolean;
-  raise: RaiseMode;
+  raise: QuotesUpDownColor;
   global_font_scale: number;
 }
 
 /**
  * 转换原始app用户配置为标准app用户配置
  */
-export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
+export function oldStyle2Standard(rawAppUserConfig: RawAppUserConfig) {
   const { theme, language, raise, deviceNo } = rawAppUserConfig;
 
   const standardUserConfig: IStandardAppUserConfig = {
@@ -29,7 +29,7 @@ export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
     // app端不需要跟随系统颜色设置，因为app端有自己的颜色设置，变化了会通知webview页面
     followSystemPrefersColorSchemeWhenInBrowser: false,
     raw: rawAppUserConfig,
-    raise,
+    quotesUpDownColor: raise,
   };
 
   console.log('AppUserConfig(dz标准app用户配置): ', standardUserConfig);
@@ -40,7 +40,7 @@ export function oldStyle2Standard(rawAppUserConfig: IRawAppUserConfig) {
  * 不同的app user info不可能统一格式
  * 在这里根据app提供的内容，改成自己的格式即可
  */
-export interface IUserInfo {
+export interface UserInfo {
   sessionCode: string;
   bcanStatus: string;
   bindTrade: boolean;
@@ -58,7 +58,7 @@ export interface IUserInfo {
 /**
  * 根据项目提供的用户信息，返回access token
  */
-export function accessToken(userInfo: IUserInfo) {
+export function accessToken(userInfo: UserInfo) {
   return userInfo[TOKEN_KEY];
 }
 

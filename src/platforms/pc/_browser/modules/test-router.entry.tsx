@@ -1,5 +1,5 @@
-import App from '@pc/modules/test-router';
 import generatePage from '@pc-browser/helpers/generate-page';
+import App from '@pc/modules/test-router';
 
 generatePage(<App />);
 

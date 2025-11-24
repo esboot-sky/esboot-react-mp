@@ -1,5 +1,5 @@
-import App from '@mobile/modules/test';
 import generatePage from '@mobile-native/helpers/generate-page';
+import App from '@mobile/modules/test';
 
 generatePage(<App />);
 

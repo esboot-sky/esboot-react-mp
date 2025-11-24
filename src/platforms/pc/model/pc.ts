@@ -8,13 +8,11 @@ import { CacheStore } from '@dz-web/cache';
 // import { getRealPCNativeFontSize } from '@pc-native/utils/pc-native-config';
 import { DEFAULT_QUOTES_UP_DOWN_COLOR, DEFAULT_THEME } from '@pc/constants/config';
 import { accessToken } from '@pc/helpers/customize';
-import { getDefaultTheme } from '@/helpers/config';
-import { isSupportedTheme, isValidQuotesUpDownColor } from '@pc/utils/capacities';
 import { create } from 'zustand';
 import { devtools, subscribeWithSelector } from 'zustand/middleware';
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
 import { DEFAULT_LANGUAGE, isDev } from '@/constants/config';
-import { initPageQuery } from '@/helpers/init-page-query';
+import { getDefaultTheme, initPageQuery, isSupportedQuotesUpDownColor, isSupportedTheme } from '@/helpers/config';
 import { isSupportedLanguage } from '@/utils/capacities';
 
 import { isBrowser } from '@/utils/platforms';
@@ -81,7 +79,7 @@ function createInitializedState(): IState {
     defaultState.userConfig.theme = theme as ThemeValues;
   }
 
-  if (isValidQuotesUpDownColor(quotesUpDownColor)) {
+  if (isSupportedQuotesUpDownColor(quotesUpDownColor)) {
     defaultState.userConfig.quotesUpDownColor = quotesUpDownColor as QuotesUpDownColor;
   }
 
