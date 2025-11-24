@@ -1,4 +1,4 @@
-import type { IUserInfo } from '@/platforms/mobile/helpers/customize';
+import type { UserInfo } from '@/platforms/mobile/helpers/customize';
 
 import { bridge } from '@dz-web/bridge';
 import { oldStyle2Standard } from '@/platforms/mobile/helpers/customize';
@@ -15,6 +15,6 @@ export function onUpdateUserConfig(handle: (data: any) => void) {
  * 用户账户信息变化
  *
  */
-export function onUpdateUserInfo(handle: (data: IUserInfo) => void) {
+export function onUpdateUserInfo(handle: (data: UserInfo) => void) {
   return bridge.register<typeof handle>('updateUserInfo', handle);
 }

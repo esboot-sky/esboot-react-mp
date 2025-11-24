@@ -28,26 +28,6 @@ export function subscribeUserAndCache() {
     },
   );
 
-  useAppStore.subscribe(
-    state => state.userConfig.appFontSize,
-    (_, nextAppFontSize) => {
-      document.documentElement.style.fontSize = `${nextAppFontSize}px`;
-    },
-    {
-      fireImmediately: true,
-    },
-  );
-
-  useAppStore.subscribe(
-    state => state.userConfig.appFontWeight,
-    (_, nextAppFontWeight) => {
-      document.documentElement.style.fontWeight = nextAppFontWeight;
-    },
-    {
-      fireImmediately: true,
-    },
-  );
-
   if (isBrowser()) {
     useAppStore.subscribe(
       state => state.userConfig,
