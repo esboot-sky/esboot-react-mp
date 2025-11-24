@@ -18,7 +18,8 @@ export const enableReactQueryDevTool = true;
  * 是否使用bridge mock, false强制使用原生交互，用于测试真机环境
  */
 let defaultUseBridgeMock = true;
-if (!isDev) defaultUseBridgeMock = false;
+if (!isDev)
+  defaultUseBridgeMock = false;
 export const useBridgeMock = defaultUseBridgeMock;
 
 /**

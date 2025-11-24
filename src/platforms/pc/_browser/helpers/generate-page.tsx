@@ -1,9 +1,9 @@
 import type { GeneratePageOptions } from '@/types';
 import wrapBrowser from '@pc-browser/hoc/browser';
 import { TopErrorBoundaryFallback } from '@pc/components/top-error-boundary-fallback';
-import wrapI18n from '@pc/hoc/i18n';
 import { subscribeUserAndCache } from '@pc/model/subscriber';
 import { mounteReact } from '@/helpers/react';
+import wrapI18n from '@/hoc/i18n';
 import { wrapReactQuery } from '@/hoc/query-client';
 import { wrapTopErrorBoundary } from '@/hoc/top-error-boundary';
 import '@/styles/index.scss';
