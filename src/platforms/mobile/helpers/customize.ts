@@ -11,7 +11,6 @@ export interface RawAppUserConfig {
   theme: ThemeValues;
   deviceNo: string;
   language: Language;
-  orderToConfirmByDialog: boolean;
   raise: QuotesUpDownColor;
   global_font_scale: number;
 }

@@ -10,13 +10,6 @@ const userInfo = {
   userId: '111268',
 };
 
-const tradeConfig = {
-  orderToConfirmByDialog: true,
-  orderToConfirmByPwd: false,
-  idleAutoLockDuration: '15m',
-  searchMarketPreference: 'US',
-};
-
 const userConfig = {
   deviceNo: 'fe80f852-bcbf-4d4c-b501-f7cf3fa009e8-com_csci_app_test',
   font_size: 2, // 0 - 4  最小 - 最大 默认值2
@@ -52,14 +45,12 @@ module.exports = {
     },
     msg: new Proxy(
       {
-        userInfo: () => userInfo,
-        getTradeConfig: () => tradeConfig,
+        NORMAL_GET_USER_INFO: () => userInfo,
         // code 后端返回的code, message 后端返回的message
         loginStatus: ({ code, message }) => {
           console.log(`登录超时: \n${JSON.stringify(args)}`);
         },
-        getUserConfiguration: () => userConfig,
-        getServerConfig: () => serverConfig,
+        NORMAL_GET_USER_CONFIG: () => userConfig,
       },
       {
         get(target, name) {

@@ -1,25 +1,25 @@
-import type { IUserInfo } from '@/platforms/mobile/helpers/customize';
+import type { UserInfo } from '@/platforms/mobile/helpers/customize';
 
-import { bridge } from '@dz-web/bridge';
+import { _changeUserStatus, _getUserConfig, _getUserInfo } from '@dz-web/bridge/actions/mobile';
 import { oldStyle2Standard } from '@/platforms/mobile/helpers/customize';
 
 /**
  * 中信等app在用的获取用户信息的方法, 新版app请用bridge自带的同名方法
  */
 export function getUserConfig() {
-  return bridge.sendMsg('getUserConfiguration').then((res: any) => oldStyle2Standard(res));
+  return _getUserConfig().then((res: any) => oldStyle2Standard(res));
 }
 
 /**
  * 中信等app在用的获取用户信息的方法, 新版app请用bridge自带的同名方法
  */
-export function getUserInfo(): Promise<IUserInfo> {
-  return bridge.sendMsg('userInfo');
+export function getUserInfo(): Promise<UserInfo> {
+  return _getUserInfo();
 }
 
 /**
  * 通知app登录状态超时
  */
 export function sendLoginStatus(params: any) {
-  return bridge.sendMsg('loginStatus', params);
+  return _changeUserStatus(params);
 }

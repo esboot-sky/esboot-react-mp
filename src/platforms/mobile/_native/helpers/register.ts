@@ -1,20 +1,19 @@
-import type { IUserInfo } from '@/platforms/mobile/helpers/customize';
-
-import { bridge } from '@dz-web/bridge';
+import type { RawAppUserConfig } from '@/platforms/mobile/helpers/customize';
+import { _onPageHide, _onPageShow, _updateUserConfig, _updateUserInfo } from '@dz-web/bridge/actions/mobile';
 import { oldStyle2Standard } from '@/platforms/mobile/helpers/customize';
 
-/**
- * 换肤等配置信息变化
- *
- */
-export function onUpdateUserConfig(handle: (data: any) => void) {
-  return bridge.register('updateUserConfiguration', (res => handle(oldStyle2Standard(res))) as any);
+export function onUpdateUserConfig(handle: Parameters<typeof _updateUserConfig>[0]) {
+  return _updateUserConfig(res => handle(oldStyle2Standard(res as unknown as RawAppUserConfig)));
 }
 
-/**
- * 用户账户信息变化
- *
- */
-export function onUpdateUserInfo(handle: (data: IUserInfo) => void) {
-  return bridge.register<typeof handle>('updateUserInfo', handle);
+export function onUpdateUserInfo(handle: Parameters<typeof _updateUserInfo>[0]) {
+  return _updateUserInfo(handle);
+}
+
+export function onPageShow(handle: Parameters<typeof _onPageShow>[0]) {
+  return _onPageShow(handle);
+}
+
+export function onPageHide(handle: Parameters<typeof _onPageHide>[0]) {
+  return _onPageHide(handle);
 }

@@ -1,6 +1,7 @@
 import type { GeneratePageOptions } from '@/types';
 
 import { bridge } from '@dz-web/bridge';
+import { isDZAppByDS } from '@dz-web/esboot-browser';
 import wrapNative from '@mobile-native/hoc/native';
 import { TopErrorBoundaryFallback } from '@mobile/components/top-error-boundary-fallback';
 import wrapI18n from '@mobile/hoc/i18n';
@@ -16,9 +17,14 @@ export default async function generatePage(App: React.ReactNode, options?: Gener
   const { i18n = true, disableStrictMode = false, disabledLoginExpired = false } = options || {};
   let wrapApp: React.ReactNode = App;
 
+  console.log(useBridgeMock, 'useBridgeMock');
   if (useBridgeMock) {
     const mockbridge = await import('@dz-web/bridge/platforms/mock');
     bridge.init(mockbridge.createBridge());
+  }
+  else if (isDZAppByDS) {
+    const dsbridge = await import('@dz-web/bridge/platforms/ds');
+    bridge.init(dsbridge.createBridge());
   }
   else {
     const webviewbridge = await import('@dz-web/bridge/platforms/webview');
