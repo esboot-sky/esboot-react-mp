@@ -1,21 +1,41 @@
-import type { i18nMessageDict } from '@/types';
+import type { Language } from '@/constants/config';
 
 import { flattenLangObject } from '@dz-web/esboot-browser';
-import { isDev, supportedLanguage } from '@/constants/config';
-import enUS from '@/lang/en-US.json';
-import zhCN from '@/lang/zh-CN.json';
-import zhTW from '@/lang/zh-TW.json';
+import { supportedLanguage } from '@/constants/config';
 
-export function getPageI18n(): i18nMessageDict {
-  const locales = {
-    [supportedLanguage.ZH_TW]: flattenLangObject(zhTW),
-    [supportedLanguage.ZH_CN]: flattenLangObject(zhCN),
-    [supportedLanguage.EN_US]: flattenLangObject(enUS),
-  };
+export type i18nMessageDict = Record<Language, Record<string, string> | null>;
 
-  if (isDev) {
-    console.log('多语言配置:', locales);
+const defaultI18nCache: i18nMessageDict = {
+  [supportedLanguage.ZH_CN]: null,
+  [supportedLanguage.EN_US]: null,
+  [supportedLanguage.ZH_TW]: null,
+};
+
+let pageI18nCache: i18nMessageDict = defaultI18nCache;
+
+export async function getPageI18n(currentLanguage: Language): Promise<i18nMessageDict> {
+  if (pageI18nCache[currentLanguage] || !currentLanguage) {
+    return pageI18nCache;
   }
 
-  return locales;
+  let langData: Record<string, any> = { default: {} };
+
+  switch (currentLanguage) {
+    case supportedLanguage.ZH_TW:
+      langData = await import('@/lang/zh-TW.json');
+      break;
+    case supportedLanguage.EN_US:
+      langData = await import('@/lang/en-US.json');
+      break;
+    default:
+      langData = await import('@/lang/zh-CN.json');
+      break;
+  }
+  pageI18nCache[currentLanguage] = flattenLangObject(langData.default);
+
+  return pageI18nCache;
+}
+
+export function clearI18nCache(): void {
+  pageI18nCache = defaultI18nCache;
 }

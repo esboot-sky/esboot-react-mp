@@ -12,8 +12,13 @@ import { create } from 'zustand';
 import { devtools, subscribeWithSelector } from 'zustand/middleware';
 import { CACHE_KEY_PC_USER_CONFIG, CACHE_KEY_PC_USER_INFO } from '@/constants/caches';
 import { DEFAULT_LANGUAGE, isDev } from '@/constants/config';
-import { getDefaultTheme, initPageQuery, isSupportedQuotesUpDownColor, isSupportedTheme } from '@/helpers/config';
-import { isSupportedLanguage } from '@/utils/capacities';
+import {
+  getDefaultTheme,
+  initPageQuery,
+  isSupportedLanguage,
+  isSupportedQuotesUpDownColor,
+  isSupportedTheme,
+} from '@/helpers/config';
 
 import { isBrowser } from '@/utils/platforms';
 

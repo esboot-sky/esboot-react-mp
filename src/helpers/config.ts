@@ -3,6 +3,7 @@ import type { ThemeValues } from '@/helpers/multi-platforms';
 import { parseKeyValues } from '@websaber/string-utils';
 
 import { find } from 'lodash-es';
+import { supportedLanguage } from '@/constants/config';
 
 import { supportedQuotesUpDownColors, supportedThemes } from './multi-platforms';
 
@@ -33,6 +34,10 @@ export const initPageQuery: {
   weight?: string;
   [key: string]: string | undefined;
 } = parseKeyValues.stringOnly(window.location.href) as Record<string, string>;
+
+export function isSupportedLanguage(lang?: string): boolean {
+  return !!lang && !!find(supportedLanguage, item => item === lang);
+}
 
 export function isSupportedTheme(theme?: string): boolean {
   return !!theme && theme in supportedThemes;
