@@ -1,5 +1,4 @@
 import type { Language } from '@/constants/config';
-
 import { flattenLangObject } from '@dz-web/esboot-browser';
 import { supportedLanguage } from '@/constants/config';
 

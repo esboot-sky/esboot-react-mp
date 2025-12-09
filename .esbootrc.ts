@@ -21,8 +21,8 @@ export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>(cfg => (
     exclude: ['node_modules'],
   },
   define: {
-    'process.env.isMobile': JSON.stringify(cfg.isMobile),
-    'process.env.isBrowser': JSON.stringify(cfg.isBrowser),
+    'process.env.isMobile': cfg.isMobile,
+    'process.env.isBrowser': cfg.isBrowser,
   },
   plugins: [
     vitestPlugin(),
@@ -45,7 +45,7 @@ const frameworkBundles = [
   'dayjs',
   '@tanstack/react-query',
   'zustand',
-  'lodash',
+  'lodash-es',
   '@dz-web/axios',
   '@dz-web/axios-middlewares',
   'axios',

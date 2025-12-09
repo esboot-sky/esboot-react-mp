@@ -1,8 +1,9 @@
-import type { i18nMessageDict } from '@/helpers/import-locales';
+import type { i18nMessageDict } from '../helpers/import-locales';
 import { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import { getPageI18n } from '@/helpers/import-locales';
+import { DEFAULT_LANGUAGE } from '@/constants/config';
 import { useStore } from '@/helpers/multi-platforms';
+import { getPageI18n } from '../helpers/import-locales';
 
 export type I18nProps = boolean;
 
@@ -14,23 +15,33 @@ export default function wrapI18n(App: React.ReactNode, i18n: I18nProps = true): 
     const [messageDict, setMessageDict] = useState<i18nMessageDict | null>(null);
     const [loading, setLoading] = useState(true);
     const language = useStore(state => state.userConfig.language);
-    const lan = language?.replace(/_/g, '-') as keyof i18nMessageDict; // 解决国际化不支持 下划线形式
+    const lan = (language?.replace(/_/g, '-') || DEFAULT_LANGUAGE) as keyof i18nMessageDict;
 
     useEffect(() => {
-      setTimeout(() => {
-        setLoading(true);
-      }, 0);
+      let cancelled = false;
 
-      getPageI18n(lan)
-        .then((dict) => {
-          setMessageDict({ ...dict, [lan]: dict[lan] });
-        })
-        .catch((error) => {
-          console.error('Failed to load i18n messages:', error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+      const loadLanguage = async () => {
+        try {
+          const dict = await getPageI18n(lan);
+          if (!cancelled) {
+            setMessageDict({ ...dict, [lan]: dict[lan] });
+            setLoading(false);
+          }
+        }
+        catch (error) {
+          if (!cancelled) {
+            console.error('Failed to load i18n messages:', error);
+            setMessageDict(null);
+            setLoading(false);
+          }
+        }
+      };
+
+      loadLanguage();
+
+      return () => {
+        cancelled = true;
+      };
     }, [lan]);
 
     if (loading) {
