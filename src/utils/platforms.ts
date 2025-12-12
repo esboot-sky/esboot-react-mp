@@ -1,5 +1,5 @@
 export function isMobile() {
-  return process.env.isMobile;
+  return import.meta.env.isMobile;
 }
 
 export function isPC() {
