@@ -20,4 +20,3 @@ export const selectCount = (state: HelloStore) => state.count;
 export const increase = (amount: number) => useHelloStore.getState().increase(amount);
 
 export default useHelloStore;
-
