@@ -1,7 +1,7 @@
 import staticConfig from '@/helpers/static-config';
 import { isBrowser } from '@/utils/platforms';
 
-export const isDev = process.env.NODE_ENV === 'development';
+export const isDev = process.env.NODE_ENV === 'development'; // eslint-disable-line node/prefer-global/process
 
 /**
  * 移动端是否开启debug

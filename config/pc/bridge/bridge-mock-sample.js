@@ -1,3 +1,5 @@
+import { env } from 'node:process';
+
 const userInfo = {
   authentication: 'c2f7dfda383ef064ab48c696d2071496',
   clientChannel: '2100',
@@ -17,7 +19,7 @@ const userInfo = {
 };
 
 module.exports = {
-  port: process.env.BRIDGE_MOCK_PORT || 3000,
+  port: env.BRIDGE_MOCK_PORT || 3000,
   response: {
     url: (url, arg) => {
       console.log(`打开${url}?${JSON.stringify(arg)}`);

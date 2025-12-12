@@ -1,5 +1,5 @@
 import type { QuotesUpDownColor, ThemeValues } from '@mobile/constants/config';
-import type { RawAppUserConfig, UserInfo } from '@mobile/helpers/customize';
+import type { OriginalUserConfig, OriginalUserInfo } from '@mobile/helpers/customize';
 import type { Language } from '@/constants/config';
 import { globalBlocker } from '@dz-web/axios-middlewares';
 
@@ -25,7 +25,7 @@ import { isBrowser } from '@/utils/platforms';
  * 代码里统一从store中读取此用户配置，代码不应关心用户配置的来源，并且格式应该统一,
  * 需要读取原始配置，请读取raw字段
  */
-export interface IStandardAppUserConfig {
+export interface StandardUserConfig {
   theme: ThemeValues;
   language: Language;
   quotesUpDownColor: QuotesUpDownColor;
@@ -34,12 +34,12 @@ export interface IStandardAppUserConfig {
    */
   followSystemPrefersColorSchemeWhenInBrowser: boolean;
   deviceNo: string;
-  raw: RawAppUserConfig;
+  raw: OriginalUserConfig;
 }
 
 interface IState {
-  userInfo: UserInfo;
-  userConfig: IStandardAppUserConfig;
+  userInfo: OriginalUserInfo;
+  userConfig: StandardUserConfig;
 }
 
 function createInitializedState(): IState {
@@ -61,14 +61,14 @@ function createInitializedState(): IState {
   const defaultState = {
     userInfo: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_PC_USER_INFO), {
       sessionCode: '',
-    } as UserInfo),
+    } as OriginalUserInfo),
     userConfig: getValueButIgnoreInNative(() => CacheStore.getItem(CACHE_KEY_PC_USER_CONFIG), {
       theme: DEFAULT_THEME,
       deviceNo: '',
       followSystemPrefersColorSchemeWhenInBrowser: isBrowser() && !(window as any).__disable_follow_system_theme,
       language: DEFAULT_LANGUAGE,
       quotesUpDownColor: DEFAULT_QUOTES_UP_DOWN_COLOR,
-      raw: {} as RawAppUserConfig,
+      raw: {} as OriginalUserConfig,
     }),
   } as IState;
 
@@ -102,13 +102,13 @@ export const useAppStore = create<IState>()(
   ),
 );
 
-export function setUserConfig(config: IStandardAppUserConfig) {
+export function setUserConfig(config: StandardUserConfig) {
   return useAppStore.setState(() => ({
     userConfig: config,
   }));
 }
 
-export function setUserInfo(info: UserInfo) {
+export function setUserInfo(info: OriginalUserInfo) {
   const token = accessToken(info);
   if (token) {
     globalBlocker.done();

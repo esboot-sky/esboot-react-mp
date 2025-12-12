@@ -27,7 +27,7 @@ import { isBrowser } from '@/utils/platforms';
  * 代码里统一从store中读取此用户配置，代码不应关心用户配置的来源，并且格式应该统一,
  * 需要读取原始配置，请读取raw字段
  */
-export interface IStandardAppUserConfig {
+export interface StandardUserConfig {
   theme: ThemeValues;
   language: Language;
   quotesUpDownColor: QuotesUpDownColor;
@@ -43,7 +43,7 @@ export interface IStandardAppUserConfig {
 
 interface IState {
   userInfo: UserInfo;
-  userConfig: IStandardAppUserConfig;
+  userConfig: StandardUserConfig;
 }
 
 function createInitializedState(): IState {
@@ -117,7 +117,7 @@ export const usePCStore = create<IState>()(
   ),
 );
 
-export function setUserConfig(config: IStandardAppUserConfig) {
+export function setUserConfig(config: StandardUserConfig) {
   return usePCStore.setState(() => ({
     userConfig: config,
   }));

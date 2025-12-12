@@ -1,15 +1,16 @@
-import { memo } from 'react';
+import { Button } from 'antd-mobile';
 import useHelloStore, { increase, selectCount } from '../../model/hello';
 
-const Detail = () => {
+function Detail() {
   const count = useHelloStore(selectCount);
 
   return (
     <div>
-      detail {count}
-      <button onClick={() => increase(1)}>increase</button>
+      detail
+      {count}
+      <Button onClick={() => increase(1)}>increase</Button>
     </div>
   );
-};
+}
 
-export default memo(Detail);
+export default Detail;

@@ -1,5 +1,6 @@
 export function isMobile() {
-  return import.meta.env.isMobile;
+  // eslint-disable-next-line node/prefer-global/process
+  return process.env.isMobile;
 }
 
 export function isPC() {
@@ -7,7 +8,7 @@ export function isPC() {
 }
 
 export function isBrowser() {
-  console.log(process.env.isBrowser, 'process.env.isBrowser');
+  // eslint-disable-next-line node/prefer-global/process
   return process.env.isBrowser;
 }
 

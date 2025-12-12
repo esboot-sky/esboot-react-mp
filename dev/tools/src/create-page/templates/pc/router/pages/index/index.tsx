@@ -1,9 +1,8 @@
 import { setLanguage, setTheme, usePCStore } from '@pc/model/pc';
 import { Button } from 'antd-mobile';
-import { memo } from 'react';
 import { Link } from 'react-router';
 
-const Index = memo(() => {
+function Index() {
   const theme = usePCStore(state => state.userConfig.theme);
   const language = usePCStore(state => state.userConfig.language);
 
@@ -50,6 +49,6 @@ const Index = memo(() => {
       </p>
     </div>
   );
-});
+};
 
 export default Index;

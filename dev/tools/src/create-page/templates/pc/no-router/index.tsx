@@ -3,12 +3,11 @@ import { clsx } from '@dz-web/esboot-browser';
 import { useQueryClient } from '@tanstack/react-query';
 import { FormattedMessage } from 'react-intl';
 
-import { increase, selectCount } from './model/hello/slice';
-import { useAppSelector } from './model/store';
+import useHelloStore, { increase, selectCount } from './model/hello';
 import './index.scss';
 
-const AppHome: React.FC = () => {
-  const count = useAppSelector(selectCount);
+function AppHome() {
+  const count = useHelloStore(selectCount);
   const queryClient = useQueryClient();
   CacheStore.setItem('userInfoTest', { name: 'test' });
 
@@ -27,6 +26,6 @@ const AppHome: React.FC = () => {
       </button>
     </div>
   );
-};
+}
 
 export default AppHome;

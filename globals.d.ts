@@ -6,10 +6,3 @@ declare interface Window {
   };
   esboot_urlParams: Record<string, string>;
 }
-
-declare namespace NodeJS {
-  interface ProcessEnv {
-    isBrowser: string;
-    isMobile: string;
-  }
-}

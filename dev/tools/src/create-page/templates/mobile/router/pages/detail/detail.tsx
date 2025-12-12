@@ -1,7 +1,16 @@
-import { genericMemo } from '@/utils/react-utils';
+import { Button } from 'antd-mobile';
+import useHelloStore, { increase, selectCount } from '../../model/hello';
 
-const Detail = genericMemo(function Index() {
-  return <div>detail</div>;
-});
+function Detail() {
+  const count = useHelloStore(selectCount);
+
+  return (
+    <div>
+      detail
+      {count}
+      <Button onClick={() => increase(1)}>increase</Button>
+    </div>
+  );
+}
 
 export default Detail;

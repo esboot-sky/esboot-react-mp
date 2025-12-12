@@ -1,13 +1,13 @@
 import { CacheStore } from '@dz-web/cache';
+import { clsx } from '@dz-web/esboot-browser';
 import { useQueryClient } from '@tanstack/react-query';
 import { Button } from 'antd-mobile';
-import { clsx } from '@dz-web/esboot-browser';
 import { FormattedMessage } from 'react-intl';
 
+import useHelloStore, { increase, selectCount } from './model/hello';
 import './index.scss';
-import { increase, selectCount } from './model/hello';
 
-const AppHome = () => {
+function AppHome() {
   const count = useHelloStore(selectCount);
   const queryClient = useQueryClient();
   CacheStore.setItem('userInfoTest', { name: 'test' });
@@ -21,7 +21,9 @@ const AppHome = () => {
   return (
     <div>
       <p styleName={clsx({ test: true })}>
-        <FormattedMessage id="global.project" />: {count}
+        <FormattedMessage id="global.project" />
+        :
+        {count}
       </p>
 
       <Button onClick={onClick}>
@@ -29,6 +31,6 @@ const AppHome = () => {
       </Button>
     </div>
   );
-};
+}
 
 export default AppHome;
