@@ -9,5 +9,9 @@
   "only_for_test2": {},
   "only_for_test3": {},
   "test-router": {},
-  "test": {}
+  "test": {},
+  "only-for-test1": {},
+  "only-for-test2": {},
+  "only-for-test3": {},
+  "only-for-test4": {}
 }

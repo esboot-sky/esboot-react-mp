@@ -17,7 +17,6 @@ export default async function generatePage(App: React.ReactNode, options?: Gener
   const { i18n = true, disableStrictMode = false, disabledLoginExpired = false } = options || {};
   let wrapApp: React.ReactNode = App;
 
-  console.log(useBridgeMock, 'useBridgeMock');
   if (useBridgeMock) {
     const mockbridge = await import('@dz-web/bridge/platforms/mock');
     bridge.init(mockbridge.createBridge());
