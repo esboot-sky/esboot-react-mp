@@ -52,7 +52,6 @@
     "@dz-web/esboot": "^4.0.3",
     "@dz-web/esboot-bundler-vite": "^4.0.3",
     "@dz-web/esboot-bundler-webpack": "^4.0.3",
-    "@dz-web/esboot-plugin-docs": "^4.0.3",
     "@dz-web/esboot-plugin-vitest": "^4.0.3",
     "@dz-web/esboot-react-mp-tools": "file:./dev/tools",
     "@types/lodash-es": "^4.17.12",
