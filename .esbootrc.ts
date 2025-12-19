@@ -9,7 +9,6 @@ import {
   CodeSplittingType as CodeSplittingTypeWebpack,
   getImportPluginsOfRsuite,
 } from '@dz-web/esboot-bundler-webpack';
-import docsPlugin from '@dz-web/esboot-plugin-docs';
 import vitestPlugin from '@dz-web/esboot-plugin-vitest';
 
 export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>(cfg => ({
@@ -26,7 +25,6 @@ export default defineConfig<BundlerWebpackOptions | BundlerViteOptions>(cfg => (
   },
   plugins: [
     vitestPlugin(),
-    docsPlugin(),
     definePlugin({
       key: 'log',
       [PluginHooks.afterCompile]: (cfg) => {
