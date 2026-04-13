@@ -1,7 +1,6 @@
 import type { GeneratePageOptions } from '@/types';
 
-import { bridge } from '@dz-web/bridge';
-import { isDzAppDS } from '@dz-web/bridge';
+import { bridge, isDzAppDS } from '@dz-web/bridge';
 import wrapNative from '@mobile-native/hoc/native';
 import { TopErrorBoundaryFallback } from '@mobile/components/top-error-boundary-fallback';
 import { subscribeUserAndCache } from '@mobile/model/subscriber';
